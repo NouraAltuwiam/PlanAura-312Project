@@ -37,3 +37,7 @@ footer { background-color: #A594F9; color: white; text-align: center; padding: 2
 /* التمرير الأفقي */
 .team-scroll { display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: thin; }
 
+/* الجداول */
+table { width: 100%; border-collapse: collapse; background-color: white; border-radius: 8px; overflow: hidden; }
+th, td { border: 1px solid #CDC1FF; padding: 0.75rem; text-align: left; }
+th { background-color: #F5EFFF; color: #A594F9; font-weight
