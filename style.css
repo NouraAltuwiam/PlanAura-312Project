@@ -1,7 +1,7 @@
 
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-body { background-color: #E5D9F2; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+body { background-color: #f0f0f0; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* التنقل */
 .navbar { background-color: #A594F9; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
