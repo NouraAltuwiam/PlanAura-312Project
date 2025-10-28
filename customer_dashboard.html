@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - EventPlanner</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: Arial, sans-serif; 
+        }
+        
+        body { 
+            background-color: #E5D9F2; 
+            color: #333; 
+            min-height: 100vh;
+        }
+        
+        /* Navigation - Flexbox */
+        .navbar {
+            background-color: #A594F9;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+        }
+        
+        .nav-links a:hover {
+            background-color: #CDC1FF;
+            border-radius: 4px;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .breadcrumbs a {
+            color: #A594F9;
+            text-decoration: none;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            background: linear-gradient(135deg, #A594F9, #CDC1FF);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .welcome-section h2 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .events-count {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        
+        .start-planning-btn {
+            display: inline-block;
+            background: white;
+            color: #A594F9;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        
+        /* Tabs Navigation - Flexbox */
+        .tabs-navigation {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .tab-btn {
+            background: #F5EFFF;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 8px;
+            border: 2px solid #CDC1FF;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .tab-btn.active {
+            background: #A594F9;
+            color: white;
+            border-color: #A594F9;
+        }
+        
+        /* Sections */
+        .section {
+            background: #F5EFFF;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section h3 {
+            color: #A594F9;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        /* Current Bookings Items */
+        .booking-item {
+            background: #E5D9F2;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #A594F9;
+        }
+        
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .booking-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .booking-status {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-declined {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .booking-date {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .booking-cost {
+            color: #A594F9;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        /* Review Items */
+        .review-item {
+            background: #E5D9F2;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .review-service {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .review-author {
+            color: #666;
+        }
+        
+        .review-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .like-btn, .dislike-btn {
+            background: white;
+            border: 1px solid #CDC1FF;
+            padding: 5px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background: #A594F9;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar - Flexbox -->
+    <nav class="navbar">
+        <div class="logo">EventPlanner</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="partners.html">Partners</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="planning_hub.html">Planning Hub</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> > <a href="customer_dashboard.html">My Account</a>
+        </div>
+
+        <div class="main-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h2>Welcome Back!</h2>
+                <div class="events-count">12 Events Planned</div>
+                <a href="request_service.html" class="start-planning-btn">Start Planning!</a>
+            </div>
+
+            <!-- Tabs Navigation - Flexbox -->
+            <div class="tabs-navigation">
+                <a href="#current-bookings" class="tab-btn active" data-tab="current-bookings">Current Bookings</a>
+                <a href="#my-reviews" class="tab-btn" data-tab="my-reviews">My Reviews</a>
+            </div>
+
+            <!-- Current Bookings Section -->
+            <div class="section active" id="current-bookings">
+                <h3>Current Bookings</h3>
+                
+                <div class="booking-item">
+                    <div class="booking-header">
+                        <div class="booking-name">Sarah & Alex Wedding</div>
+                        <span class="booking-status status-completed">Completed</span>
+                    </div>
+                    <div class="booking-date">Request Date: 2024-01-15</div>
+                    <div class="booking-cost">Cost: $2,500.00</div>
+                </div>
+                
+                <div class="booking-item">
+                    <div class="booking-header">
+                        <div class="booking-name">TechCorp Conference</div>
+                        <span class="booking-status status-pending">Pending</span>
+                    </div>
+                    <div class="booking-date">Request Date: 2024-02-01</div>
+                    <div class="booking-cost">Cost: $5,000.00</div>
+                </div>
+                
+                <div class="booking-item">
+                    <div class="booking-header">
+                        <div class="booking-name">Liam's Birthday Party</div>
+                        <span class="booking-status status-completed">Completed</span>
+                    </div>
+                    <div class="booking-date">Request Date: 2024-01-20</div>
+                    <div class="booking-cost">Cost: $800.00</div>
+                </div>
+
+                <div class="booking-item">
+                    <div class="booking-header">
+                        <div class="booking-name">25th Anniversary Dinner</div>
+                        <span class="booking-status status-declined">Declined</span>
+                    </div>
+                    <div class="booking-date">Request Date: 2024-02-10</div>
+                    <div class="booking-cost">Cost: $1,200.00</div>
+                </div>
+
+                <div class="booking-item">
+                    <div class="booking-header">
+                        <div class="booking-name">Corporate Workshop</div>
+                        <span class="booking-status status-pending">Pending</span>
+                    </div>
+                    <div class="booking-date">Request Date: 2024-03-01</div>
+                    <div class="booking-cost">Cost: $3,500.00</div>
+                </div>
+
+                
+            </div>
+
+            <!-- My Reviews Section -->
+            <div class="section" id="my-reviews">
+                <h3>My Reviews</h3>
+                
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-service">Wedding Planning Service</div>
+                        <div class="review-author">ME</div>
+                    </div>
+                    <div class="review-actions">
+                        <button class="like-btn">Like 12</button>
+                        <button class="dislike-btn">Dislike 2</button>
+                    </div>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-service">Corporate Event Service</div>
+                        <div class="review-author">ME</div>
+                    </div>
+                    <div class="review-actions">
+                        <button class="like-btn">Like 8</button>
+                        <button class="dislike-btn">Dislike 1</button>
+                    </div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-service">Birthday Party Service</div>
+                        <div class="review-author">ME</div>
+                    </div>
+                    <div class="review-actions">
+                        <button class="like-btn">Like 15</button>
+                        <button class="dislike-btn">Dislike 0</button>
+                    </div>
+                </div>
+
+                <!-- Evaluate Service Button -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="evaluate_service.html" class="start-planning-btn">Evaluate Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>contact us</p>
+        <p>@copyrights</p>
+        <p>Let's stay in touch!</p>
+    </footer>
+
+    
+</body>
+</html>
