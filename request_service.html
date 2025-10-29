@@ -7,46 +7,7 @@
         <link rel="stylesheet" href="style.css">
 
     <style>
-        * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
-        html,body { height:100%; background: #E5D9F2; color:#333; }
-        /* Navbar */
-        .navbar {
-            background-color: #A594F9;
-            padding: 14px 28px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            color:white;
-        }
-        .logo { font-weight:700; font-size:22px; }
-        .nav-links { display:flex; gap:14px; list-style:none; }
-        .nav-links a { color:white; text-decoration:none; padding:8px 12px; border-radius:6px; }
-        .nav-links a:hover { background:#CDC1FF; color:#2b0f63; }
-
-        /* Page layout */
-        .page {
-            max-width:1200px;
-            margin:22px auto;
-            padding: 0 20px;
-        }
-        .breadcrumbs { color:#666; margin:12px 0; }
-        .breadcrumbs a { color:#A594F9; text-decoration:none; }
-
-        .header-card {
-            background: linear-gradient(135deg,#A594F9,#CDC1FF);
-            color:white;
-            padding:26px;
-            border-radius:10px;
-            margin-bottom:18px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            gap:16px;
-        }
-        .header-left h2 { font-size:20px; margin-bottom:6px; }
-        .header-left p { opacity:0.95; }
-        .start-planning { background:white; color:#A594F9; padding:10px 18px; border-radius:24px; font-weight:700; text-decoration:none; }
-
+        
         /* Main layout */
         .content {
             display:grid;
@@ -167,11 +128,17 @@
 <body>
     <!-- NAV -->
     <nav class="navbar">
-        <div class="logo">EventPlanner</div>
-        <ul class="nav-links" role="navigation" aria-label="main nav">
+        <div class="logo">
+            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
             <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="planning_hub.html">Planning Hub</a></li>
         </ul>
     </nav>
 
