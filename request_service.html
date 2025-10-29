@@ -1,698 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Planning - EventPlanner</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Request A Service - EventPlanner</title>
+        <link rel="stylesheet" href="style.css">
+
     <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        }
-        
-        body { 
-            background-color: #f8f9fa; 
-            color: #333; 
-            min-height: 100vh;
-        }
-        
-        /* Navigation - Flexbox */
+        * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
+        html,body { height:100%; background: #E5D9F2; color:#333; }
+        /* Navbar */
         .navbar {
             background-color: #A594F9;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 14px 28px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            color:white;
         }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            background-color: #CDC1FF;
-        }
-        
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
+        .logo { font-weight:700; font-size:22px; }
+        .nav-links { display:flex; gap:14px; list-style:none; }
+        .nav-links a { color:white; text-decoration:none; padding:8px 12px; border-radius:6px; }
+        .nav-links a:hover { background:#CDC1FF; color:#2b0f63; }
+
+        /* Page layout */
+        .page {
+            max-width:1200px;
+            margin:22px auto;
             padding: 0 20px;
         }
-        
-        /* Breadcrumbs */
-        .breadcrumbs {
-            margin-bottom: 20px;
-            color: #666;
-            font-size: 14px;
+        .breadcrumbs { color:#666; margin:12px 0; }
+        .breadcrumbs a { color:#A594F9; text-decoration:none; }
+
+        .header-card {
+            background: linear-gradient(135deg,#A594F9,#CDC1FF);
+            color:white;
+            padding:26px;
+            border-radius:10px;
+            margin-bottom:18px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:16px;
         }
-        
-        .breadcrumbs a {
-            color: #A594F9;
-            text-decoration: none;
+        .header-left h2 { font-size:20px; margin-bottom:6px; }
+        .header-left p { opacity:0.95; }
+        .start-planning { background:white; color:#A594F9; padding:10px 18px; border-radius:24px; font-weight:700; text-decoration:none; }
+
+        /* Main layout */
+        .content {
+            display:grid;
+            grid-template-columns: 1fr 360px;
+            gap:22px;
+            align-items:start;
         }
-        
-        .breadcrumbs a:hover {
-            text-decoration: underline;
+
+        /* Left area - wireframe style blocks */
+        .left {
+            display:flex;
+            flex-direction:column;
+            gap:18px;
         }
-        
-        /* Page Title */
-        .page-title {
-            margin-bottom: 30px;
-            color: #A594F9;
-            font-size: 32px;
-            text-align: center;
+
+        .card {
+            background:#F5EFFF;
+            padding:18px;
+            border-radius:12px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.02);
         }
-        
-        /* Planning Layout */
-        .planning-layout {
-            display: flex;
-            gap: 30px;
+
+        .card h3 { color:#4a2f99; margin-bottom:12px; font-size:18px; text-align:center; border-bottom:2px solid #E5D9F2; padding-bottom:10px; }
+
+        .options-grid {
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            margin-bottom: 15px;
         }
-        
-        /* Options Section */
-        .options-section {
-            flex: 2;
+
+        .option {
+            flex:1 1 140px;
+            min-width:120px;
+            background: linear-gradient(180deg,#fff,#F0E9FF);
+            border-radius:10px;
+            padding:12px;
+            text-align:center;
+            border:2px solid transparent;
+            user-select:none;
         }
-        
-        /* Section Styling */
-        .section {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        .option img.placeholder { width:100%; height:80px; object-fit:cover; border-radius:6px; background:linear-gradient(90deg,#EEE,#DDD); margin-bottom:8px; }
+        .option .title { font-weight:700; margin-bottom:6px; color:#3a2a7a; }
+        .option small { color:#666; }
+
+        /* Selection dropdowns */
+        .selection-group {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #E5D9F2;
         }
-        
-        .section h3 {
-            color: #A594F9;
-            margin-bottom: 20px;
-            font-size: 22px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #E5D9F2;
-        }
-        
-        /* Venue Options */
-        .venue-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .venue-card {
-            background: #F5EFFF;
-            border: 2px solid #E5D9F2;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .venue-card:hover {
-            border-color: #A594F9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(165, 148, 249, 0.2);
-        }
-        
-        .venue-image {
-            height: 160px;
-            background-color: #CDC1FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        .venue-details {
-            padding: 15px;
-        }
-        
-        .venue-name {
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        
-        .venue-type {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        
-        .venue-price {
-            color: #A594F9;
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-        .venue-hours {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        /* Food Options */
-        .food-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .food-card {
-            background: #F5EFFF;
-            border: 2px solid #E5D9F2;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .food-card:hover {
-            border-color: #A594F9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(165, 148, 249, 0.2);
-        }
-        
-        .food-image {
-            height: 140px;
-            background-color: #CDC1FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        .food-details {
-            padding: 15px;
-        }
-        
-        .food-name {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        
-        .food-type {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        
-        .food-price {
-            color: #A594F9;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        /* Theme Options */
-        .theme-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .theme-card {
-            background: #F5EFFF;
-            border: 2px solid #E5D9F2;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .theme-card:hover {
-            border-color: #A594F9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(165, 148, 249, 0.2);
-        }
-        
-        .theme-image {
-            height: 120px;
-            background-color: #CDC1FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        .theme-details {
-            padding: 15px;
-        }
-        
-        .theme-name {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        
-        .theme-price {
-            color: #A594F9;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        /* Final Details Section */
-        .final-details {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
+
+        .selection-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #555;
+            color: #4a2f99;
         }
-        
-        .form-control {
+
+        .selection-dropdown {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: #A594F9;
-            outline: none;
-        }
-        
-        .date-time-group {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .date-time-group .form-group {
-            flex: 1;
-        }
-        
-        textarea.form-control {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        /* Summary Section */
-        .summary-section {
-            flex: 1;
-        }
-        
-        .cost-summary {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #d8cfe9;
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
+            font-size: 15px;
         }
-        
-        .cost-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
+
+        /* Final details form */
+        .form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+        label { display:block; margin-bottom:6px; font-weight:700; color:#444; }
+        input[type="text"], input[type="number"], input[type="date"], select, textarea {
+            width:100%; padding:10px; border-radius:8px; border:1px solid #d8cfe9; background:white;
+            font-size:15px;
         }
-        
-        .cost-label {
-            color: #666;
+        textarea { min-height:110px; resize:vertical; }
+
+        .full { grid-column:1 / -1; }
+
+        .note { font-size:13px; color:#555; margin-top:6px; }
+
+        /* Right sidebar: cost box */
+        .sidebar .cost-box {
+            background: linear-gradient(180deg,#fff,#F7F1FF);
+            padding:18px;
+            border-radius:12px;
+            position:sticky;
+            top:22px;
+            border:1px solid #E7DDFB;
         }
-        
-        .cost-value {
-            font-weight: bold;
-            color: #333;
+        .cost-box h4 { color:#4a2f99; margin-bottom:10px; text-align:center; }
+        .cost-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed rgba(74,47,153,0.06); color:#333; }
+        .cost-row.total { font-weight:900; font-size:20px; color:#2c0f78; border-top:2px solid #eee; margin-top:10px; padding-top:12px; }
+        .small-muted { font-size:13px; color:#666; }
+
+        .send-btn {
+            background:#A594F9;
+            color:white;
+            padding:12px 18px;
+            border-radius:26px;
+            border:none;
+            width:100%;
+            font-size:16px;
+            font-weight:800;
+            margin-top:12px;
+            cursor:pointer;
         }
-        
-        .cost-total {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid #A594F9;
-            font-size: 18px;
-            font-weight: bold;
+        .send-btn:hover { background:#8d7de6; }
+
+        /* Responsive */
+        @media (max-width:980px){
+            .content { grid-template-columns: 1fr; }
+            .sidebar .cost-box { position:relative; top:auto; }
         }
-        
-        .total-label {
-            color: #A594F9;
-        }
-        
-        .total-value {
-            color: #A594F9;
-        }
-        
-        /* Progress Section */
-        .progress-section {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background: #E5D9F2;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: #A594F9;
-            width: 0%;
-        }
-        
-        .progress-text {
-            text-align: center;
-            color: #666;
-            font-weight: 600;
-        }
-        
-        /* Submit Button */
-        .submit-section {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .submit-btn {
-            background: #A594F9;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background: #8a7bd8;
-        }
-        
-        /* Footer */
-        footer {
-            background: #A594F9;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .planning-layout {
-                flex-direction: column;
-            }
-        }
+
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-   <nav class="navbar">
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="logo">EventPlanner</div>
+        <ul class="nav-links" role="navigation" aria-label="main nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+        </ul>
+    </nav>
 
-    <div class="logo">EventPlanner</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Our Services</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="customer_dashboard.html">My Account</a></li>
-        <li><a href="provider_dashboard.html">Provider</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-    </ul>
-</nav>
+    <main class="page">
+        <!-- breadcrumbs + header -->
+        <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <a href="customer_dashboard.html">My Account</a> &gt; <span>Request A Service</span></div>
 
-    <div class="container">
-        <!-- Breadcrumbs -->
-        <div class="breadcrumbs">
-            <a href="index.html">Home</a> > <a href="customer_dashboard.html">My Account</a> > Start Planning
+        <div class="header-card">
+            <div class="header-left">
+                <h2>Request A New Service</h2>
+                <p>Choose services and details below and we'll send you a preliminary offer.</p>
+            </div>
+            <a class="start-planning" href="customer_dashboard.html">Back to Dashboard</a>
         </div>
 
-        <!-- Page Title -->
-        <h1 class="page-title">Plan Your Event</h1>
-
-        <div class="planning-layout">
-            <!-- Options Section -->
-            <div class="options-section">
+        <div class="content">
+            <div class="left">
                 <!-- Venue Type Section -->
-                <div class="section">
-                    <h3>1 - Venue Type</h3>
+                <div class="card" id="venue-card">
+                    <h3>Venue Type - Price Per Hour</h3>
                     
-                    <div class="venue-options">
-                        <div class="venue-card">
-                            <div class="venue-image">Hotel Venue Image</div>
-                            <div class="venue-details">
-                                <div class="venue-name">Grand Palace Hotel</div>
-                                <div class="venue-type">Hotel</div>
-                                <div class="venue-price">$800</div>
-                                <div class="venue-hours">Per 5 hours</div>
-                            </div>
+                    <!-- Visual options display -->
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="hotel" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Hotel</text></svg>"/>
+                            <div class="title">Hotel</div>
+                            <small>$200/hour</small>
                         </div>
-                        
-                        <div class="venue-card">
-                            <div class="venue-image">Restaurant Venue Image</div>
-                            <div class="venue-details">
-                                <div class="venue-name">La Bella Vista</div>
-                                <div class="venue-type">Restaurant</div>
-                                <div class="venue-price">$500</div>
-                                <div class="venue-hours">Per 4 hours</div>
-                            </div>
-                        </div>
-                        
-                        <div class="venue-card">
-                            <div class="venue-image">Outdoor Venue Image</div>
-                            <div class="venue-details">
-                                <div class="venue-name">Garden Oasis</div>
-                                <div class="venue-type">Outdoors</div>
-                                <div class="venue-price">$350</div>
-                                <div class="venue-hours">Per 6 hours</div>
-                            </div>
-                        </div>
-                        
-                        <div class="venue-card">
-                            <div class="venue-image">Conference Center Image</div>
-                            <div class="venue-details">
-                                <div class="venue-name">Business Hub Center</div>
-                                <div class="venue-type">Conference Center</div>
-                                <div class="venue-price">$600</div>
-                                <div class="venue-hours">Per 4 hours</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Food & Beverages Section -->
-                <div class="section">
-                    <h3>2 - Food & Beverages</h3>
-                    
-                    <div class="food-options">
-                        <div class="food-card">
-                            <div class="food-image">Buffet Image</div>
-                            <div class="food-details">
-                                <div class="food-name">International Buffet</div>
-                                <div class="food-type">Buffet</div>
-                                <div class="food-price">$25 per person</div>
-                            </div>
-                        </div>
-                        
-                        <div class="food-card">
-                            <div class="food-image">Mediterranean Image</div>
-                            <div class="food-details">
-                                <div class="food-name">Mediterranean Buffet</div>
-                                <div class="food-type">Buffet</div>
-                                <div class="food-price">$30 per person</div>
-                            </div>
-                        </div>
-                        
-                        <div class="food-card">
-                            <div class="food-image">Catering Image</div>
-                            <div class="food-details">
-                                <div class="food-name">Premium Catering</div>
-                                <div class="food-type">Catering</div>
-                                <div class="food-price">$45 per person</div>
-                            </div>
-                        </div>
-                        
-                        <div class="food-card">
-                            <div class="food-image">Standard Catering Image</div>
-                            <div class="food-details">
-                                <div class="food-name">Standard Catering</div>
-                                <div class="food-type">Catering</div>
-                                <div class="food-price">$35 per person</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Theme & Decorations Section -->
-                <div class="section">
-                    <h3>3 - Theme & Decorations</h3>
-                    
-                    <div class="theme-options">
-                        <div class="theme-card">
-                            <div class="theme-image">Gradient Theme</div>
-                            <div class="theme-details">
-                                <div class="theme-name">Gradient Theme</div>
-                                <div class="theme-price">$400</div>
-                            </div>
-                        </div>
-                        
-                        <div class="theme-card">
-                            <div class="theme-image">Birthday Theme</div>
-                            <div class="theme-details">
-                                <div class="theme-name">Birthday Theme</div>
-                                <div class="theme-price">$350</div>
-                            </div>
-                        </div>
-                        
-                        <div class="theme-card">
-                            <div class="theme-image">Elegant Theme</div>
-                            <div class="theme-details">
-                                <div class="theme-name">Elegant & Classic</div>
-                                <div class="theme-price">$450</div>
-                            </div>
-                        </div>
-                        
-                        <div class="theme-card">
-                            <div class="theme-image">Modern Theme</div>
-                            <div class="theme-details">
-                                <div class="theme-name">Modern & Minimalist</div>
-                                <div class="theme-price">$380</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Final Details Section -->
-                <div class="final-details">
-                    <h3>Final Details</h3>
-                    
-                    <div class="form-group">
-                        <label for="guests">Enter number of guests</label>
-                        <input type="number" id="guests" class="form-control" min="0" value="0">
-                    </div>
-                    
-                    <div class="date-time-group">
-                        <div class="form-group">
-                            <label for="date">Due Date</label>
-                            <input type="date" id="date" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="time">Time</label>
-                            <input type="time" id="time" class="form-control">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="requests">Special requests and description</label>
-                        <textarea id="requests" class="form-control" placeholder="Tell us about your event vision and any special requirements..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="name">Name of customer</label>
-                        <input type="text" id="name" class="form-control" placeholder="Your full name">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone number</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="Your contact number">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Summary Section -->
-            <div class="summary-section">
-                <!-- Cost Summary -->
-                <div class="cost-summary">
-                    <h3>Event Cost</h3>
-                    
-                    <div class="cost-item">
-                        <span class="cost-label">Venue:</span>
-                        <span class="cost-value">$0</span>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span class="cost-label">Food (0 guests):</span>
-                        <span class="cost-value">$0</span>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span class="cost-label">Beverages:</span>
-                        <span class="cost-value">$0</span>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span class="cost-label">Theme:</span>
-                        <span class="cost-value">$0</span>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span class="cost-label">Service Fee:</span>
-                        <span class="cost-value">$0</span>
-                    </div>
-                    
-                    <div class="cost-total">
-                        <span class="total-label">Total:</span>
-                        <span class="total-value">$0</span>
-                    </div>
-                </div>
-                
-                <!-- Progress Section -->
-                <div class="progress-section">
-                    <h3>Planning Progress</h3>
-                    
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    
-                    <div class="progress-text">Progress: 0%</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Submit Button -->
-        <div class="submit-section">
-            <button class="submit-btn">Send Request</button>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Contact us</p>
-        <p>@copyrights</p>
-        <p>Let's stay in touch!</p>
-    </footer>
+                        <div class="option">
+                            <img class="placeholder" alt="restaurant" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Restaurant</text></svg>"/>
+                            <div class="title">Restaurant</div>
+                            <small>$120/hour</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="outdoor" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Outdoor</text></svg>"/>
+                            <div class="title">Outdoor</div>
+                            <small>$90/hour</small>
+                        </div>
+                    </div>
+
+                    <!-- Selection dropdown -->
+                    <div class="selection-group">
+                        <label for="venueSelect">Select Your Venue:</label>
+                        <select id="venueSelect" name="venueSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose a Venue --</option>
+                            <option value="hotel_standard">Standard Hotel Ballroom - $200/hour</option>
+                            <option value="hotel_premium">Premium Hotel Suite - $250/hour</option>
+                            <option value="restaurant_private">Private Restaurant Hall - $120/hour</option>
+                            <option value="restaurant_garden">Restaurant Garden Area - $150/hour</option>
+                            <option value="outdoor_garden">Garden Venue - $90/hour</option>
+                            <option value="outdoor_beach">Beach Venue - $110/hour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Food & Beverages Section -->
+                <div class="card" id="food-card">
+                    <h3>Food & Beverages - Price Per Person</h3>
+                    
+                    <!-- Visual options display -->
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="buffet" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Buffet</text></svg>"/>
+                            <div class="title">Buffet</div>
+                            <small>$35/person</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="plated" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Plated</text></svg>"/>
+                            <div class="title">Plated Dinner</div>
+                            <small>$60/person</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="drinks" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Drinks</text></svg>"/>
+                            <div class="title">Drinks Only</div>
+                            <small>$20/person</small>
+                        </div>
+                    </div>
+
+                    <!-- Selection dropdown -->
+                    <div class="selection-group">
+                        <label for="foodSelect">Select Food Service:</label>
+                        <select id="foodSelect" name="foodSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose Food Option --</option>
+                            <option value="buffet_standard">Standard Buffet - $35/person</option>
+                            <option value="buffet_premium">Premium Buffet - $45/person</option>
+                            <option value="plated_standard">Plated Dinner - $60/person</option>
+                            <option value="plated_gourmet">Gourmet Plated - $80/person</option>
+                            <option value="drinks_soft">Soft Drinks Only - $15/person</option>
+                            <option value="drinks_premium">Premium Beverages - $25/person</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Theme & Decorations Section -->
+                <div class="card" id="theme-card">
+                    <h3>Theme & Decorations - Fixed Price</h3>
+                    
+                    <!-- Visual options display -->
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="classic" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Classic</text></svg>"/>
+                            <div class="title">Classic</div>
+                            <small>$100</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="luxury" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Luxury</text></svg>"/>
+                            <div class="title">Luxury</div>
+                            <small>$180</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="boho" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Boho</text></svg>"/>
+                            <div class="title">Boho</div>
+                            <small>$70</small>
+                        </div>
+                    </div>
+
+                    <!-- Selection dropdown -->
+                    <div class="selection-group">
+                        <label for="themeSelect">Select Theme Package:</label>
+                        <select id="themeSelect" name="themeSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose a Theme --</option>
+                            <option value="classic_elegant">Classic Elegant - $100</option>
+                            <option value="classic_premium">Premium Classic - $150</option>
+                            <option value="luxury_gold">Luxury Gold - $180</option>
+                            <option value="luxury_platinum">Luxury Platinum - $250</option>
+                            <option value="boho_chic">Boho Chic - $70</option>
+                            <option value="boho_premium">Premium Boho - $120</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Final Details + Form -->
+                <div class="card" id="final-card">
+                    <h3>Final Details & Request</h3>
+
+                    <form id="requestForm" action="#" method="post">
+                        <div class="form-grid">
+                            <div>
+                                <label for="custName">Customer Name</label>
+                                <input id="custName" name="custName" type="text" placeholder="Enter your full name" required />
+                            </div>
+
+                            <div>
+                                <label for="phone">Phone Number</label>
+                                <input id="phone" name="phone" type="text" placeholder="+966 5xxxxxxxx" />
+                            </div>
+
+                            <div>
+                                <label for="date">Event Date</label>
+                                <input id="date" name="date" type="date" required />
+                            </div>
+
+                            <div>
+                                <label for="hours">Number of Hours</label>
+                                <input id="hours" name="hours" type="number" min="1" value="3" required />
+                            </div>
+
+                            <div>
+                                <label for="guests">Number of Guests</label>
+                                <input id="guests" name="guests" type="number" min="1" value="50" required />
+                            </div>
+
+                            <div>
+                                <label for="time">Event Time</label>
+                                <input id="time" name="time" type="text" placeholder="Example: 07:00 PM" />
+                            </div>
+
+                            <div class="full">
+                                <label for="description">Request Description</label>
+                                <textarea id="description" name="description" placeholder="Write additional details about the event, special requests, or notes"></textarea>
+                            </div>
+
+                            <div class="full">
+                                <small class="note">All selections above are required to process your service request.</small>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px;">
+                            <button type="submit" class="send-btn">Send Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="sidebar">
+                <div class="cost-box card">
+                    <h4>Event Cost - Estimated</h4>
+
+                    <!-- Static placeholders (no script) -->
+                    <div class="cost-row">
+                        <div>Venue (per hour)</div>
+                        <div>$200</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Hours</div>
+                        <div>3</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Venue subtotal</div>
+                        <div>$600</div>
+                    </div>
+
+                    <div class="cost-row" style="margin-top:6px;">
+                        <div>Food (per guest)</div>
+                        <div>$35</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Guests</div>
+                        <div>50</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Food subtotal</div>
+                        <div>$1,750</div>
+                    </div>
+
+                    <div class="cost-row" style="margin-top:6px;">
+                        <div>Theme</div>
+                        <div>$100</div>
+                    </div>
+
+                    <div class="cost-row total">
+                        <div>Estimated Total</div>
+                        <div>$2,450</div>
+                    </div>
+
+                    <div style="margin-top:10px; font-size:13px;" class="small-muted">
+                        Cost will update based on your selections above.
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer style="margin-top:18px; background:#A594F9; color:white; text-align:center; padding:16px; border-radius:8px;">
+            <div>contact us</div>
+            <div>@copyrights</div>
+            <div>Let's stay in touch!</div>
+        </footer>
+    </main>
 </body>
 </html>
