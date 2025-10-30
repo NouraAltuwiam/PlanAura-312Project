@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f0f0; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        /* التنقل */
+        .navbar { background-color: #A594F9; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.3s; }
+        .nav-links a:hover { background-color: #CDC1FF; }
+        /* المحتوى الرئيسي */
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; flex: 1; }
+        .section { background-color: #F5EFFF; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        /* العناوين */
+        h1 { color: #A594F9; margin-bottom: 1rem; }
+        /* تم تعديل هذا الجزء: محاذاة H2 لليسار */
+        h2 { color: #CDC1FF; margin-bottom: 1rem; text-align: left; } 
+        h3 { color: #A594F9; margin-bottom: 0.5rem; }
+        /* الأزرار */
+        .btn { display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #A594F9, #CDC1FF); color: white; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(165, 148, 249, 0.4); }
+        /* النماذج */
+        form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        input, select, textarea { padding: 0.75rem; border: 1px solid #CDC1FF; border-radius: 4px; font-size: 1rem; }
+     
+        /* Footer */
+        footer { background-color: #A594F9; color: white; text-align: center; padding: 2rem; margin-top: auto; }
+        footer p { margin: 0.5rem 0; }
+        footer a { color: white; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s; }
+        footer a:hover { color: #CDC1FF; }
+        .footer-links { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+        .social-icons { margin-top: 1rem; }
+        .social-icons a { margin: 0 0.5rem; font-size: 1.2rem; }
+
+   
+        /* Custom styles for Reviews page */
+        .reviews-header { text-align: center; margin-bottom: 3rem; }
+        .review-section { display: flex; flex-direction: column; gap: 2rem; }
+        
+        /* CSS لتنسيق المراجعات بشكل مستطيل */
+        .review-row { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 2rem; 
+            align-items: start; 
+            margin-bottom: 2rem; 
+        }
+
+        .review-container { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.5rem;
+            padding: 1.5rem; 
+            border: none;
+            border-radius: 12px; 
+            background-color: white; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* نفس ظل كروت الهوم */
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .review-container:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .review-meta { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 0.5rem; 
+        }
+
+        .review-meta-info { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+        }
+
+        /* تنسيق الأيقونة (Avatar) من كود الهوم */
+        .review-avatar { 
+            width: 40px; 
+            height: 40px; 
+            background-color: #CDC1FF; 
+            border-radius: 50%; 
+            margin-right: 0.5rem; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: white; 
+            font-weight: bold; 
+            font-size: 1.2rem; /* تم تعديل الحجم قليلاً */
+        }
+
+        /* تنسيق النجوم (Rating) من كود الهوم */
+        .review-rating { 
+            color: gold; 
+            font-size: 1.2rem; 
+            margin-top: 0;
+            margin-bottom: 0.5rem; /* تم إضافة مسافة سفلية للفصل */
+        } 
+        
+        .review-details p { /* اسم العميل */
+            margin: 0; 
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+
+        .review-actions { display: flex; gap: 0.5rem; } /* الاحتفاظ بأزرار Like/Dislike */
+        .review-actions button { 
+            padding: 0.5rem 1rem; 
+            border: 1px solid #CDC1FF; 
+            background-color: #F5EFFF;
+            color: #A594F9;
+            border-radius: 4px; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+        .review-actions button:hover { background-color: #A594F9; color: white; border-color: #A594F9; }
+
+
+        .review-text { 
+            border-top: 1px dashed #CDC1FF; /* خط فاصل كما في الهوم */
+            padding-top: 0.75rem; 
+            padding-bottom: 0; 
+            margin-top: 0.5rem; 
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #555;
+        }
+        
+        .overall-satisfaction { text-align: center; margin-top: 3rem; padding: 2rem; background-color: #F5EFFF; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .rating-stars { font-size: 2rem; color: gold; margin-top: 0.5rem; }
+
+
+        /* جعل التصميم متجاوباً للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .review-row { 
+                grid-template-columns: 1fr; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">EventPlanner</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        
+        
+        <header class="reviews-header">
+            <h1>Client Reviews</h1>
+            <p>See what our clients say about their events</p>
+        </header>
+
+        <div class="review-section">
+            <h2>Decorations&Themes</h2>
+            <div class="review-row">
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                 <p>sara ahmed</p> </div>
+                        </div>
+                        <div class="review-actions">
+                            <button>Like</button>
+                            <button>Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">This event was perfectly organized! The team was professional and paid attention to every detail, making our day truly special. Highly recommend!</div>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                              
+                                <p>nora khalid</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button>Like</button>
+                            <button>Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Absolutely thrilled with the service. Everything went smoothly, and the decorations were exactly as we imagined.Thank you, EventPlanner!</div>
+                </div>
+            </div>
+
+            <h2>Food&Bevarages</h2>
+            <div class="review-row">
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                                              <p>mona sami</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button>Like</button>
+                            <button>Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">The catering was outstanding! All our guests complimented the food. The planning process was stress-free.</div>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                                            <p>fahad</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button>Like</button>
+                            <button>Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Professionalism at its best. They handled a last-minute change seamlessly. I would definitely use their services again.</div>
+                </div>
+            </div>
+
+            <h2>Venues</h2>
+            <div class="review-row">
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                                                              <p>abdulsalam</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button>Like</button>
+                            <button>Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">Fantastic venue recommendation and coordination. Everything was top-notch, from initial consultation to execution.</div>
+                </div>
+
+                <div class="review-container">
+                    <div class="review-meta">
+                        <div class="review-meta-info">
+                            <div class="review-avatar">👤</div>
+                            <div class="review-details">
+                               
+                                <p>shaden ibrahem</p>
+                            </div>
+                        </div>
+                        <div class="review-actions">
+                            <button>Like</button>
+                            <button>Dislike</button>
+                        </div>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <div class="review-text">A wonderful experience overall. The team made sure our corporate event ran flawlessly. Highly satisfied!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overall-satisfaction section">
+            <h3>Overall Client Satisfaction</h3>
+            <p style="font-size: 1.5rem; font-weight: bold; color: #A594F9;">5 / 5</p>
+            <div class="rating-stars">
+                &#9733;&#9733;&#9733;&#9733;&#9733; 
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>Contact us: <a href="mailto:info@eventplanner.com">info@eventplanner.com</a> | Phone: (555) 123-4567</p>
+        <p>&copy; copyrights EventPlanner 2024</p>
+        <div class="footer-links">
+            <a href="#">Help Center</a>
+            |
+            <a href="#">Privacy Policy</a>
+            |
+            <a href="#">Terms of Service</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="[Icon of Facebook]" alt="@text" style="width:20px;height:20px;filter:invert(1)"></a>
+            <a href="#"><img src="[Icon of Twitter]" alt="@text" style="width:20px;height:20px;filter:invert(1)"></a>
+            <a href="#"><img src="[Icon of Instagram]" alt="@text" style="width:20px;height:20px;filter:invert(1)"></a>
+        </div>
+    </footer>
+
+
+    </body>
+</html>
