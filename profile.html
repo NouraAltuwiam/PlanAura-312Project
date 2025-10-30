@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EventPlanner • Staff Profile</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Intro (moved further left) */
+    .page-intro{
+      max-width: 1200px;
+      margin: 1rem auto 0;
+      padding: 0 1rem 0 .5rem; /* tighter on the left */
+    }
+    .page-breadcrumb{
+      color:#A594F9;
+      font-weight:700;
+      font-size:1.25rem;
+      line-height:1.2;
+    }
+    .page-sub{
+      margin-top:.25rem;
+      color:#A594F9;
+      font-size:.95rem;
+    }
+
+    /* Table data color */
+    table td{ color:#A594F9; }
+
+    /* Expertise badges */
+    .badge{
+      display:inline-block;
+      padding:.45rem .75rem;
+      border-radius:12px;
+      background:#F5EFFF;
+      color:#6b5fd3;
+      border:1px solid #CDC1FF;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    /* Photo */
+    .staff-photo{
+      width:120px; height:120px; object-fit:cover;
+      border-radius:8px; border:1px solid #CDC1FF; background:#fff;
+    }
+
+    /* Nested lists spacing (skills/education) */
+    .skills-list, .edu-list{ margin-left:.5rem; }
+    .skills-list ul, .edu-list ul{
+      margin:.35rem 0 .35rem 1.1rem; list-style:circle;
+    }
+
+    /* Back button */
+    .back-btn{
+      position:fixed; right:22px; bottom:22px;
+      background:linear-gradient(135deg,#A594F9,#CDC1FF);
+      color:#fff; padding:10px 18px; border-radius:22px;
+      text-decoration:none; font-weight:600;
+      box-shadow:0 6px 16px rgba(165,148,249,.35);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .back-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(165,148,249,.45); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">EventPlanner</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="customer_dashboard.html">My Account</a></li>
+      <li><a href="provider_dashboard.html">Provider</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page intro (left side) -->
+  <header>
+    <h1 class="staff">Staff</h1>
+    <p class="staff-desc">Here are some information about this staff member:</p>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <table border="6">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>DoB</th>
+            <th>Email</th>
+            <!-- Split Area of Expertise across 3 cells -->
+            <th >Area of<br>Expertise</th>
+            <th>Skills</th>
+            <th>Education</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td rowspan="3">Farah Al-Hamed</td>
+
+            <td rowspan="3">
+              <img class="staff-photo"
+                   src="images/girl.png"
+                   alt="Farah Al-Hamed">
+            </td>
+
+            <td rowspan="3">2005/05/22</td>
+            <td rowspan="3"><a href="mailto:farah_1426@icloud.com">farah_1426@icloud.com</a></td>
+
+
+            <td>Web Development</td>
+            
+        
+
+            <td rowspan="1">
+              <ul class="skills-list">
+                <li>Front-End
+                  <ul>
+                    <li>HTML5 / CSS3 / Flexbox</li>
+                    <li>JavaScript (ES6+)</li>
+                  </ul>
+                </li>
+              </ul>
+            </td rowspan="3">
+
+            <td rowspan="3">
+              <ul class="edu-list">
+                <li>Undergraduate
+                  <ul>
+                    <li>BSc IT, CCIS — KSU</li>
+                    <li>Focus: AI / Security</li>
+                  </ul>
+                </li>
+                <li>Certificates
+                  <ul>
+                    <li>ML Foundations</li>
+                    <li>Generative AI </li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+
+          <tr>
+          <td>Project Coordination</td>
+          <td rowspan="2">
+          <ul><li >Design
+                  <ul>
+                    <li>Figma &amp; Prototyping</li>
+                    <li>Accessibility Basics</li>
+                  </ul>
+                </li>
+                </ul>
+                </td>
+          </tr>
+
+          <tr>
+          <td>UI / UX</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Back Button -->
+  <a class="back-btn" href="join-us.html">Back</a>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+    <p>@copyrights PlanAura 2024</p>
+    <div style="margin-top: 1rem;">
+      <a href="#" style="color: white; margin: 0 0.5rem;">Help Center</a> |
+      <a href="#" style="color: white; margin: 0 0.5rem;">Privacy Policy</a> |
+      <a href="#" style="color: white; margin: 0 0.5rem;">Terms of Service</a>
+    </div>
+  </footer>
+</body>
+</html>
