@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        /* Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f0f0; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* Navbar */
+        .navbar { background-color: #A594F9; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.3s; }
+        .nav-links a:hover { background-color: #CDC1FF; }
+
+        /* Main Content */
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; flex: 1; }
+        .section { background-color: #F5EFFF; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* Headings */
+        h1 { color: #A594F9; margin-bottom: 1rem; }
+        h2 { color: #CDC1FF; margin-bottom: 1rem; }
+        h3 { color: #A594F9; margin-bottom: 0.5rem; }
+
+        /* Buttons (Included for consistency) */
+        .btn { display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #A594F9, #CDC1FF); color: white; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(165, 148, 249, 0.4); }
+
+        /* Cards */
+        .card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .service-image-placeholder { background-color: #f0f0f0; height: 150px; border-radius: 8px; margin-bottom: 1rem; border: 1px dashed #CDC1FF; display: flex; align-items: center; justify-content: center; color: #A594F9; }
+
+        /* Footer */
+        footer { background-color: #A594F9; color: white; text-align: center; padding: 2rem; margin-top: auto; }
+        footer p { margin: 0.5rem 0; }
+        footer a { color: white; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s; }
+        footer a:hover { color: #CDC1FF; }
+        .footer-links { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+        .social-icons { margin-top: 1rem; }
+        .social-icons a { margin: 0 0.5rem; font-size: 1.2rem; }
+
+        /* Services Page Specific Styles */
+        .services-header { text-align: center; background-color: white; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .services-header h1 { color: #A594F9; margin-bottom: 0.5rem; font-size: 2.5rem; }
+        .services-header p { color: #666; font-style: italic; }
+
+        .services-content {
+            display: flex;
+            gap: 2rem;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+        
+        .main-services { 
+            flex: 3;
+            min-width: 600px;
+        }
+        
+        .sidebar { 
+            flex: 1; 
+            min-width: 200px; 
+            flex-grow: 1;
+        }
+
+        .sort-options { background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .sort-options h3 { margin-top: 0; margin-bottom: 1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem; }
+        .sort-options div { margin-bottom: 0.5rem; cursor: pointer; padding: 0.3rem 0; transition: color 0.2s; }
+        .sort-options div:hover { color: #A594F9; font-weight: bold; }
+
+        .service-category h2 { border-bottom: 2px solid #CDC1FF; padding-bottom: 0.5rem; margin-top: 2rem; font-size: 1.8rem; }
+        
+        
+        .service-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            justify-content: space-between;
+        }
+
+        
+        .service-items .card {
+            width: calc(33.33% - 1rem); 
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">EventPlanner</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>      
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="services-header">
+            <h1>Our Services</h1>
+            <p>
+                We offer complete event planning solutions — from stunning venues and elegant decorations to delicious catering and creative themes.
+                Whatever your vision, we bring it to life with style, detail, and perfection.
+            </p>
+        </div>
+
+        <div class="services-content">
+            <div class="sidebar">
+                <div class="sort-options card">
+                    <h3>Sort By</h3>
+                    <div>Price: High - Low</div>
+                    <div>Price: Low - High</div>
+                    <div>Name: A - Z</div>
+                    <div>Name: Z - A</div>
+                </div>
+            </div>
+
+            <div class="main-services">
+                <div class="service-category">
+                    <h2>Food & Beverages</h2>
+                    <div class="service-items">
+                        <div class="card">
+                            <img src="velvetspoon.jpEg" alt="Buffet By Velvet Spoon Restaurant" width="100%">
+                            <h3>Buffet By velvet spoon Restaurant</h3>
+                            <p>Enjoy a luxurious buffet experience with a wide selection of gourmet dishes prepared by top chefs.</p>
+                            <p><strong>Starting from 45$$ per person</strong></p>
+                        </div>
+                        <div class="card">
+                            <img src="catering.jpEg" alt="Gourmet Catering" width="100%">
+                            <h3>Gourmet Catering</h3>
+                            <p>Premium catering service offering custom menus to match your event’s style and taste.</p>
+                            <p><strong>Starting from 37$$ per person</strong></p>
+                        </div>
+                        <div class="card">
+                            <img src="cof.jpEg" alt="Coffee and Dessert Bar" width="100%">
+                            <h3>Coffee & Dessert Bar</h3>
+                            <p>Add a sweet touch to your event with our elegant coffee and dessert setup — perfect for every occasion.</p>
+                            <p><strong>Starting from 30$$ per person</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h2>Venues</h2>
+                    <div class="service-items">
+                        <div class="card">
+                            <img src="hiltoon.jpEg" alt="Hilton Ballroom" width="100%">
+                            <h3>Hilton Ballroom</h3>
+                            <p>A sophisticated indoor venue ideal for weddings, galas, and elegant gatherings.</p>
+                            <p><strong>Starting from 75$$</strong></p>
+                        </div>
+                        <div class="card">
+                            <img src="rose.jpEg" alt="Rose Garden Outdoor" width="100%">
+                            <h3>Rose Garden Outdoor</h3>
+                            <p>A charming outdoor garden setting, perfect for romantic events and open-air celebrations.</p>
+                            <p><strong>Starting from 45$$</strong></p>
+                        </div>
+                        <div class="card">
+                            <img src="res.jpEg" alt="Bloom & Bite Restaurant Hall" width="100%">
+                            <h3>Bloom&Bite Restaurant Hall</h3>
+                            <p>A versatile space offering comfort and elegance, suitable for both casual and formal events.</p>
+                            <p><strong>Starting from 55$$</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h2>Decorations & Themes</h2>
+                    <div class="service-items">
+                        <div class="card">
+                            <img src="modren.jpEg" alt="Modern Elegant Theme" width="100%">
+                            <h3>Modern Elegant Theme</h3>
+                            <p>Minimalist design with soft tones and classy details — perfect for timeless celebrations.</p>
+                            <p><strong>Starting from 100$$</strong></p>
+                        </div>
+                        <div class="card">
+                            <img src="horror.jpEg" alt="Horror Theme" width="100%">
+                            <h3>Horror Theme</h3>
+                            <p>A thrilling theme with dark aesthetics and dramatic lighting for unforgettable experiences.</p>
+                            <p><strong>Starting from 85$$</strong></p>
+                        </div>
+                        <div class="card">
+                            <img src="kawaii.jpEg" alt="Kawaii Theme" width="100%">
+
+                            <h3>Kawaii Theme</h3>
+
+                            <p>Cute, colorful, and full of joy — the perfect choice for fun, youthful, and cheerful events.</p>
+                            <p><strong>Starting from 75$$</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact us: <a href="mailto:info@eventplanner.com">info@eventplanner.com</a> | Phone: (555) 123-4567</p>
+        <p>&copy; copyrights EventPlanner 2024</p>
+        <div class="footer-links">
+            <a href="#">Help Center</a>
+            |
+            <a href="#">Privacy Policy</a>
+            |
+            <a href="#">Terms of Service</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="[Icon of Facebook]" alt="@text" style="width:20px;height:20px;filter:invert(1)"></a>
+            <a href="#"><img src="[Icon of Twitter]" alt="@text" style="width:20px;height:20px;filter:invert(1)"></a>
+            <a href="#"><img src="[Icon of Instagram]" alt="@text" style="width:20px;height:20px;filter:invert(1)"></a>
+        </div>
+    </footer>
+</body>
+</html>
