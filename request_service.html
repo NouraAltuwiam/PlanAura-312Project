@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Request A Service - EventPlanner</title>
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        
+        /* Main layout */
+        .content {
+            display:grid;
+            grid-template-columns: 1fr 360px;
+            gap:22px;
+            align-items:start;
+        }
+
+        /* Left area - wireframe style blocks */
+        .left {
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        .card {
+            background:#F5EFFF;
+            padding:18px;
+            border-radius:12px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+        }
+
+        .card h3 { color:#4a2f99; margin-bottom:12px; font-size:18px; text-align:center; border-bottom:2px solid #E5D9F2; padding-bottom:10px; }
+
+        .options-grid {
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            margin-bottom: 15px;
+        }
+
+        .option {
+            flex:1 1 140px;
+            min-width:120px;
+            background: linear-gradient(180deg,#fff,#F0E9FF);
+            border-radius:10px;
+            padding:12px;
+            text-align:center;
+            border:2px solid transparent;
+            user-select:none;
+        }
+        .option img.placeholder { width:100%; height:80px; object-fit:cover; border-radius:6px; background:linear-gradient(90deg,#EEE,#DDD); margin-bottom:8px; }
+        .option .title { font-weight:700; margin-bottom:6px; color:#3a2a7a; }
+        .option small { color:#666; }
+
+        /* Selection dropdowns */
+        .selection-group {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #E5D9F2;
+        }
+
+        .selection-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a2f99;
+        }
+
+        .selection-dropdown {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #d8cfe9;
+            background: white;
+            font-size: 15px;
+        }
+
+        /* Final details form */
+        .form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+        label { display:block; margin-bottom:6px; font-weight:700; color:#444; }
+        input[type="text"], input[type="number"], input[type="date"], select, textarea {
+            width:100%; padding:10px; border-radius:8px; border:1px solid #d8cfe9; background:white;
+            font-size:15px;
+        }
+        textarea { min-height:110px; resize:vertical; }
+
+        .full { grid-column:1 / -1; }
+
+        .note { font-size:13px; color:#555; margin-top:6px; }
+
+        /* Right sidebar: cost box */
+        .sidebar .cost-box {
+            background: linear-gradient(180deg,#fff,#F7F1FF);
+            padding:18px;
+            border-radius:12px;
+            position:sticky;
+            top:22px;
+            border:1px solid #E7DDFB;
+        }
+        .cost-box h4 { color:#4a2f99; margin-bottom:10px; text-align:center; }
+        .cost-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed rgba(74,47,153,0.06); color:#333; }
+        .cost-row.total { font-weight:900; font-size:20px; color:#2c0f78; border-top:2px solid #eee; margin-top:10px; padding-top:12px; }
+        .small-muted { font-size:13px; color:#666; }
+
+        .send-btn {
+            background:#A594F9;
+            color:white;
+            padding:12px 18px;
+            border-radius:26px;
+            border:none;
+            width:100%;
+            font-size:16px;
+            font-weight:800;
+            margin-top:12px;
+            cursor:pointer;
+        }
+        .send-btn:hover { background:#8d7de6; }
+
+        /* Responsive */
+        @media (max-width:980px){
+            .content { grid-template-columns: 1fr; }
+            .sidebar .cost-box { position:relative; top:auto; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="planning_hub.html">Planning Hub</a></li>
+        </ul>
+    </nav>
+
+    <main class="page">
+        <!-- breadcrumbs + header -->
+        <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <a href="customer_dashboard.html">My Account</a> &gt; <span>Request A Service</span></div>
+
+        <div class="header-card">
+            <div class="header-left">
+                <h2>Request A New Service</h2>
+                <p>Choose services and details below and we'll send you a preliminary offer.</p>
+            </div>
+            <a class="start-planning" href="customer_dashboard.html">Back to Dashboard</a>
+        </div>
+
+        <div class="content">
+            <div class="left">
+                <!-- Venue Type Section -->
+                <div class="card" id="venue-card">
+                    <h3>Venue Type - Price Per Hour</h3>
+                    
+                    <!-- Visual options display -->
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="hotel" src="hotel.jpg" width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Hotel</text></svg>"/>
+                            <div class="title">Hotel</div>
+                            <small>$200/hour</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="restaurant" src="resturamt.jpg" width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Restaurant</text></svg>"/>
+                            <div class="title">Restaurant</div>
+                            <small>$120/hour</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="outdoor" src="outdoor.jpg" width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Outdoor</text></svg>"/>
+                            <div class="title">Outdoor</div>
+                            <small>$90/hour</small>
+                        </div>
+                    </div>
+
+                    <!-- Selection dropdown -->
+                    <div class="selection-group">
+                        <label for="venueSelect">Select Your Venue:</label>
+                        <select id="venueSelect" name="venueSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose a Venue --</option>
+                            <option value="hotel_standard">Standard Hotel Ballroom - $200/hour</option>
+                            <option value="hotel_premium">Premium Hotel Suite - $250/hour</option>
+                            <option value="restaurant_private">Private Restaurant Hall - $120/hour</option>
+                            <option value="restaurant_garden">Restaurant Garden Area - $150/hour</option>
+                            <option value="outdoor_garden">Garden Venue - $90/hour</option>
+                            <option value="outdoor_beach">Beach Venue - $110/hour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Food & Beverages Section -->
+                <div class="card" id="food-card">
+                    <h3>Food & Beverages - Price Per Person</h3>
+                    
+                    <!-- Visual options display -->
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="buffet" src="buffet.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Buffet</text></svg>"/>
+                            <div class="title">Buffet</div>
+                            <small>$35/person</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="plated" src="platte.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Plated</text></svg>"/>
+                            <div class="title">Plated Dinner</div>
+                            <small>$60/person</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="drinks" src="bav.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Drinks</text></svg>"/>
+                            <div class="title">Drinks Only</div>
+                            <small>$20/person</small>
+                        </div>
+                    </div>
+
+                    <!-- Selection dropdown -->
+                    <div class="selection-group">
+                        <label for="foodSelect">Select Food Service:</label>
+                        <select id="foodSelect" name="foodSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose Food Option --</option>
+                            <option value="buffet_standard">Standard Buffet - $35/person</option>
+                            <option value="buffet_premium">Premium Buffet - $45/person</option>
+                            <option value="plated_standard">Plated Dinner - $60/person</option>
+                            <option value="plated_gourmet">Gourmet Plated - $80/person</option>
+                            <option value="drinks_soft">Soft Drinks Only - $15/person</option>
+                            <option value="drinks_premium">Premium Beverages - $25/person</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Theme & Decorations Section -->
+                <div class="card" id="theme-card">
+                    <h3>Theme & Decorations - Fixed Price</h3>
+                    
+                    <!-- Visual options display -->
+                    <div class="options-grid">
+                        <div class="option">
+                            <img class="placeholder" alt="birth" src="birth.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Classic</text></svg>"/>
+                            <div class="title">Classic</div>
+                            <small>$100</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="grad" src="grad.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Luxury</text></svg>"/>
+                            <div class="title">Luxury</div>
+                            <small>$180</small>
+                        </div>
+
+                        <div class="option">
+                            <img class="placeholder" alt="baby shower" src="baby.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Boho</text></svg>"/>
+                            <div class="title">Boho</div>
+                            <small>$70</small>
+                        </div>
+                    </div>
+
+                    <!-- Selection dropdown -->
+                    <div class="selection-group">
+                        <label for="themeSelect">Select Theme Package:</label>
+                        <select id="themeSelect" name="themeSelect" class="selection-dropdown" required>
+                            <option value="">-- Choose a Theme --</option>
+                            <option value="classic_elegant">Classic Elegant - $100</option>
+                            <option value="classic_premium">Premium Classic - $150</option>
+                            <option value="luxury_gold">Luxury Gold - $180</option>
+                            <option value="luxury_platinum">Luxury Platinum - $250</option>
+                            <option value="boho_chic">Boho Chic - $70</option>
+                            <option value="boho_premium">Premium Boho - $120</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Final Details + Form -->
+                <div class="card" id="final-card">
+                    <h3>Final Details & Request</h3>
+
+                    <form id="requestForm" action="#" method="post">
+                        <div class="form-grid">
+                            <div>
+                                <label for="custName">Customer Name</label>
+                                <input id="custName" name="custName" type="text" placeholder="Enter your full name" required />
+                            </div>
+
+                            <div>
+                                <label for="phone">Phone Number</label>
+                                <input id="phone" name="phone" type="text" placeholder="+966 5xxxxxxxx" />
+                            </div>
+
+                            <div>
+                                <label for="date">Event Date</label>
+                                <input id="date" name="date" type="date" required />
+                            </div>
+
+                            <div>
+                                <label for="hours">Number of Hours</label>
+                                <input id="hours" name="hours" type="number" min="1" value="3" required />
+                            </div>
+
+                            <div>
+                                <label for="guests">Number of Guests</label>
+                                <input id="guests" name="guests" type="number" min="1" value="50" required />
+                            </div>
+
+                            <div>
+                                <label for="time">Event Time</label>
+                                <input id="time" name="time" type="text" placeholder="Example: 07:00 PM" />
+                            </div>
+
+                            <div class="full">
+                                <label for="description">Request Description</label>
+                                <textarea id="description" name="description" placeholder="Write additional details about the event, special requests, or notes"></textarea>
+                            </div>
+
+                            <div class="full">
+                                <small class="note">All selections above are required to process your service request.</small>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px;">
+                            <button type="submit" class="send-btn">Send Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="sidebar">
+                <div class="cost-box card">
+                    <h4>Event Cost - Estimated</h4>
+
+                    <!-- Static placeholders (no script) -->
+                    <div class="cost-row">
+                        <div>Venue (per hour)</div>
+                        <div>$200</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Hours</div>
+                        <div>3</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Venue subtotal</div>
+                        <div>$600</div>
+                    </div>
+
+                    <div class="cost-row" style="margin-top:6px;">
+                        <div>Food (per guest)</div>
+                        <div>$35</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Guests</div>
+                        <div>50</div>
+                    </div>
+                    <div class="cost-row">
+                        <div>Food subtotal</div>
+                        <div>$1,750</div>
+                    </div>
+
+                    <div class="cost-row" style="margin-top:6px;">
+                        <div>Theme</div>
+                        <div>$100</div>
+                    </div>
+
+                    <div class="cost-row total">
+                        <div>Estimated Total</div>
+                        <div>$2,450</div>
+                    </div>
+
+                    <div style="margin-top:10px; font-size:13px;" class="small-muted">
+                        Cost will update based on your selections above.
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer style="margin-top:18px; background:#A594F9; color:white; text-align:center; padding:16px; border-radius:8px;">
+            <div>contact us</div>
+            <div>@copyrights</div>
+            <div>Let's stay in touch!</div>
+        </footer>
+    </main>
+</body>
+</html>
