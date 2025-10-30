@@ -12,29 +12,45 @@
         PLANNING HUB
     </div>
 
-    <nav class="advanced-navbar">
-        <div class="logo-breadcrumb-container">
-            <div class="logo-area">
-                <img src="logo.png" alt="PlanAura Logo">
-            </div>
-            <span class="breadcrumb">Home >> Planning Hub >> My Services</span>
+    <!-- UNIFIED NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            EventPlanner
         </div>
-        
-        <div class="user-profile-icon">
-            Service provider
-        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="customer_dashboard.html">My Account</a></li>
+            <li><a href="provider_dashboard.html" class="active">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
     </nav>
 
-    <div class="page-container">
-        <div class="sidebar">
-            <a href="provider_dashboard.html" class="sidebar-button active-side">Home</a>
-            <a href="add_service.html" class="sidebar-button">Add Service</a>
-            <a href="manage_team.html" class="sidebar-button">Manage Team</a>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; My Services
         </div>
 
-        <div class="main-content">
-            <h1 class="section-title">My Services</h1>
+        <!-- Quick Actions Sidebar -->
+        <div class="provider-quick-actions">
+            <a href="provider_dashboard.html" class="quick-action-btn active">
+                <span>🏠</span> My Services
+            </a>
+            <a href="add_service.html" class="quick-action-btn">
+                <span>➕</span> Add Service
+            </a>
+            <a href="manage_team.html" class="quick-action-btn">
+                <span>👥</span> Manage Team
+            </a>
+        </div>
 
+        <section class="section">
+            <h1>My Services</h1>
+
+            <!-- Service Filters -->
             <div class="service-filters">
                 <button class="filter-button active-filter">All Services</button>
                 <button class="filter-button">Parties</button>
@@ -43,511 +59,514 @@
                 <button class="filter-button">Food & Beverages</button>
             </div>
 
-            <!-- All Services - 11 مربعات -->
-            <div class="services-scroll-container">
-                <div class="service-grid">
-                    <!-- Service 1 -->
-                    <div class="service-card">
-                        <img src="wedding.jpg" alt="Wedding Planning" class="service-image">
-                        <div class="service-info">
-                            <h3>Wedding Planning</h3>
-                            <p class="description">Complete wedding planning service with venue selection and coordination for your special day.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">12 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+            <!-- Horizontal Scrolling Services -->
+            <div class="services-horizontal-scroll">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <img src="wedding.jpg" alt="Wedding Planning" class="service-image">
+                    <div class="service-info">
+                        <h3>Wedding Planning</h3>
+                        <p class="description">Complete wedding planning service with venue selection and coordination for your special day.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">12 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 2 -->
-                    <div class="service-card">
-                        <img src="birthday.jpg" alt="Birthday Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Birthday Party</h3>
-                            <p class="description">Fun and memorable birthday celebrations for all ages with customized themes.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">8 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <img src="birthday.jpg" alt="Birthday Party" class="service-image">
+                    <div class="service-info">
+                        <h3>Birthday Party</h3>
+                        <p class="description">Fun and memorable birthday celebrations for all ages with customized themes.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">8 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 3 -->
-                    <div class="service-card">
-                        <img src="corporate.png" alt="Corporate Event" class="service-image">
-                        <div class="service-info">
-                            <h3>Corporate Event</h3>
-                            <p class="description">Professional event planning for businesses and organizations of all sizes.</p>
-                            <div class="service-status">
-                                <span class="status-badge paused">Paused</span>
-                                <span class="clients-count">5 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn resume-btn">Resume</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <img src="corporate.png" alt="Corporate Event" class="service-image">
+                    <div class="service-info">
+                        <h3>Corporate Event</h3>
+                        <p class="description">Professional event planning for businesses and organizations of all sizes.</p>
+                        <div class="service-status">
+                            <span class="status-badge paused">Paused</span>
+                            <span class="clients-count">5 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 4 -->
-                    <div class="service-card">
-                        <img src="graduation.png" alt="Graduation Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Graduation Party</h3>
-                            <p class="description">Celebrate academic achievements in style with personalized graduation events.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">6 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn resume-btn">Resume</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <img src="graduation.png" alt="Graduation Party" class="service-image">
+                    <div class="service-info">
+                        <h3>Graduation Party</h3>
+                        <p class="description">Celebrate academic achievements in style with personalized graduation events.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">6 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 5 -->
-                     <div class="service-card">
-                        <img src="baby shower.png" alt="Baby Shower" class="service-image">
-                        <div class="service-info">
-                            <h3>Baby Shower</h3>
-                            <p class="description">Joyful celebrations for expecting parents with adorable baby themes.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">7 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <img src="baby shower.png" alt="Baby Shower" class="service-image">
+                    <div class="service-info">
+                        <h3>Baby Shower</h3>
+                        <p class="description">Joyful celebrations for expecting parents with adorable baby themes.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">7 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 6 -->
-                   <div class="service-card">
-                        <img src="venue 1.jpg" alt="Anniversary" class="service-image">
-                        <div class="service-info">
-                            <h3>Venue 1</h3>
-                            <p class="description"> A huge indoor room with a high ceiling completely filled with countless glowing white paper lanterns. Grand and magical ambiance.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">4 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <img src="venue 1.jpg" alt="Venue 1" class="service-image">
+                    <div class="service-info">
+                        <h3>Venue 1</h3>
+                        <p class="description">A huge indoor room with a high ceiling filled with glowing white paper lanterns. Grand and magical ambiance.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">4 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 7 -->
-                    <div class="service-card">
-                        <img src="venue 2.jpg" alt="Engagement Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Venue 2</h3>
-                            <p class="description">A luxurious, private shelter on the sand, warmly lit by lanterns, offering a secluded sunset view.</p>
-                            <div class="service-status">
-                                <span class="status-badge paused">Paused</span>
-                                <span class="clients-count">3 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn resume-btn">Resume</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <img src="venue 2.jpg" alt="Venue 2" class="service-image">
+                    <div class="service-info">
+                        <h3>Venue 2</h3>
+                        <p class="description">A luxurious, private shelter on the sand, warmly lit by lanterns, offering a secluded sunset view.</p>
+                        <div class="service-status">
+                            <span class="status-badge paused">Paused</span>
+                            <span class="clients-count">3 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 8 -->
-                    <div class="service-card">
-                        <img src="venue 3.jpg" alt="Retirement Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Venue 3</h3>
-                            <p class="description">A calm outdoor pool area at dusk, lined with numerous candles in glass holders.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">2 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn resume-btn">Resume</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <img src="venue 3.jpg" alt="Venue 3" class="service-image">
+                    <div class="service-info">
+                        <h3>Venue 3</h3>
+                        <p class="description">A calm outdoor pool area at dusk, lined with numerous candles in glass holders.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">2 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 9 -->
-                    <div class="service-card">
-                        <img src="food.png" alt="Product Launch" class="service-image">
-                        <div class="service-info">
-                            <h3>Buffet</h3>
-                            <p class="description"> Elegant catering featuring a diverse spread of savory appetizers, fresh salads, baked items, and mini desserts. High-volume service with polished presentation.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">5 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card">
+                    <img src="food.png" alt="Buffet" class="service-image">
+                    <div class="service-info">
+                        <h3>Buffet</h3>
+                        <p class="description">Elegant catering featuring a diverse spread of savory appetizers, fresh salads, baked items, and mini desserts.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">5 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 10 -->
-                    <div class="service-card">
-                        <img src="bevarages.png" alt="Charity Gala" class="service-image">
-                        <div class="service-info">
-                            <h3>Beverages</h3>
-                            <p class="description">Vibrant, chilled display of fruit and citrus beverages. Elegantly served in fine glassware and garnished with fresh slices for a premium refreshment service</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">4 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="service-card">
+                    <img src="bevarages.png" alt="Beverages" class="service-image">
+                    <div class="service-info">
+                        <h3>Beverages</h3>
+                        <p class="description">Vibrant, chilled display of fruit and citrus beverages. Elegantly served in fine glassware.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">4 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Service 11 -->
-                    <div class="service-card">
-                        <img src="decoration 1.jpg" alt="Bridal Shower" class="service-image">
-                        <div class="service-info">
-                            <h3>Decoration 1</h3>
-                            <p class="description">Elegant tablescape dominated by soft pink roses, tall pink candles, and large clear bobo balloons tied with pink ribbon. A sophisticated and romantic indoor setting.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">3 Clients</span>
-                            </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="service-card">
+                    <img src="decoration 1.jpg" alt="Decoration 1" class="service-image">
+                    <div class="service-info">
+                        <h3>Decoration 1</h3>
+                        <p class="description">Elegant tablescape with soft pink roses, tall candles, and clear bobo balloons. Sophisticated and romantic.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">3 Clients</span>
                         </div>
                     </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
+                        </div>
+                        <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                </div>
 
-                    <!-- Service 12 -->
-                    <div class="service-card">
-                        <img src="decoration 2.jpg" alt="Decoration 2" class="service-image">
-                        <div class="service-info">
-                            <h3>Decoration 2</h3>
-                            <p class="description">Beautiful lighting decorations with modern design elements and elegant arrangements for all types of events and celebrations.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">3 Clients</span>
-                            </div>
+                <!-- Service 12 -->
+                <div class="service-card">
+                    <img src="decoration 2.jpg" alt="Decoration 2" class="service-image">
+                    <div class="service-info">
+                        <h3>Decoration 2</h3>
+                        <p class="description">Beautiful lighting decorations with modern design elements for all types of events and celebrations.</p>
+                        <div class="service-status">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">3 Clients</span>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                    <div class="service-actions">
+                        <div class="edit-pause-group">
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button class="action-btn pause-btn">Pause</button>
                         </div>
+                        <button class="action-btn delete-btn-action">Delete</button>
                     </div>
                 </div>
             </div>
+        </section>
+    </div>
 
-            <!-- Parties - 4 مربعات -->
-            <div class="services-scroll-container" style="display: none;">
-                <div class="service-grid">
-                    <!-- Party Service 1 -->
-                    <div class="service-card">
-                        <img src="images/kids-birthday.jpg" alt="Kids Birthday Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Kids Birthday Party</h3>
-                            <p class="description">Fun-filled birthday parties for children with entertainment and games.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">9 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+    <!-- UNIFIED FOOTER -->
+    <footer>
+        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+        <p>@copyrights EventPlanner 2024</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    
+</body>
+</html>
+                <!-- Service 1 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="wedding.jpg" alt="Wedding Planning">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Wedding Planning</h3>
+                        <p class="provider-service-desc">Complete wedding planning service with venue selection and coordination for your special day.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">12 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Party Service 2 -->
-                    <div class="service-card">
-                        <img src="images/adult-birthday.jpg" alt="Adult Birthday Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Adult Birthday Party</h3>
-                            <p class="description">Sophisticated birthday celebrations for adults with premium services.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">6 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
-                        </div>
-                    </div>
-
-                    <!-- Party Service 3 -->
-                    <div class="service-card">
-                        <img src="images/theme-party.jpg" alt="Theme Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Theme Party</h3>
-                            <p class="description">Customized theme parties with detailed decorations and costumes.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">4 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
-                        </div>
-                    </div>
-
-                    <!-- Party Service 4 -->
-                    <div class="service-card">
-                        <img src="images/surprise-party.jpg" alt="Surprise Party" class="service-image">
-                        <div class="service-info">
-                            <h3>Surprise Party</h3>
-                            <p class="description">Memorable surprise parties with perfect timing and coordination.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">5 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
-                        </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Decorations - 2 مربعات -->
-            <div class="services-scroll-container" style="display: none;">
-                <div class="service-grid">
-                    <!-- Decoration Service 1 -->
-                    <div class="service-card">
-                        <img src="images/floral-decor.jpg" alt="Floral Decorations" class="service-image">
-                        <div class="service-info">
-                            <h3>Floral Decorations</h3>
-                            <p class="description">Beautiful floral arrangements and decorations for all occasions.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">7 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                <!-- Service 2 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="birthday.jpg" alt="Birthday Party">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Birthday Party</h3>
+                        <p class="provider-service-desc">Fun and memorable birthday celebrations for all ages with customized themes.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">8 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Decoration Service 2 -->
-                    <div class="service-card">
-                        <img src="images/lighting-decor.jpg" alt="Lighting Decorations" class="service-image">
-                        <div class="service-info">
-                            <h3>Lighting Decorations</h3>
-                            <p class="description">Professional lighting setups to create magical atmospheres.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">5 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
-                        </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Venues - 3 مربعات -->
-            <div class="services-scroll-container" style="display: none;">
-                <div class="service-grid">
-                    <!-- Venue Service 1 -->
-                    <div class="service-card">
-                        <img src="images/wedding-venue.jpg" alt="Wedding Venue" class="service-image">
-                        <div class="service-info">
-                            <h3>Wedding Venue</h3>
-                            <p class="description">Elegant wedding venues with capacity for 200+ guests.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">8 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                <!-- Service 3 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="corporate.png" alt="Corporate Event">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Corporate Event</h3>
+                        <p class="provider-service-desc">Professional event planning for businesses and organizations of all sizes.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge paused">Paused</span>
+                            <span class="clients-count">5 Clients</span>
                         </div>
                     </div>
-
-                    <!-- Venue Service 2 -->
-                    <div class="service-card">
-                        <img src="images/corporate-venue.jpg" alt="Corporate Venue" class="service-image">
-                        <div class="service-info">
-                            <h3>Corporate Venue</h3>
-                            <p class="description">Professional venues for business events and conferences.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">6 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
-                        </div>
-                    </div>
-
-                    <!-- Venue Service 3 -->
-                    <div class="service-card">
-                        <img src="images/outdoor-venue.jpg" alt="Outdoor Venue" class="service-image">
-                        <div class="service-info">
-                            <h3>Outdoor Venue</h3>
-                            <p class="description">Beautiful outdoor spaces for garden parties and celebrations.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">4 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
-                        </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn resume-btn">Resume</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Food & Beverages - 2 مربعات -->
-            <div class="services-scroll-container" style="display: none;">
-                <div class="service-grid">
-                    <!-- Food Service 1 -->
-                    <div class="service-card">
-                        <img src="images/catering-service.jpg" alt="Catering Service" class="service-image">
-                        <div class="service-info">
-                            <h3>Catering Service</h3>
-                            <p class="description">Premium catering with diverse menu options for all events.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">10 Clients</span>
-                            </div>
-                        </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                <!-- Service 4 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="graduation.png" alt="Graduation Party">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Graduation Party</h3>
+                        <p class="provider-service-desc">Celebrate academic achievements in style with personalized graduation events.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">6 Clients</span>
                         </div>
                     </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
 
-                    <!-- Food Service 2 -->
-                    <div class="service-card">
-                        <img src="images/beverage-service.jpg" alt="Beverage Service" class="service-image">
-                        <div class="service-info">
-                            <h3>Beverage Service</h3>
-                            <p class="description">Professional bar services with trained bartenders.</p>
-                            <div class="service-status">
-                                <span class="status-badge active">Active</span>
-                                <span class="clients-count">7 Clients</span>
-                            </div>
+                <!-- Service 5 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="baby shower.png" alt="Baby Shower">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Baby Shower</h3>
+                        <p class="provider-service-desc">Joyful celebrations for expecting parents with adorable baby themes.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">7 Clients</span>
                         </div>
-                        <div class="service-actions">
-                            <div class="edit-pause-group">
-                                <button class="action-btn edit-btn">Edit</button>
-                                <button class="action-btn pause-btn">Pause</button>
-                            </div>
-                            <button class="action-btn delete-btn-action">Delete</button>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="venue 1.jpg" alt="Venue 1">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Venue 1</h3>
+                        <p class="provider-service-desc">A huge indoor room with a high ceiling filled with glowing white paper lanterns. Grand and magical ambiance.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">4 Clients</span>
                         </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="venue 2.jpg" alt="Venue 2">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Venue 2</h3>
+                        <p class="provider-service-desc">A luxurious, private shelter on the sand, warmly lit by lanterns, offering a secluded sunset view.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge paused">Paused</span>
+                            <span class="clients-count">3 Clients</span>
+                        </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn resume-btn">Resume</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="venue 3.jpg" alt="Venue 3">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Venue 3</h3>
+                        <p class="provider-service-desc">A calm outdoor pool area at dusk, lined with numerous candles in glass holders.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">2 Clients</span>
+                        </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="food.png" alt="Buffet">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Buffet</h3>
+                        <p class="provider-service-desc">Elegant catering featuring a diverse spread of savory appetizers, fresh salads, baked items, and mini desserts.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">5 Clients</span>
+                        </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="bevarages.png" alt="Beverages">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Beverages</h3>
+                        <p class="provider-service-desc">Vibrant, chilled display of fruit and citrus beverages. Elegantly served in fine glassware.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">4 Clients</span>
+                        </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="decoration 1.jpg" alt="Decoration 1">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Decoration 1</h3>
+                        <p class="provider-service-desc">Elegant tablescape with soft pink roses, tall candles, and clear bobo balloons. Sophisticated and romantic.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">3 Clients</span>
+                        </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Service 12 -->
+                <div class="provider-service-card">
+                    <div class="provider-service-image">
+                        <img src="decoration 2.jpg" alt="Decoration 2">
+                    </div>
+                    <div class="provider-service-content">
+                        <h3>Decoration 2</h3>
+                        <p class="provider-service-desc">Beautiful lighting decorations with modern design elements for all types of events and celebrations.</p>
+                        <div class="provider-service-meta">
+                            <span class="status-badge active">Active</span>
+                            <span class="clients-count">3 Clients</span>
+                        </div>
+                    </div>
+                    <div class="provider-service-actions">
+                        <button class="provider-action-btn edit-btn">Edit</button>
+                        <button class="provider-action-btn pause-btn">Pause</button>
+                        <button class="provider-action-btn delete-btn">Delete</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p>Email: info@planauras.com</p>
-                <p>Phone: (555) 123-4567</p>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <p>&copy; 2024 PlanAura. All rights reserved.</p>
-            </div>
+    <footer>
+        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+        <p>@copyrights EventPlanner 2024</p>
+        <div style="margin-top: 1rem;">
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
         </div>
     </footer>
     

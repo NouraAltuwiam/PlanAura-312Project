@@ -1,132 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Request A Service - EventPlanner</title>
-        <link rel="stylesheet" href="style.css">
-
-    <style>
-        
-        /* Main layout */
-        .content {
-            display:grid;
-            grid-template-columns: 1fr 360px;
-            gap:22px;
-            align-items:start;
-        }
-
-        /* Left area - wireframe style blocks */
-        .left {
-            display:flex;
-            flex-direction:column;
-            gap:18px;
-        }
-
-        .card {
-            background:#F5EFFF;
-            padding:18px;
-            border-radius:12px;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.02);
-        }
-
-        .card h3 { color:#4a2f99; margin-bottom:12px; font-size:18px; text-align:center; border-bottom:2px solid #E5D9F2; padding-bottom:10px; }
-
-        .options-grid {
-            display:flex;
-            gap:12px;
-            flex-wrap:wrap;
-            margin-bottom: 15px;
-        }
-
-        .option {
-            flex:1 1 140px;
-            min-width:120px;
-            background: linear-gradient(180deg,#fff,#F0E9FF);
-            border-radius:10px;
-            padding:12px;
-            text-align:center;
-            border:2px solid transparent;
-            user-select:none;
-        }
-        .option img.placeholder { width:100%; height:80px; object-fit:cover; border-radius:6px; background:linear-gradient(90deg,#EEE,#DDD); margin-bottom:8px; }
-        .option .title { font-weight:700; margin-bottom:6px; color:#3a2a7a; }
-        .option small { color:#666; }
-
-        /* Selection dropdowns */
-        .selection-group {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #E5D9F2;
-        }
-
-        .selection-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #4a2f99;
-        }
-
-        .selection-dropdown {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #d8cfe9;
-            background: white;
-            font-size: 15px;
-        }
-
-        /* Final details form */
-        .form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
-        label { display:block; margin-bottom:6px; font-weight:700; color:#444; }
-        input[type="text"], input[type="number"], input[type="date"], select, textarea {
-            width:100%; padding:10px; border-radius:8px; border:1px solid #d8cfe9; background:white;
-            font-size:15px;
-        }
-        textarea { min-height:110px; resize:vertical; }
-
-        .full { grid-column:1 / -1; }
-
-        .note { font-size:13px; color:#555; margin-top:6px; }
-
-        /* Right sidebar: cost box */
-        .sidebar .cost-box {
-            background: linear-gradient(180deg,#fff,#F7F1FF);
-            padding:18px;
-            border-radius:12px;
-            position:sticky;
-            top:22px;
-            border:1px solid #E7DDFB;
-        }
-        .cost-box h4 { color:#4a2f99; margin-bottom:10px; text-align:center; }
-        .cost-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed rgba(74,47,153,0.06); color:#333; }
-        .cost-row.total { font-weight:900; font-size:20px; color:#2c0f78; border-top:2px solid #eee; margin-top:10px; padding-top:12px; }
-        .small-muted { font-size:13px; color:#666; }
-
-        .send-btn {
-            background:#A594F9;
-            color:white;
-            padding:12px 18px;
-            border-radius:26px;
-            border:none;
-            width:100%;
-            font-size:16px;
-            font-weight:800;
-            margin-top:12px;
-            cursor:pointer;
-        }
-        .send-btn:hover { background:#8d7de6; }
-
-        /* Responsive */
-        @media (max-width:980px){
-            .content { grid-template-columns: 1fr; }
-            .sidebar .cost-box { position:relative; top:auto; }
-        }
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- NAV -->
+
+    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
@@ -134,14 +16,14 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Our Services</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="customer_dashboard.html">My Account</a></li>
-            <li><a href="planning_hub.html">Planning Hub</a></li>
+            <li><a href="provider_dashboard.html">Provider</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
-
     <main class="page">
         <!-- breadcrumbs + header -->
         <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <a href="customer_dashboard.html">My Account</a> &gt; <span>Request A Service</span></div>
@@ -163,20 +45,23 @@
                     <!-- Visual options display -->
                     <div class="options-grid">
                         <div class="option">
-                            <img class="placeholder" alt="hotel" src="hotel.jpg" width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Hotel</text></svg>"/>
-                            <div class="title">Hotel</div>
+                            <img class="placeholder" alt="Conference Hall" src="hotel.jpg">
+                            <div class="title">Conference Hall</div>
+                            <div class="description">Professional meeting spaces equipped for corporate events and seminars</div>
                             <small>$200/hour</small>
                         </div>
 
                         <div class="option">
-                            <img class="placeholder" alt="restaurant" src="resturamt.jpg" width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Restaurant</text></svg>"/>
-                            <div class="title">Restaurant</div>
+                            <img class="placeholder" alt="Restaurant Venue" src="resturamt.jpg">
+                            <div class="title">Restaurant Hall</div>
+                            <div class="description">Intimate settings with built-in catering and ambiance</div>
                             <small>$120/hour</small>
                         </div>
 
                         <div class="option">
-                            <img class="placeholder" alt="outdoor" src="outdoor.jpg" width='400' height='120'><rect width='100%25' height='100%25' fill='%23efe8ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Outdoor</text></svg>"/>
-                            <div class="title">Outdoor</div>
+                            <img class="placeholder" alt="Outdoor Venue" src="outdoor.jpg">
+                            <div class="title">Outdoor Garden</div>
+                            <div class="description">Beautiful natural settings for romantic celebrations</div>
                             <small>$90/hour</small>
                         </div>
                     </div>
@@ -186,8 +71,8 @@
                         <label for="venueSelect">Select Your Venue:</label>
                         <select id="venueSelect" name="venueSelect" class="selection-dropdown" required>
                             <option value="">-- Choose a Venue --</option>
-                            <option value="hotel_standard">Standard Hotel Ballroom - $200/hour</option>
-                            <option value="hotel_premium">Premium Hotel Suite - $250/hour</option>
+                            <option value="hotel_standard">Conference Hall - $200/hour</option>
+                            <option value="hotel_premium">Premium Conference Suite - $250/hour</option>
                             <option value="restaurant_private">Private Restaurant Hall - $120/hour</option>
                             <option value="restaurant_garden">Restaurant Garden Area - $150/hour</option>
                             <option value="outdoor_garden">Garden Venue - $90/hour</option>
@@ -203,20 +88,23 @@
                     <!-- Visual options display -->
                     <div class="options-grid">
                         <div class="option">
-                            <img class="placeholder" alt="buffet" src="buffet.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Buffet</text></svg>"/>
-                            <div class="title">Buffet</div>
+                            <img class="placeholder" alt="Buffet Service" src="buffet.jpg">
+                            <div class="title">Buffet Style</div>
+                            <div class="description">Varied menu with self-service stations for flexibility</div>
                             <small>$35/person</small>
                         </div>
 
                         <div class="option">
-                            <img class="placeholder" alt="plated" src="platte.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Plated</text></svg>"/>
+                            <img class="placeholder" alt="Plated Dinner" src="platte.jpg">
                             <div class="title">Plated Dinner</div>
+                            <div class="description">Formal served meals with professional waitstaff</div>
                             <small>$60/person</small>
                         </div>
 
                         <div class="option">
-                            <img class="placeholder" alt="drinks" src="bav.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23fff8f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Drinks</text></svg>"/>
-                            <div class="title">Drinks Only</div>
+                            <img class="placeholder" alt="Beverage Service" src="bev.jpg">
+                            <div class="title">Drinks Package</div>
+                            <div class="description">Premium beverages and cocktail service only</div>
                             <small>$20/person</small>
                         </div>
                     </div>
@@ -243,20 +131,23 @@
                     <!-- Visual options display -->
                     <div class="options-grid">
                         <div class="option">
-                            <img class="placeholder" alt="birth" src="birth.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Classic</text></svg>"/>
-                            <div class="title">Classic</div>
+                            <img class="placeholder" alt="Birthday Theme" src="birth.jpg">
+                            <div class="title">Birthday Theme</div>
+                            <div class="description">Colorful and fun decorations perfect for birthday celebrations</div>
                             <small>$100</small>
                         </div>
 
                         <div class="option">
-                            <img class="placeholder" alt="grad" src="grad.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Luxury</text></svg>"/>
-                            <div class="title">Luxury</div>
+                            <img class="placeholder" alt="Graduation Theme" src="grad.jpg">
+                            <div class="title">Graduation Theme</div>
+                            <div class="description">Academic-inspired decorations for graduation parties</div>
                             <small>$180</small>
                         </div>
 
                         <div class="option">
-                            <img class="placeholder" alt="baby shower" src="baby.jpg" width='400' height='100'><rect width='100%25' height='100%25' fill='%23f2f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'>Boho</text></svg>"/>
-                            <div class="title">Boho</div>
+                            <img class="placeholder" alt="Baby Shower Theme" src="baby.jpg">
+                            <div class="title">Baby Shower Theme</div>
+                            <div class="description">Sweet and adorable decorations for baby shower events</div>
                             <small>$70</small>
                         </div>
                     </div>
@@ -266,15 +157,17 @@
                         <label for="themeSelect">Select Theme Package:</label>
                         <select id="themeSelect" name="themeSelect" class="selection-dropdown" required>
                             <option value="">-- Choose a Theme --</option>
-                            <option value="classic_elegant">Classic Elegant - $100</option>
-                            <option value="classic_premium">Premium Classic - $150</option>
-                            <option value="luxury_gold">Luxury Gold - $180</option>
-                            <option value="luxury_platinum">Luxury Platinum - $250</option>
-                            <option value="boho_chic">Boho Chic - $70</option>
-                            <option value="boho_premium">Premium Boho - $120</option>
+                            <option value="birthday_standard">Birthday Theme - $100</option>
+                            <option value="birthday_premium">Premium Birthday - $150</option>
+                            <option value="graduation_standard">Graduation Theme - $180</option>
+                            <option value="graduation_premium">Premium Graduation - $250</option>
+                            <option value="babyshower_standard">Baby Shower Theme - $70</option>
+                            <option value="babyshower_premium">Premium Baby Shower - $120</option>
                         </select>
                     </div>
                 </div>
+
+
 
                 <!-- Final Details + Form -->
                 <div class="card" id="final-card">

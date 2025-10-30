@@ -2,279 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f0f0; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        /* شريط التنقل باستخدام Flexbox */
-        .navbar { 
-            background-color: #A594F9; 
-            padding: 1rem 2rem; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .logo { 
-            font-size: 1.5rem; 
-            font-weight: bold; 
-            color: white; 
-        }
-        .nav-links { 
-            display: flex; 
-            list-style: none; 
-        }
-        .nav-links li { 
-            margin-right: 2rem; 
-        }
-        .nav-links a { 
-            color: white; 
-            text-decoration: none; 
-            padding: 0.5rem 1rem; 
-            border-radius: 4px; 
-            transition: background-color 0.3s; 
-        }
-        .nav-links a:hover { 
-            background-color: #CDC1FF; 
-        }
-        
-        /* المحتوى الرئيسي */
-        .container { 
-            max-width: 1200px; 
-            margin: 2rem auto; 
-            padding: 0 2rem; 
-            flex: 1; 
-        }
-        
-        /* قسم الرؤية */
-        .hero { 
-            text-align: center; 
-            padding: 4rem 2rem; 
-            background-color: #F5EFFF; 
-            border-radius: 8px; 
-            margin-bottom: 3rem; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .hero h1 { 
-            color: #A594F9; 
-            margin-bottom: 1rem; 
-            font-size: 2.5rem;
-        }
-        .hero p { 
-            font-size: 1.2rem; 
-            max-width: 800px; 
-            margin: 0 auto; 
-        }
-        
-        /* قسم الخدمات باستخدام Flexbox */
-        .services-section { 
-            margin-bottom: 3rem; 
-        }
-        .services-section h2 { 
-            color: #A594F9; 
-            text-align: center; 
-            margin-bottom: 2rem; 
-            font-size: 2rem;
-        }
-        .services-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-        }
-        .service-card { 
-            width: 30%; 
-            margin: 1%; 
-            background-color: white; 
-            border-radius: 8px; 
-            padding: 1.5rem; 
-            text-align: center; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .service-card h3 { 
-            color: #A594F9; 
-            margin-bottom: 1rem; 
-        }
-        .service-info { 
-            margin-top: 1rem; 
-            padding-top: 1rem; 
-            border-top: 1px dashed #CDC1FF; 
-            color: #555;
-            opacity: 0;
-            max-height: 0;
-            transition: all 0.3s ease;
-        }
-        .service-card:hover .service-info {
-            opacity: 1;
-            max-height: 200px;
-        }
-        
-        /* قسم المراجعات - بنفس شكل الكود الأصلي */
-        .reviews-section { 
-            margin-bottom: 3rem; 
-        }
-        .reviews-section h2 { 
-            color: #A594F9; 
-            text-align: center; 
-            margin-bottom: 2rem; 
-            font-size: 2rem;
-        }
-        
-        .review-row { 
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 2rem; 
-        }
-
-        .review-container { 
-            display: flex; 
-            flex-direction: column;
-            padding: 1.5rem; 
-            border: none;
-            border-radius: 12px; 
-            background-color: white; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            width: 48%;
-            margin: 1%;
-        }
-        .review-container:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
-        
-        .review-meta { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            margin-bottom: 0.5rem; 
-        }
-
-        .review-meta-info { 
-            display: flex; 
-            align-items: center; 
-        }
-
-        .review-avatar { 
-            width: 40px; 
-            height: 40px; 
-            background-color: #CDC1FF; 
-            border-radius: 50%; 
-            margin-right: 0.5rem; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            color: white; 
-            font-weight: bold; 
-            font-size: 1.2rem;
-        }
-
-        .review-rating { 
-            color: gold; 
-            font-size: 1.2rem; 
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        } 
-        
-        .review-details p { 
-            margin: 0; 
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        .review-text { 
-            border-top: 1px dashed #CDC1FF;
-            padding-top: 0.75rem; 
-            padding-bottom: 0; 
-            margin-top: 0.5rem; 
-            font-size: 0.9rem;
-            line-height: 1.4;
-            color: #555;
-        }
-        
-        /* قسم الشركاء - جديد */
-        .partners-section { 
-            margin-bottom: 3rem; 
-        }
-        .partners-section h2 { 
-            color: #A594F9; 
-            text-align: center; 
-            margin-bottom: 2rem; 
-            font-size: 2rem;
-        }
-        
-        .partners-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-        }
-        
-        .partner-category { 
-            width: 48%; 
-            margin: 1%; 
-            background-color: white; 
-            border-radius: 8px; 
-            padding: 1.5rem; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        .partner-category:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .partner-category h3 { 
-            color: #A594F9; 
-            margin-bottom: 1rem; 
-            text-align: center;
-            border-bottom: 1px dashed #CDC1FF;
-            padding-bottom: 0.5rem;
-        }
-        .partner-list { 
-            list-style-type: none; 
-        }
-        .partner-list li { 
-            padding: 0.5rem 0; 
-            border-bottom: 1px solid #f0f0f0; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-        }
-        .partner-list li:last-child { 
-            border-bottom: none; 
-        }
-        .partner-name { 
-            font-weight: bold; 
-        }
-        .partner-rating { 
-            color: gold; 
-            font-size: 0.9rem; 
-        }
-        
-        /* Footer */
-        footer { 
-            background-color: #A594F9; 
-            color: white; 
-            text-align: center; 
-            padding: 2rem; 
-            margin-top: auto; 
-        }
-        footer a { 
-            color: white; 
-            margin: 0 0.5rem; 
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- شريط التنقل -->
+    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
-        <div class="logo">EventPlanner</div>
+        <div class="logo">
+            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Our Services</a></li>
@@ -285,7 +24,6 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
-    
     <!-- المحتوى الرئيسي -->
     <div class="container">
         <!-- قسم الرؤية -->
@@ -449,7 +187,7 @@
     </div>
 
     <!-- Footer -->
-    <footer>
+   <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
         <div style="margin-top: 1rem;">
@@ -461,4 +199,3 @@
 
 </body>
 </html>
-<--! hghgh -->

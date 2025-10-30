@@ -2,141 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reviews</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f0f0; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        /* التنقل - بدون gap */
-        .navbar { background-color: #A594F9; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: white; }
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-right: 2rem; }
-        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.3s; }
-        .nav-links a:hover { background-color: #CDC1FF; }
-        
-        /* المحتوى الرئيسي */
-        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; flex: 1; }
-        .section { background-color: #F5EFFF; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        
-        /* العناوين */
-        h1 { color: #A594F9; margin-bottom: 1rem; }
-        h2 { color: #CDC1FF; margin-bottom: 1rem; text-align: left; }
-        h3 { color: #A594F9; margin-bottom: 0.5rem; }
-        
-        /* الأزرار */
-        .btn { display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #A594F9, #CDC1FF); color: white; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(165, 148, 249, 0.4); }
-        
-        /* النماذج - بدون gap */
-        form { display: flex; flex-direction: column; }
-        .form-group { display: flex; flex-direction: column; margin-bottom: 1rem; }
-        input, select, textarea { padding: 0.75rem; border: 1px solid #CDC1FF; border-radius: 4px; font-size: 1rem; }
-        
-        /* Footer */
-        footer { background-color: #A594F9; color: white; text-align: center; padding: 2rem; margin-top: auto; }
-        
-        /* Custom styles for Reviews page */
-        .reviews-header { text-align: center; margin-bottom: 3rem; }
-        .review-section { display: flex; flex-direction: column; }
-        
-        /* بديل لـ grid بدون gap */
-        .review-row { 
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 2rem; 
-        }
-
-        .review-container { 
-            display: flex; 
-            flex-direction: column;
-            padding: 1.5rem; 
-            border: none;
-            border-radius: 12px; 
-            background-color: white; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            width: 48%;
-            margin: 1%;
-        }
-        .review-container:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
-        
-        .review-meta { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            margin-bottom: 0.5rem; 
-        }
-
-        .review-meta-info { 
-            display: flex; 
-            align-items: center; 
-        }
-
-        /* تنسيق الأيقونة (Avatar) */
-        .review-avatar { 
-            width: 40px; 
-            height: 40px; 
-            background-color: #CDC1FF; 
-            border-radius: 50%; 
-            margin-right: 0.5rem; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            color: white; 
-            font-weight: bold; 
-            font-size: 1.2rem;
-        }
-
-        /* تنسيق النجوم (Rating) */
-        .review-rating { 
-            color: gold; 
-            font-size: 1.2rem; 
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        } 
-        
-        .review-details p { 
-            margin: 0; 
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        .review-actions { display: flex; }
-        .review-actions button { 
-            margin-right: 0.5rem; 
-            padding: 0.5rem 1rem; 
-            border: 1px solid #CDC1FF; 
-            background-color: #F5EFFF;
-            color: #A594F9;
-            border-radius: 4px; 
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-        .review-actions button:hover { background-color: #A594F9; color: white; border-color: #A594F9; }
-
-        .review-text { 
-            border-top: 1px dashed #CDC1FF;
-            padding-top: 0.75rem; 
-            padding-bottom: 0; 
-            margin-top: 0.5rem; 
-            font-size: 0.9rem;
-            line-height: 1.4;
-            color: #555;
-        }
-        
-        .overall-satisfaction { text-align: center; margin-top: 3rem; padding: 2rem; background-color: #F5EFFF; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .rating-stars { font-size: 2rem; color: gold; margin-top: 0.5rem; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanAura</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
-        <div class="logo">EventPlanner</div>
+        <div class="logo">
+            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            PlanAura
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Our Services</a></li>
@@ -145,10 +22,12 @@
             <li><a href="provider_dashboard.html">Provider</a></li>
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="partners.html">Our Partners</a></li>
-
         </ul>
     </nav>
-    
+    <div class="container">
+        <div class="breadcrumbs">
+    <a href="index.html">Home</a> &raquo; Reviews
+        </div>
     <div class="container">
         <header class="reviews-header">
             <h1>Client Reviews</h1>
@@ -281,9 +160,9 @@
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
         <div style="margin-top: 1rem;">
-            <a href="#" style="color: white; margin: 0 0.5rem;">Help Center</a> |
-            <a href="#" style="color: white; margin: 0 0.5rem;">Privacy Policy</a> |
-            <a href="#" style="color: white; margin: 0 0.5rem;">Terms of Service</a>
+            <a href="#">Help Center</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
         </div>
     </footer>
 
