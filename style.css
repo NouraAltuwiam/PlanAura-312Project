@@ -877,3 +877,426 @@ a {
         max-width: 100px;
     }
 } 
+/* الجداول */
+table { width: 100%; border-collapse: collapse; background-color: white; border-radius: 8px; overflow: hidden; }
+th, td { border: 1px solid #CDC1FF; padding: 0.75rem; text-align: left; }
+th { background-color: #F5EFFF; color: #A594F9; font-weight: bold; }
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background-color: #f0f0f0; color: #333; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+
+/* التنقل */
+.navbar { background-color: #A594F9; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: bold; color: white; }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.3s; }
+.nav-links a:hover { background-color: #CDC1FF; }
+
+/* المحتوى الرئيسي */
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; flex: 1; }
+.section { background-color: #F5EFFF; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+/* العناوين */
+h1 { color: #A594F9; margin-bottom: 1rem; }
+h2 { color: #CDC1FF; margin-bottom: 1rem; }
+h3 { color: #A594F9; margin-bottom: 0.5rem; }
+
+/* الأزرار */
+.btn { display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #A594F9, #CDC1FF); color: white; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(165, 148, 249, 0.4); }
+
+/* النماذج */
+form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+input, select, textarea { padding: 0.75rem; border: 1px solid #CDC1FF; border-radius: 4px; font-size: 1rem; }
+
+/* التذييل */
+footer { background-color: #A594F9; color: white; text-align: center; padding: 2rem; margin-top: auto; }
+
+/* الكروت */
+.card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
+/* التمرير الأفقي */
+.team-scroll { display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: thin; }
+
+/* الجداول */
+table { width: 100%; border-collapse: collapse; background-color: white; border-radius: 8px; overflow: hidden; }
+th, td { border: 1px solid #CDC1FF; padding: 0.75rem; text-align: left; }
+th { background-color: #F5EFFF; color: #A594F9; font-weight: bold; }
+
+
+/* farah part: contact us page*/
+
+/* Contact page layout (two columns) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* form : right pane */
+  gap: 2rem;
+}
+
+.lead {
+  color: #8479e6; /* slightly darker than #A594F9 */
+  margin-bottom: 1rem;
+}
+
+/* Right column cards reuse your .card look */
+.contact-info .info-card + .info-card { margin-top: 1rem; }
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: .5rem;
+  padding: 0;
+  margin: .5rem 0 0;
+}
+
+.contact-list a { color: #5b56d6; text-decoration: none; }
+.contact-list a:hover { text-decoration: underline; }
+
+/* Map thumbnail (clickable) */
+.map-thumb {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+  margin: .5rem 0 0.75rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,.08);
+}
+.map-thumb img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+/* Social buttons (simple, no external icons) */
+.socials {
+  display: flex;
+  gap: .5rem;
+  margin-top: .25rem;
+}
+.social-btn {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #A594F9, #CDC1FF);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(165,148,249,.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(165,148,249,.4);
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .map-thumb img { height: 200px; }
+}
+/* Headings above info cards */
+.info-heading {
+  color: #A594F9;
+  font-weight: bold;
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* Spacing adjustments */
+.contact-info .info-card {
+  margin-top: 0.25rem;
+}
+/* ===== Staff Profile (schedule style) ===== */:root{
+  --violet:#A594F9;
+  --lav:#CDC1FF;
+  --paper:#F5EFFF;
+  --ink:#333;
+}
+
+.page-title{ color:var(--violet); margin-bottom:1rem; }
+
+/* matrix container */
+.profile-matrix{
+  padding:1rem 1.25rem;
+}
+
+/* each row is a grid line */
+.profile-matrix .row{
+  display:grid;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+/* Row 1 has five equal horizontal cells */
+.profile-matrix .row-top{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Rows 2 & 3: label column + wide content column */
+.profile-matrix .row-skills,
+.profile-matrix .row-edu{
+  grid-template-columns: 220px 1fr 0 0 0; /* keep 5-track feel */
+}
+
+/* generic cell */
+.profile-matrix .cell{
+  background:#fff;
+  border:1px solid var(--lav);
+  border-radius:8px;
+  padding:.9rem;
+  min-height:110px;
+}
+
+.profile-matrix .cell h3{
+  color:var(--violet);
+  margin:0 0 .4rem 0;
+  font-size:1rem;
+  letter-spacing:.2px;
+}
+.profile-matrix .cell .value a{ color:var(--violet); text-decoration:none; }
+.profile-matrix .cell .value{ color:var(--ink); font-weight:600; }
+
+/* photo */
+.profile-matrix .cell.photo img{
+  width:100%;
+  max-width:160px;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:10px;
+  border:3px solid var(--lav);
+}
+
+/* expertise stacked boxes (vertical inside the one cell) */
+.stacked-boxes{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+}
+.stacked-boxes li{
+  background:var(--paper);
+  border:1px solid var(--lav);
+  color:var(--violet);
+  font-weight:700;
+  padding:.45rem .6rem;
+  border-radius:8px;
+}
+
+/* label cell spans just one small column */
+.profile-matrix .cell.label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* the wide content cell spans remaining 4 “columns” */
+.profile-matrix .span-4{
+  grid-column: span 4;
+}
+
+/* horizontal list of nested ULs */
+.h-list{
+  list-style:none;
+  display:flex;
+  gap:1rem;
+  padding:0;
+  margin:0;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.inner-list{
+  background:var(--paper);
+  border:1px solid var(--lav);
+  border-radius:8px;
+  padding:.6rem .9rem;
+  margin:0;
+}
+.inner-list li{
+  margin:.15rem 0;
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .profile-matrix .row-top{
+    grid-template-columns: 1fr 1fr;
+  }
+  .profile-matrix .row-skills,
+  .profile-matrix .row-edu{
+    grid-template-columns: 1fr;
+  }
+  .profile-matrix .span-4{ grid-column: auto; }
+}
+/* Add spacing to the left for Skills and Education columns */
+td ul {
+  margin-left: 10px;  /* Adjust this value to make the lists move right a bit */
+  padding-left: 10px; /* Extra padding for better alignment */
+}
+
+
+.staff{
+    text-align: left;
+    margin-top: 2rem;
+    margin-left: 1rem;
+
+}
+
+.staff-desc{
+   text-align: left;
+    margin-top: 5rem;
+    margin-left: 6rem;
+    color: #A594F9;
+ 
+}
+/* Align form card top with Get In Touch box */
+.form-card {
+  margin-top: 3rem; /* adjust this value until it lines up perfectly */
+}
+#f{
+    text-align: center;
+}
+.avatar img {
+  width: 120px;           /* حجم الصورة */
+  height: 120px;
+  border-radius: 50%;     /* يخليها دائرية */
+  object-fit: cover;      /* يخلي الصورة ما تنضغط */
+  border: 3px solid #A594F9; /* إطار بنفس لون المشروع */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ظل ناعم */
+  transition: transform 0.3s ease;
+}
+
+.avatar img:hover {
+  transform: scale(1.05); /* تكبر شوي لما تمرين عليها */
+}
+.mission-section {
+  position: relative;
+  background-image: url("images/events.JPG"); /* Replace with your image name */
+  background-size: cover;
+  background-position: center;
+  height: 400px; /* Adjust if you want it taller */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.mission-overlay {
+  background: rgba(0, 0, 0, 0.3); /* Transparent black layer */
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 480px;
+}
+
+.mission-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.mission-overlay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f8f8f8;
+  
+}
+/* One-card-per-scroll carousel */
+.team-carousel{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap:0;                     /* no gaps so exactly one fills the view */
+}
+
+.team-carousel .slide{
+  flex:0 0 100%;             /* each slide = full viewport width */
+  scroll-snap-align:center;  /* “snap” to center each slide */
+  display:flex;
+  justify-content:center;    /* center avatar inside the slide */
+  padding:1rem 0;
+}
+
+/* Keep your avatar look */
+.avatar{ text-align:center; }
+.avatar .pic{
+  width:120px; height:120px; border-radius:50%;
+  background:#E5D9F2; border:3px solid #A594F9;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: inset 0 0 0 6px #fff;
+}
+.avatar .pic img{
+  width:100%; height:100%; object-fit:cover; border-radius:50%;
+}
+.avatar a{ color:#A594F9; text-decoration:underline; font-weight:600; }
+
+/* Optional: a slim scrollbar */
+.team-carousel::-webkit-scrollbar{ height:8px; }
+.team-carousel::-webkit-scrollbar-thumb{ background:#CDC1FF; border-radius:10px; }
+
+/* ====== TABLE STYLING ====== */
+table {
+  border: 6px;
+  width: 100%;
+  background-color: #ffffff; /* White background for clean layout */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Soft shadow for depth */
+  margin-top: 1rem;
+}
+
+/* === Table Headers === */
+th {
+  background-color: #F5EFFF; /* Light lavender to match palette */
+  color: #A594F9;            /* Primary violet color */
+  font-weight: bold;
+  text-align: left;
+  padding: 0.85rem;
+  border: 2px solid #CDC1FF; /* Light purple border */
+  font-size: 1rem;
+}
+
+/* === Table Cells === */
+td {
+  border: 2px solid #CDC1FF;
+  padding: 0.85rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #A594F9;           
+  background-color: #ffffff;
+}
+
+
+/* === Staff photo style === */
+.staff-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  border: 2px solid #A594F9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* === Lists inside table (Skills, Education) === */
+td ul {
+  margin-left: 12px;
+  padding-left: 15px;
+  list-style: disc;
+  list-style-position: inside;
+  color: #5b56d6;
+}
+
+/* Nested lists (secondary level) */
+td ul ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 20px;
+  color: #8479e6;
+}
+
