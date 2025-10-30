@@ -198,6 +198,64 @@
             color: #555;
         }
         
+        /* قسم الشركاء - جديد */
+        .partners-section { 
+            margin-bottom: 3rem; 
+        }
+        .partners-section h2 { 
+            color: #A594F9; 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            font-size: 2rem;
+        }
+        
+        .partners-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        
+        .partner-category { 
+            width: 48%; 
+            margin: 1%; 
+            background-color: white; 
+            border-radius: 8px; 
+            padding: 1.5rem; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .partner-category:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .partner-category h3 { 
+            color: #A594F9; 
+            margin-bottom: 1rem; 
+            text-align: center;
+            border-bottom: 1px dashed #CDC1FF;
+            padding-bottom: 0.5rem;
+        }
+        .partner-list { 
+            list-style-type: none; 
+        }
+        .partner-list li { 
+            padding: 0.5rem 0; 
+            border-bottom: 1px solid #f0f0f0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .partner-list li:last-child { 
+            border-bottom: none; 
+        }
+        .partner-name { 
+            font-weight: bold; 
+        }
+        .partner-rating { 
+            color: gold; 
+            font-size: 0.9rem; 
+        }
+        
         /* Footer */
         footer { 
             background-color: #A594F9; 
@@ -323,6 +381,64 @@
                     </div>
                     <div class="review-rating">★★★★★</div>
                     <div class="review-text">Professionalism at its best. They handled a last-minute change seamlessly. I would definitely use their services again.</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- قسم الشركاء - جديد -->
+        <section class="partners-section">
+            <h2>Our Partners</h2>
+            <div class="partners-container">
+                <div class="partner-category">
+                    <h3>Restaurants & Hotels</h3>
+                    <ul class="partner-list">
+                        <li>
+                            <span class="partner-name">Grand Palace Hotel</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Royal Garden Restaurant</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Seaside Resort</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Mountain View Hotel</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Urban Bistro</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="partner-category">
+                    <h3>Flower & Decoration Shops</h3>
+                    <ul class="partner-list">
+                        <li>
+                            <span class="partner-name">Elegant Blooms</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Creative Decor</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Heavenly Flowers</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Designer Events</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </li>
+                        <li>
+                            <span class="partner-name">Floral Fantasy</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
