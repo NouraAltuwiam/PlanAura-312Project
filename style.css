@@ -1418,7 +1418,7 @@ td ul ul {
 }
 
 /* ===================================== */
-/* Request Service Page - التعديلات الجديدة */
+/* Request Service Page 
 /* ===================================== */
 .page {
     max-width: 1200px;
@@ -1481,7 +1481,6 @@ td ul ul {
     padding-bottom: 10px;
 }
 
-/* تحسين عرض الصور - التعديلات الجديدة */
 .options-grid {
     display: flex;
     flex-wrap: wrap;
