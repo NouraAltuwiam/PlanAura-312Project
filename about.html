@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
@@ -29,8 +28,7 @@
   <div class="breadcrumb">Home &raquo; <a href="about.html">About Us</a></div>
   <h1 class="about-h1">About Us</h1>
 
-  <!-- 1) Mission: full row -->
-  <section class="about-rows">
+  <div class="about-rows">
     <section class="mission-section">
       <div class="mission-overlay">
         <h2>Our Mission</h2>
@@ -45,11 +43,10 @@
         </p>
       </div>
     </section>
-  </section>
+  </div>
 
-  <!-- 2) Our Team: bigger and under mission -->
   <h3 class="team-h2">Meet Our Team</h3>
-  <div class="team-carousel" aria-label="Meet Our Team">
+  <div class="team-carousel" >
     <div class="slide">
       <div class="avatar">
         <div class="pic"><img src="images/girl.png" alt="Farah Al-Hamed"></div>
@@ -76,46 +73,42 @@
     </div>
   </div>
 
-  <!-- 3) Join Us: moved above footer -->
   <section aria-label="Join Us">
     <div class="card-purple joinus">
       <h3>Join Us!</h3>
       <form action="#" method="post" class="join-grid" enctype="multipart/form-data">
         <div>
           <label for="jn">Add your name</label>
-          <input id="jn" name="name" type="text" required />
+          <input id="jn" name="name" type="text" required >
         </div>
         <div>
           <label for="skills">Skills</label>
-          <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" />
+          <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" >
         </div>
         <div>
           <label for="dob">DoB</label>
-          <input id="dob" name="dob" type="date" />
+          <input id="dob" name="dob" type="date" >
         </div>
         <div>
           <label for="jemail">Email</label>
-          <input id="jemail" name="email" type="email" required />
+          <input id="jemail" name="email" type="email" required >
         </div>
         <div>
           <label for="pass">Password</label>
-          <input id="pass" name="password" type="password" required />
+          <input id="pass" name="password" type="password" required >
         </div>
         <div>
           <label for="cpass">Confirm the Password</label>
-          <input id="cpass" name="confirm_password" type="password" required />
+          <input id="cpass" name="confirm_password" type="password" required >
         </div>
         <div>
           <label for="edu">Education</label>
-          <input id="edu" name="education" type="text" />
+          <input id="edu" name="education" type="text" >
         </div>
-        <div>
-          <label for="reemail">Add your Email</label>
-          <input id="reemail" name="email2" type="email" />
-        </div>
+        
         <div>
           <label for="area">Area of Expertise</label>
-          <input id="area" name="area" type="text" />
+          <input id="area" name="area" type="text" >
         </div>
         <div>
           <label>Add Photo</label>
@@ -133,7 +126,6 @@
   </section>
   </main>
 
-  <!-- FOOTER (white text kept) -->
  <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
