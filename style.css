@@ -65,10 +65,10 @@ a {
 }
 
 .logo-img {
-    height: 120px;
+    height: 100px;
     width: auto;
     object-fit: contain;
-    size: 90px;
+   
 }
 
 .nav-links {

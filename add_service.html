@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
@@ -24,118 +23,120 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
- <div class="container">
+    
+    <div class="container">
         <div class="breadcrumbs">
-    <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; Add Service
+            <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; Add Service
         </div>
-    <div class="page-container">
-        <div class="main-content centered-form">
-            <h1 class="section-title">Add Service</h1>
+        
+        <div class="page-container">
+            <div class="main-content centered-form">
+                <h1 class="section-title">Add Service</h1>
 
-            <form class="form-card">
-                <div class="inline-form-group">
-                    <div class="form-group">
-                        <label for="category">Service Category</label>
-                        <select id="category" name="category" required>
-                            <option value="">Select Category</option>
-                            <option value="parties">Parties</option>
-                            <option value="decorations">Decorations</option>
-                            <option value="venues">Venues</option>
-                            <option value="food">Food & Beverages</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="servicePhoto">Service Photo</label>
-                        <div class="service-photo-container">
-                            Click to Upload Photo
+                <form class="form-card">
+                    <div class="inline-form-group">
+                        <div class="form-group">
+                            <label for="category">Service Category</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="parties">Parties</option>
+                                <option value="decorations">Decorations</option>
+                                <option value="venues">Venues</option>
+                                <option value="food">Food & Beverages</option>
+                            </select>
                         </div>
-                    </div>
-                </div>
-
-                <div class="inline-form-group">
-                    <div class="form-group">
-                        <label for="serviceName">Service Name</label>
-                        <input type="text" id="serviceName" name="serviceName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Price ($)</label>
-                        <input type="number" id="price" name="price" min="0" step="0.01" required>
-                    </div>
-                </div>
-
-                <div class="inline-form-group">
-                    <div class="form-group">
-                        <label for="capacity">Capacity / Max Servings</label>
-                        <input type="number" id="capacity" name="capacity" class="capacity-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="pricingType">Pricing Type</label>
-                        <select id="pricingType" name="pricingType">
-                            <option value="fixed">Fixed Price</option>
-                            <option value="per-person">Price Per Person</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Service Description</label>
-                    <textarea id="description" name="description" rows="4" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="serviceLocation">Service Location</label>
-                    <input type="text" id="serviceLocation" name="serviceLocation">
-                </div>
-
-                <div class="form-group">
-                    <label>Availability - Select Day</label>
-                    <div class="availability-section">
-                        <div class="week-days-grid">
-                            <div class="day-option">
-                                <input type="radio" id="monday" name="availability" value="Monday" checked>
-                                <label for="monday" class="day-label">Monday</label>
-                            </div>
-                            <div class="day-option">
-                                <input type="radio" id="tuesday" name="availability" value="Tuesday">
-                                <label for="tuesday" class="day-label">Tuesday</label>
-                            </div>
-                            <div class="day-option">
-                                <input type="radio" id="wednesday" name="availability" value="Wednesday">
-                                <label for="wednesday" class="day-label">Wednesday</label>
-                            </div>
-                            <div class="day-option">
-                                <input type="radio" id="thursday" name="availability" value="Thursday">
-                                <label for="thursday" class="day-label">Thursday</label>
-                            </div>
-                            <div class="day-option">
-                                <input type="radio" id="friday" name="availability" value="Friday">
-                                <label for="friday" class="day-label">Friday</label>
-                            </div>
-                            <div class="day-option">
-                                <input type="radio" id="saturday" name="availability" value="Saturday">
-                                <label for="saturday" class="day-label">Saturday</label>
-                            </div>
-                            <div class="day-option">
-                                <input type="radio" id="sunday" name="availability" value="Sunday">
-                                <label for="sunday" class="day-label">Sunday</label>
+                        <div class="form-group">
+                            <label for="servicePhoto">Service Photo</label>
+                            <input type="file" id="servicePhoto" name="servicePhoto" hidden>
+                            <div class="service-photo-container">
+                                Click to Upload Photo
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-actions">
-                    <button type="reset" class="cancel-btn">Cancel</button>
-                    <button type="submit" class="create-btn">Create Service</button>
-                </div>
-            </form>
+                    <div class="inline-form-group">
+                        <div class="form-group">
+                            <label for="serviceName">Service Name</label>
+                            <input type="text" id="serviceName" name="serviceName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price ($)</label>
+                            <input type="number" id="price" name="price" min="0" step="0.01" required>
+                        </div>
+                    </div>
 
-            <!-- زر Back خارج الفورم في أسفل الصفحة -->
-            <div class="page-bottom-actions">
-                <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                    <div class="inline-form-group">
+                        <div class="form-group">
+                            <label for="capacity">Capacity / Max Servings</label>
+                            <input type="number" id="capacity" name="capacity" class="capacity-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="pricingType">Pricing Type</label>
+                            <select id="pricingType" name="pricingType">
+                                <option value="fixed">Fixed Price</option>
+                                <option value="per-person">Price Per Person</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Service Description</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group"><label for="serviceLocation">Service Location</label>
+                        <input type="text" id="serviceLocation" name="serviceLocation">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Availability - Select Day</label>
+                        <div class="availability-section">
+                            <div class="week-days-grid">
+                                <div class="day-option">
+                                    <input type="radio" id="monday" name="availability" value="Monday" checked>
+                                    <label for="monday" class="day-label">Monday</label>
+                                </div>
+                                <div class="day-option">
+                                    <input type="radio" id="tuesday" name="availability" value="Tuesday">
+                                    <label for="tuesday" class="day-label">Tuesday</label>
+                                </div>
+                                <div class="day-option">
+                                    <input type="radio" id="wednesday" name="availability" value="Wednesday">
+                                    <label for="wednesday" class="day-label">Wednesday</label>
+                                </div>
+                                <div class="day-option">
+                                    <input type="radio" id="thursday" name="availability" value="Thursday">
+                                    <label for="thursday" class="day-label">Thursday</label>
+                                </div>
+                                <div class="day-option">
+                                    <input type="radio" id="friday" name="availability" value="Friday">
+                                    <label for="friday" class="day-label">Friday</label>
+                                </div>
+                                <div class="day-option">
+                                    <input type="radio" id="saturday" name="availability" value="Saturday">
+                                    <label for="saturday" class="day-label">Saturday</label>
+                                </div>
+                                <div class="day-option">
+                                    <input type="radio" id="sunday" name="availability" value="Sunday">
+                                    <label for="sunday" class="day-label">Sunday</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="create-btn">Create Service</button>
+                    </div>
+                </form>
+
+                <div class="page-bottom-actions">
+                    <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                </div>
             </div>
         </div>
     </div>
-
+    
     <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
