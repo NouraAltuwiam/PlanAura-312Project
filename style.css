@@ -446,10 +446,10 @@ td ul ul {
 }
 
 .about-rows {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 1.25rem;
-    align-items: start;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin: 1rem 0; 
 }
 
 .mission-section {
@@ -1384,13 +1384,18 @@ td ul ul {
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -6px;
+}
+.form-grid *{
+    width: calc(50%-12px);
+    margin: 6px;
 }
 
 .full {
-    grid-column: 1 / -1;
+    width: 100% ;
 }
 
 .note {
@@ -1403,13 +1408,11 @@ td ul ul {
     background: var(--brand);
     color: white;
     padding: 12px 18px;
-    border-radius: 26px;
     border: none;
     width: 100%;
     font-size: 16px;
     font-weight: 800;
     margin-top: 12px;
-    cursor: pointer;
 }
 
 .send-btn:hover {
@@ -1458,32 +1461,28 @@ td ul ul {
 /* ===================================== */
 .provider-quick-actions {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px; 
 }
 
 .quick-action-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background: white;
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 8px; 
+    background-color: white;
     border: 2px solid var(--brand);
     color: var(--brand);
-    border-radius: 25px;
+    border-radius: 20px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .quick-action-btn:hover,
 .quick-action-btn.active {
-    background: var(--brand);
+    background-color: var(--brand);
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(163, 118, 162, 0.3);
 }
 
 .quick-action-btn span {
@@ -1493,24 +1492,30 @@ td ul ul {
 .services-horizontal-scroll {
     display: flex;
     overflow-x: auto;
-    gap: 25px;
     padding: 20px 10px;
     margin: 0 -10px;
-    scroll-behavior: smooth;
+
 }
+.services-horizontal-scroll > * {
+    margin-right: 25px;
+}
+.services-horizontal-scroll > *:last-child {
+    margin-right: 0;
+}
+
 
 .services-horizontal-scroll::-webkit-scrollbar {
     height: 10px;
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background-color: #f1f1f1; 
+    border: 1px solid #ddd;  
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-thumb {
-    background: var(--brand);
-    border-radius: 10px;
+    background-color: var(--brand); 
+    border: 1px solid #ccc;         
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-thumb:hover {
@@ -1524,23 +1529,31 @@ td ul ul {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border-color);
 }
 
 .services-horizontal-scroll .service-card:hover {
-    transform: translateY(-5px);
+    background-color: #f5f5fc; 
+    border-color: var(--accent-color);
+}
+
+.services-horizontal-scroll .service-card:hover {
+    background-color: #F3E9F7; 
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .service-image {
     width: 100%;
     height: 180px;
-    object-fit: cover;
     display: block;
     border-bottom: 1px solid var(--border-color);
+    
+    /* بدل object-fit: cover استخدمنا background-image */
+    background-image: url("images/sample.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .service-info {
@@ -1610,18 +1623,29 @@ td ul ul {
 
 .edit-pause-group {
     display: flex;
-    gap: 8px;
+}
+
+.edit-pause-group button {
+    margin-right: 8px;
+}
+
+.edit-pause-group button:last-child {
+    margin-right: 0;
 }
 
 .action-btn {
     padding: 8px 16px;
     border: 1px solid;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: bold;
     font-size: 0.8em;
-    transition: all 0.3s ease;
     background-color: #fff;
+}
+
+.action-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
 }
 
 .action-btn.edit-btn {
@@ -1666,7 +1690,6 @@ td ul ul {
 
 .service-filters {
     display: flex;
-    gap: 10px;
     margin-bottom: 30px;
     padding: 20px;
     background-color: #F5EFFF;
@@ -1676,16 +1699,29 @@ td ul ul {
     border: 1px solid var(--border-color);
 }
 
+.service-filters button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.service-filters button:last-child {
+    margin-right: 0;
+}
+
 .filter-button {
     padding: 12px 24px;
     border: 2px solid var(--brand);
     border-radius: 25px;
     background-color: white;
     color: var(--brand);
-    cursor: pointer;
     font-size: 0.95em;
     font-weight: 600;
-    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: var(--brand);
+    color: white;
+    border-color: var(--brand);
 }
 
 .filter-button.active-filter,
@@ -1696,17 +1732,6 @@ td ul ul {
     box-shadow: 0 4px 12px rgba(163, 118, 162, 0.3);
 }
 
-/* Remove old provider styles */
-.provider-services-grid,
-.provider-service-card,
-.provider-service-image,
-.provider-service-content,
-.provider-service-desc,
-.provider-service-meta,
-.provider-service-actions,
-.provider-action-btn {
-    /* Deprecated - using unified styles above */
-}
 
 /* ===================================== */
 /* Planning Hub Styles */
@@ -1778,14 +1803,20 @@ td ul ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    gap: 30px;
+}
+
+.page-container {
+    margin-right: 30px;
+}
+
+.page-container:last-child {
+    margin-right: 0;
 }
 
 .centered-form .form-card {
     max-width: 900px;
     margin: 0 auto;
 }
-
 .sidebar-button {
     display: block;
     width: 100%;
@@ -1797,9 +1828,20 @@ td ul ul {
     text-align: left;
     border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
     font-size: 0.95em;
+}
+
+.sidebar-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.sidebar-button:hover {
+    outline: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
 }
 
 .sidebar-button.active-side,
@@ -1807,7 +1849,7 @@ td ul ul {
     background-color: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
-    transform: translateX(5px);
+    margin-left: 5px; 
 }
 
 .page-bottom-actions {
@@ -1824,22 +1866,24 @@ td ul ul {
     color: white;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
     font-weight: bold;
     font-size: 1em;
-    transition: all 0.3s ease;
     min-width: 120px;
     position: static;
 }
 
 .page-bottom-actions .back-btn:hover {
     background-color: #5a6268;
-    transform: translateY(-2px);
+}
+
+.page-bottom-actions .back-btn:hover {
+    outline: 2px solid #5a6268;
+    background-color: #5a6268;
+    color: #fff;
 }
 
 .service-filters {
     display: flex;
-    gap: 10px;
     margin-bottom: 30px;
     padding-bottom: 15px;
     border-bottom: 2px solid var(--accent-color);
@@ -1850,23 +1894,42 @@ td ul ul {
     justify-content: center;
 }
 
+.service-filters .filter-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.service-filters .filter-button:last-child {
+    margin-right: 0;
+}
+
 .filter-button {
     padding: 12px 24px;
     border: 2px solid var(--accent-color);
     border-radius: 25px;
     background-color: white;
     color: var(--accent-color);
-    cursor: pointer;
     font-size: 0.95em;
     font-weight: 600;
-    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.filter-button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
 }
 
 .filter-button.active-filter,
 .filter-button:hover {
     background-color: var(--accent-color);
     color: white;
-    transform: translateY(-2px);
+    border: 2px solid var(--accent-color);
 }
 
 .services-scroll-container {
@@ -1891,9 +1954,16 @@ td ul ul {
 
 .service-grid {
     display: flex;
-    gap: 25px;
     padding: 10px 5px;
     min-width: max-content;
+}
+
+.service-grid .service-card {
+    margin-right: 25px;
+}
+
+.service-grid .service-card:last-child {
+    margin-right: 0;
 }
 
 .service-grid .service-card {
@@ -1903,13 +1973,18 @@ td ul ul {
     box-shadow: 0 4px 15px var(--shadow-color);
     overflow: hidden;
     background-color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-grid .service-card:hover {
+    background-color: #f5f5f5; 
+    box-shadow: 0 6px 20px var(--shadow-color);
 }
 
 .service-image {
     height: 180px;
     width: 100%;
-    object-fit: cover;
+    background-size: cover; 
+    background-position: center;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -1974,17 +2049,28 @@ td ul ul {
 
 .edit-pause-group {
     display: flex;
-    gap: 8px;
+}
+
+.edit-pause-group .action-btn {
+    margin-right: 8px;
+}
+
+.edit-pause-group .action-btn:last-child {
+    margin-right: 0;
 }
 
 .action-btn {
     padding: 8px 16px;
     border: 1px solid;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: bold;
     font-size: 0.8em;
-    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.action-btn:hover {
+    background-color: #f3f3f3;
+    border-color: #999;
 }
 
 .edit-btn,
@@ -2029,10 +2115,13 @@ td ul ul {
     border: 2px dashed #ccc;
     border-radius: 8px;
     background-color: var(--light-gray);
-    cursor: pointer;
-    transition: border-color 0.3s ease;
     color: #666;
     font-weight: 600;
+}
+
+.service-photo-container:hover {
+    background-color: #e6e6e6;
+    border-color: var(--accent-color);
 }
 
 .service-photo-container:hover {
@@ -2045,10 +2134,34 @@ td ul ul {
 }
 
 .week-days-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.week-days-grid .day-option {
+    width: 14.28%; 
+}
+
+.week-days-grid .day-option {
+    margin-right: 8px;
+}
+
+.week-days-grid .day-option:last-child {
+    margin-right: 0;
+}.week-days-grid {
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 15px;
+}
+
+.week-days-grid .day-option {
+    width: 14.28%; 
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.week-days-grid .day-option:nth-child(7n) {
+    margin-right: 0;
 }
 
 .day-option {
@@ -2065,10 +2178,13 @@ td ul ul {
     border: 2px solid #ddd;
     border-radius: 6px;
     background-color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
     font-weight: 600;
     font-size: 0.85em;
+}
+
+.day-label:hover {
+    border-color: var(--accent-color);
+    background-color: #f5e9ff; 
 }
 
 .day-label:hover {
@@ -2088,10 +2204,15 @@ td ul ul {
     padding: 12px 30px;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
     font-weight: bold;
     font-size: 1em;
-    transition: all 0.3s ease;
+}
+
+.create-btn:hover,
+.cancel-btn:hover,
+.add-member-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
 }
 
 .create-btn,
@@ -2103,7 +2224,8 @@ td ul ul {
 .create-btn:hover,
 .add-member-btn:hover {
     background-color: #5d0070;
-    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .cancel-btn {
@@ -2113,16 +2235,25 @@ td ul ul {
 
 .cancel-btn:hover {
     background-color: #5a6268;
-    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* ===================================== */
 /* Team Management */
 /* ===================================== */
 .team-management-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-management-grid .available-members-section {
+    width: 40%;
+    margin-right: 40px;
+}
+
+.team-management-grid .team-details-section {
+    width: 55%;
 }
 
 .available-members-section {
@@ -2136,8 +2267,15 @@ td ul ul {
 .team-actions {
     display: flex;
     justify-content: flex-start;
-    gap: 12px;
     margin-bottom: 25px;
+}
+
+.team-actions button {
+    margin-right: 12px;
+}
+
+.team-actions button:last-child {
+    margin-right: 0;
 }
 
 .team-actions .action-btn {
@@ -2147,7 +2285,12 @@ td ul ul {
     color: var(--accent-color);
     border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
+}
+
+.team-actions .action-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .team-actions .action-btn:hover {
@@ -2167,7 +2310,10 @@ td ul ul {
     justify-content: space-between;
     padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s ease;
+}
+
+.member-item:hover {
+    background-color: var(--light-gray);
 }
 
 .member-item:hover {
@@ -2180,8 +2326,15 @@ td ul ul {
 .member-info {
     display: flex;
     align-items: center;
-    gap: 15px;
     flex-grow: 1;
+}
+
+.member-info > * {
+    margin-right: 15px;
+}
+
+.member-info > *:last-child {
+    margin-right: 0;
 }
 
 .member-avatar {
@@ -2241,7 +2394,11 @@ td ul ul {
     border: 2px solid var(--accent-color);
     border-radius: 4px;
     position: relative;
-    transition: all 0.3s ease;
+}
+
+.custom-checkbox:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .delete-checkbox:checked + .custom-checkbox {
@@ -2262,27 +2419,32 @@ td ul ul {
 .delete-member-action {
     display: flex;
     justify-content: flex-start;
-    gap: 15px;
     margin-top: 25px;
     padding-top: 20px;
     border-top: 2px solid var(--light-gray);
 }
 
-.delete-submit-btn-team {
-    background-color: var(--delete-color);
+.delete-member-action > * {
+    margin-right: 15px;
+}
+
+.delete-member-action > *:last-child {
+    margin-right: 0;
+}
+
+.delete-checkbox:checked + .custom-checkbox::after {
+    content: '✓';
     color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    position: absolute;
+    top: 4px;   /* تقريبًا وسط المربع */
+    left: 6px;  /* لضبط موقع العلامة */
+    font-size: 14px;
     font-weight: bold;
-    font-size: 1em;
-    transition: all 0.3s ease;
 }
 
 .delete-submit-btn-team:hover {
     background-color: #d1425a;
-    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ===================================== */
@@ -2298,10 +2460,18 @@ td ul ul {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
     padding: 0 40px;
+}
+
+.footer-content > div {
+    width: 33.33%;
+    margin-right: 40px; 
+}
+
+.footer-content > div:last-child {
+    margin-right: 0; 
 }
 
 .footer-section h4 {
@@ -2320,29 +2490,48 @@ td ul ul {
 
 .social-links {
     display: flex;
-    gap: 20px;
+}
+
+.social-links a {
+    margin-right: 20px; 
+}
+
+.social-links a:last-child {
+    margin-right: 0; 
 }
 
 .social-links a {
     color: #bdc3c7;
     text-decoration: none;
-    transition: color 0.3s ease;
     font-size: 0.95em;
     font-weight: 600;
 }
 
 .social-links a:hover {
     color: #F3E9F7;
-    transform: translateY(-2px);
+    text-decoration: underline;
 }
 
 /* ===================================== */
 /* Contact Page Styles */
 /* ===================================== */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0; 
+}
+
+.contact-grid div {
+    width: 48%; 
+    margin-bottom: 2rem; /
+}
+
+@media (max-width: 768px) {
+    .contact-grid div {
+        width: 100%; 
+        margin-bottom: 1.5rem;
+    }
 }
 
 .lead {
@@ -2356,10 +2545,17 @@ td ul ul {
 
 .contact-list {
     list-style: none;
-    display: grid;
-    gap: 0.5rem;
+    display: block;
     padding: 0;
     margin: 0.5rem 0 0;
+}
+
+.contact-list li {
+    margin-bottom: 0.5rem; 
+}
+
+.contact-list li:last-child {
+    margin-bottom: 0; 
 }
 
 .contact-list a {
@@ -2380,16 +2576,26 @@ td ul ul {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-.map-thumb img {
+.map-thumb {
     width: 100%;
     height: 170px;
-    object-fit: cover;
+    background-image: url("images/map.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
 }
 
 .socials {
     display: flex;
-    gap: 0.5rem;
     margin-top: 0.25rem;
+}
+
+.socials a {
+    margin-right: 0.5rem; 
+}
+
+.socials a:last-child {
+    margin-right: 0; 
 }
 
 .social-btn {
@@ -2404,7 +2610,11 @@ td ul ul {
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 2px 6px rgba(163, 118, 162, 0.35);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.social-btn:hover {
+    background: var(--brand);
+    text-decoration: underline;
 }
 
 .social-btn:hover {
@@ -2449,32 +2659,49 @@ td ul ul {
     }
 
     .week-days-grid {
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .team-management-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+    display: flex;
+    flex-direction: column;
+}
+
+.team-management-grid div {
+    margin-bottom: 30px;
+}
+
+.team-management-grid div:last-child {
+    margin-bottom: 0; 
+}
 
     .about-rows {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
     }
 }
 
 @media (max-width: 980px) {
-    .content {
-        grid-template-columns: 1fr;
-    }
+  .content {
+    display: flex;              
+    flex-direction: column;     
+    flex-wrap: nowrap;          
+  }
+}
 
     .sidebar .cost-box {
         position: relative;
         top: auto;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+   .contact-grid {
+    display: flex;              
+    flex-direction: column;     
+    flex-wrap: nowrap;          
+    align-items: stretch;       
+}
 
     .map-thumb img {
         height: 200px;
@@ -2488,12 +2715,12 @@ td ul ul {
         margin-left: 0;
         min-width: auto;
     }
-}
+
 
 @media (max-width: 768px) {
     .advanced-navbar {
         flex-direction: column;
-        gap: 12px;
+        margin-top: 12px;
         padding: 10px;
     }
 
@@ -2505,7 +2732,7 @@ td ul ul {
     .page-container {
         flex-direction: column;
         padding: 15px;
-        gap: 20px;
+        margin-top: 20px;
     }
 
     .sidebar {
@@ -2518,28 +2745,39 @@ td ul ul {
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        margin-top: 30px;
         text-align: center;
     }
 
     .social-links {
         justify-content: center;
     }
-
-    .week-days-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  
+    .partners-grid .partner-card {
+    width: calc(33.333% - 20px);
+    margin-bottom: 20px;
+}
 
     .service-grid {
-        gap: 15px;}
-    }
+    display: flex;
+}
+
+.service-grid .service-card {
+    margin-right: 15px; 
+}
+
+.service-grid .service-card:last-child {
+    margin-right: 0; 
+}
+}
     /* ===================================== */
 /* Partners Page Horizontal Layout */
 /* ===================================== */
+/* Partners Grid (using flex instead of grid + margins for spacing) */
 .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
@@ -2552,8 +2790,8 @@ td ul ul {
 }
 
 .partner-category:hover {
-    transform: none;
-    box-shadow: none;
+    background-color: #f8f8ff; 
+    border: 1px solid var(--brand);
 }
 
 .partner-category h3 {
@@ -2565,6 +2803,7 @@ td ul ul {
     color: var(--brand);
 }
 
+/* Partner Card (transition uses only allowed properties) */
 .partner-card {
     width: 100%;
     margin-bottom: 0;
@@ -2572,25 +2811,24 @@ td ul ul {
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
 .partner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8ff; 
+    border: 1px solid var(--brand);
 }
 
+/* Partner Header */
 .partner-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 15px;
     flex-wrap: wrap;
-    gap: 10px;
-}
+  }
 
 .partner-name {
     font-weight: bold;
@@ -2622,11 +2860,19 @@ td ul ul {
     align-items: center;
     font-size: 0.9em;
     flex-wrap: wrap;
-    gap: 10px;
+}
+.partner-contact .pc-item {
+    margin: 0 10px 10px 0;
 }
 
-.partner-price {
-    font-weight: bold;
-    color: var(--brand);
-    font-size: 1em;
+/* Partner Contact */
+.partner-contact {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #CDC1FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    flex-wrap: wrap;
 }
