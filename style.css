@@ -68,6 +68,7 @@ a {
     height: 120px;
     width: auto;
     object-fit: contain;
+    size: 90px;
 }
 
 .nav-links {
