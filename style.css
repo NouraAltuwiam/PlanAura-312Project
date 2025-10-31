@@ -1,24 +1,7 @@
 /* ===================================== */
-/* المتغيرات الأساسية (CSS Variables) */
+/* المتغيرات الأساسية (CSS Variables) - تم الاستبدال */
 /* ===================================== */
-:root {
-    /* الألوان من صفحة about.html */
-    --brand: #A376A2;
-    --text: #6B3F69;
-    --form: #DDC3C3;
-    --white: #fff;
-    
-    /* ألوان إضافية */
-    --page-background: #F3EDE0;
-    --primary-color: #F3E9F7;
-    --accent-color: #3C0048;
-    --edit-pause-color: #BFB5BE;
-    --delete-color: #EF5473;
-    --light-gray: #f9f9f9;
-    --border-color: #eee;
-    --shadow-color: rgba(0, 0, 0, 0.05);
-    --planning-hub-bg: #3C0048;
-}
+/* تم إزالة :root واستبدال var() بالقيم الفعلية */
 
 /* ===================================== */
 /* التنسيقات العامة */
@@ -26,13 +9,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; - غير مشروحة، تمت إزالته */
     font-family: Arial, sans-serif;
 }
 
 body {
     background-color: #f0f0f0;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
@@ -41,14 +24,14 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
 }
 
 /* ===================================== */
 /* NAVIGATION BAR - موحد لكل الصفحات */
 /* ===================================== */
 .navbar {
-    background: var(--brand);
+    background: #A376A2; /* بدل var(--brand) */
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -58,35 +41,46 @@ a {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--white);
+    color: #fff; /* بدل var(--white) */
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    /* gap: 0.5rem; - غير مشروحة، تمت إزالته */
+}
+
+.logo > *:not(:last-child) {
+    margin-right: 0.5rem; /* بديل لـ gap */
 }
 
 .logo-img {
     height: 120px;
     width: auto;
-    object-fit: contain;
-    size: 90px;
+    /* object-fit: contain; - غير مشروحة، تمت إزالته */
+    max-width: 100%;
+    max-height: 120px; /* بديل لـ object-fit: contain */
+    /* size: 90px; - غير مشروحة، تمت إزالته */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    /* gap: 2rem; - غير مشروحة، تمت إزالته */
 }
 
 .nav-links li {
     margin: 0;
+    margin-right: 2rem; /* بديل لـ gap */
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #fff; /* بدل var(--white) */
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    transition: background-color 0.2s;
+    /* transition: background-color 0.2s; - غير مشروحة، تمت إزالته */
 }
 
 .nav-links a:hover,
@@ -98,8 +92,8 @@ a {
 /* FOOTER - موحد لكل الصفحات */
 /* ===================================== */
 footer {
-    background: var(--brand);
-    color: var(--white);
+    background: #A376A2; /* بدل var(--brand) */
+    color: #fff; /* بدل var(--white) */
     text-align: center;
     padding: 2rem;
     margin-top: auto;
@@ -107,11 +101,11 @@ footer {
 
 footer p {
     margin: 0.5rem 0;
-    color: var(--white);
+    color: #fff; /* بدل var(--white) */
 }
 
 footer a {
-    color: var(--white);
+    color: #fff; /* بدل var(--white) */
     text-decoration: none;
     margin: 0 0.5rem;
 }
@@ -149,7 +143,7 @@ footer a:hover {
 }
 
 .breadcrumb a, .breadcrumbs a {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     text-decoration: none;
 }
 
@@ -157,30 +151,30 @@ footer a:hover {
 /* Headings */
 /* ===================================== */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
 }
 
 h1 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 1rem;
 }
 
 h2 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 1rem;
 }
 
 h3 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 0.5rem;
 }
 
 .section-title {
     font-size: 2.2em;
-    color: var(--accent-color);
+    color: #3C0048; /* بدل var(--accent-color) */
     margin-bottom: 25px;
     text-align: center;
-    border-bottom: 3px solid var(--accent-color);
+    border-bottom: 3px solid #3C0048; /* بدل var(--accent-color) */
     padding-bottom: 15px;
 }
 
@@ -190,14 +184,14 @@ h3 {
 .btn {
     display: inline-block;
     padding: 0.7rem 1.4rem;
-    background: linear-gradient(135deg, var(--brand), #C8A9C5);
-    color: var(--white);
+    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
+    color: #fff; /* بدل var(--white) */
     border: none;
     border-radius: 22px;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(163, 118, 162, 0.35);
-    transition: transform 0.15s ease;
+    /* transition: transform 0.15s ease; - غير مشروحة، تمت إزالته */
     text-decoration: none;
 }
 
@@ -208,7 +202,7 @@ h3 {
 .start-planning-btn {
     display: inline-block;
     background: white;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 25px;
@@ -225,7 +219,7 @@ h3 {
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
 }
 
 .card:hover {
@@ -249,7 +243,7 @@ form {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
     font-size: 1em;
 }
 
@@ -271,10 +265,10 @@ textarea {
     padding: 0.65rem 0.75rem;
     border: 1px solid #c9b0c6;
     border-radius: 8px;
-    background: var(--white);
+    background: #fff; /* بدل var(--white) */
     font-size: 0.95rem;
-    color: var(--text);
-    transition: border-color 0.3s ease;
+    color: #6B3F69; /* بدل var(--text) */
+    /* transition: border-color 0.3s ease; - غير مشروحة، تمت إزالته */
 }
 
 .form-group input:focus,
@@ -284,7 +278,7 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: var(--brand);
+    border-color: #A376A2; /* بدل var(--brand) */
 }
 
 textarea {
@@ -293,8 +287,8 @@ textarea {
 }
 
 .form-card {
-    background-color: var(--form);
-    border: 1px solid var(--brand);
+    background-color: #DDC3C3; /* بدل var(--form) */
+    border: 1px solid #A376A2; /* بدل var(--brand) */
     border-radius: 12px;
     padding: 1.25rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -302,18 +296,31 @@ textarea {
 
 .inline-form-group {
     display: flex;
-    gap: 20px;
+    /* gap: 20px; - غير مشروحة، تمت إزالته */
 }
 
 .inline-form-group > div {
     flex: 1;
+    margin-right: 20px; /* بديل لـ gap */
+}
+
+.inline-form-group > div:last-child {
+    margin-right: 0;
 }
 
 .form-actions {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    /* gap: 15px; - غير مشروحة، تمت إزالته */
     margin-top: 30px;
+}
+
+.form-actions > * {
+    margin-right: 15px; /* بديل لـ gap */
+}
+
+.form-actions > *:last-child {
+    margin-right: 0;
 }
 
 /* ===================================== */
@@ -331,7 +338,7 @@ table {
 
 th {
     background-color: #F5EFFF;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     font-weight: bold;
     text-align: left;
     padding: 0.85rem;
@@ -344,16 +351,16 @@ td {
     padding: 0.85rem;
     text-align: left;
     font-size: 0.95rem;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     background-color: #ffffff;
 }
 
 table td {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
 }
 
 td a {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     text-decoration: none;
 }
 
@@ -364,20 +371,22 @@ td a {
     text-align: left;
     margin-top: 2rem;
     margin-left: 1rem;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
 }
 
 .staff-desc {
     text-align: left;
     margin-top: 5rem;
     margin-left: 6rem;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
 }
 
 .staff-photo {
     width: 120px;
     height: 120px;
-    object-fit: cover;
+    /* object-fit: cover; - غير مشروحة، تمت إزالته */
+    max-width: 100%;
+    max-height: 120px; /* بديل لـ object-fit: cover */
     border-radius: 8px;
     border: 1px solid #CDC1FF;
     background: #fff;
@@ -422,14 +431,14 @@ td ul ul {
     position: fixed;
     right: 22px;
     bottom: 22px;
-    background: linear-gradient(135deg, var(--brand), #C8A9C5);
+    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
     color: #fff;
     padding: 10px 18px;
     border-radius: 22px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 6px 16px rgba(163, 118, 162, 0.35);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    /* transition: transform 0.15s ease, box-shadow 0.15s ease; - غير مشروحة، تمت إزالته */
 }
 
 .back-btn:hover {
@@ -484,8 +493,8 @@ td ul ul {
 }
 
 .card-purple.joinus {
-    background: var(--form);
-    border: 1px solid var(--brand);
+    background: #DDC3C3; /* بدل var(--form) */
+    border: 1px solid #A376A2; /* بدل var(--brand) */
     border-radius: 12px;
     padding: 1.25rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -496,16 +505,26 @@ td ul ul {
 }
 
 .join-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 0.85rem 1rem; - غير مشروحة، تمت إزالته */
     align-items: start;
+}
+
+.join-grid > * {
+    width: calc(50% - 0.5rem); /* بديل لـ grid-template-columns */
+    margin-right: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.join-grid > *:nth-child(2n) {
+    margin-right: 0;
 }
 
 .join-grid label {
     display: block;
     font-size: 0.9rem;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
     margin-bottom: 0.25rem;
 }
 
@@ -517,7 +536,7 @@ td ul ul {
     border-radius: 18px;
     background: #fff;
     font-size: 0.95rem;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
 }
 
 .join-grid textarea {
@@ -540,7 +559,7 @@ td ul ul {
 }
 
 .join-actions {
-    grid-column: 1/-1;
+    width: 100%; /* بديل لـ grid-column */
     display: flex;
     justify-content: center;
     margin-top: 0.25rem;
@@ -550,7 +569,7 @@ td ul ul {
 .team-h2 {
     text-align: center;
     margin: 1.25rem 0 0.5rem;
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
 }
 
 .team-carousel {
@@ -558,7 +577,7 @@ td ul ul {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    gap: 0;
+    /* gap: 0; - غير مشروحة، تمت إزالته */
 }
 
 .team-carousel .slide {
@@ -578,7 +597,7 @@ td ul ul {
     height: 120px;
     border-radius: 50%;
     background: #E5D9F2;
-    border: 3px solid var(--brand);
+    border: 3px solid #A376A2; /* بدل var(--brand) */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -589,12 +608,14 @@ td ul ul {
 .avatar .pic img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; - غير مشروحة، تمت إزالته */
+    max-width: 100%;
+    max-height: 100%; /* بديل لـ object-fit: cover */
     border-radius: 50%;
 }
 
 .avatar a {
-    color: var(--text);
+    color: #6B3F69; /* بدل var(--text) */
     text-decoration: underline;
     font-weight: 600;
 }
@@ -612,7 +633,7 @@ td ul ul {
 }
 
 .hero h1 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 1rem;
     font-size: 2.5rem;
 }
@@ -628,7 +649,7 @@ td ul ul {
 }
 
 .services-section h2 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -636,7 +657,7 @@ td ul ul {
 
 .services-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: center;
 }
 
@@ -648,7 +669,7 @@ td ul ul {
     padding: 1.5rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     position: relative;
     overflow: hidden;
 }
@@ -659,7 +680,7 @@ td ul ul {
 }
 
 .service-card h3 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 1rem;
 }
 
@@ -670,7 +691,7 @@ td ul ul {
     color: #555;
     opacity: 0;
     max-height: 0;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
 }
 
 .service-card:hover .service-info {
@@ -684,7 +705,7 @@ td ul ul {
 }
 
 .reviews-section h2 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -692,7 +713,7 @@ td ul ul {
 
 .review-row {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-bottom: 2rem;
 }
 
@@ -704,7 +725,7 @@ td ul ul {
     border-radius: 12px;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     width: 48%;
     margin: 1%;
 }
@@ -772,25 +793,33 @@ td ul ul {
     padding: 0.5rem 1rem;
     border: 1px solid #CDC1FF;
     background-color: #F5EFFF;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     font-size: 0.8rem;
 }
 
 .review-actions button:hover {
-    background-color: var(--brand);
+    background-color: #A376A2; /* بدل var(--brand) */
     color: white;
-    border-color: var(--brand);
+    border-color: #A376A2; /* بدل var(--brand) */
 }
 
 .review-feedback {
     display: flex;
-    gap: 15px;
+    /* gap: 15px; - غير مشروحة، تمت إزالته */
     margin-top: 8px;
     font-size: 14px;
     color: #666;
+}
+
+.review-feedback > * {
+    margin-right: 15px; /* بديل لـ gap */
+}
+
+.review-feedback > *:last-child {
+    margin-right: 0;
 }
 
 /* Partners Section */
@@ -799,7 +828,7 @@ td ul ul {
 }
 
 .partners-section h2 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -807,7 +836,7 @@ td ul ul {
 
 .partners-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: center;
 }
 
@@ -818,7 +847,7 @@ td ul ul {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
 }
 
 .partner-category:hover {
@@ -827,7 +856,7 @@ td ul ul {
 }
 
 .partner-category h3 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 1rem;
     text-align: center;
     border-bottom: 1px dashed #CDC1FF;
@@ -861,7 +890,7 @@ td ul ul {
 
 .partners-grid {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: space-between;
 }
 
@@ -872,7 +901,7 @@ td ul ul {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     display: flex;
     flex-direction: column;
 }
@@ -906,14 +935,14 @@ td ul ul {
 
 .partner-price {
     font-weight: bold;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
 }
 
 /* ===================================== */
 /* Customer Dashboard */
 /* ===================================== */
 .welcome-section {
-    background: linear-gradient(135deg, var(--brand), #C8A9C5);
+    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
     color: white;
     padding: 30px;
     border-radius: 10px;
@@ -933,7 +962,15 @@ td ul ul {
 
 .dashboard-layout {
     display: flex;
-    gap: 30px;
+    /* gap: 30px; - غير مشروحة، تمت إزالته */
+}
+
+.dashboard-layout > * {
+    margin-right: 30px; /* بديل لـ gap */
+}
+
+.dashboard-layout > *:last-child {
+    margin-right: 0;
 }
 
 .booking-item {
@@ -941,7 +978,7 @@ td ul ul {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--brand);
+    border-left: 4px solid #A376A2; /* بدل var(--brand) */
 }
 
 .booking-header {
@@ -986,7 +1023,7 @@ td ul ul {
 }
 
 .booking-cost {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     font-weight: bold;
     font-size: 16px;
 }
@@ -1040,7 +1077,7 @@ td ul ul {
 }
 
 .evaluate-btn {
-    background: var(--brand);
+    background: #A376A2; /* بدل var(--brand) */
     color: white;
     padding: 12px 25px;
     text-decoration: none;
@@ -1059,7 +1096,15 @@ td ul ul {
 /* ===================================== */
 .evaluation-layout {
     display: flex;
-    gap: 30px;
+    /* gap: 30px; - غير مشروحة، تمت إزالته */
+}
+
+.evaluation-layout > * {
+    margin-right: 30px; /* بديل لـ gap */
+}
+
+.evaluation-layout > *:last-child {
+    margin-right: 0;
 }
 
 .services-list {
@@ -1071,7 +1116,7 @@ td ul ul {
 }
 
 .services-list h3 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 15px;
     text-align: center;
 }
@@ -1081,14 +1126,14 @@ td ul ul {
     padding: 15px;
     border-radius: 6px;
     margin-bottom: 10px;
-    border-left: 4px solid var(--brand);
+    border-left: 4px solid #A376A2; /* بدل var(--brand) */
 }
 
 .service-name {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 5px;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
 }
 
 .service-date {
@@ -1097,7 +1142,7 @@ td ul ul {
 }
 
 .service-cost {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     font-weight: bold;
     margin-top: 5px;
 }
@@ -1110,7 +1155,7 @@ td ul ul {
 }
 
 .review-form-section h2 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -1118,18 +1163,34 @@ td ul ul {
 .rating-options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; - غير مشروحة، تمت إزالته */
     margin: 15px 0;
+}
+
+.rating-options > * {
+    margin-bottom: 10px; /* بديل لـ gap */
+}
+
+.rating-options > *:last-child {
+    margin-bottom: 0;
 }
 
 .rating-option {
     display: flex;
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; - غير مشروحة، تمت إزالته */
     padding: 10px;
     background: #E5D9F2;
     border-radius: 6px;
     border: 2px solid transparent;
+}
+
+.rating-option > * {
+    margin-right: 10px; /* بديل لـ gap */
+}
+
+.rating-option > *:last-child {
+    margin-right: 0;
 }
 
 .rating-option input[type="radio"] {
@@ -1138,7 +1199,7 @@ td ul ul {
 }
 
 .rating-option:hover {
-    border-color: var(--brand);
+    border-color: #A376A2; /* بدل var(--brand) */
 }
 
 .rating-label {
@@ -1152,7 +1213,7 @@ td ul ul {
 }
 
 .submit-btn {
-    background: var(--brand);
+    background: #A376A2; /* بدل var(--brand) */
     color: white;
     padding: 15px 30px;
     border: none;
@@ -1181,7 +1242,7 @@ td ul ul {
 }
 
 .services-header h1 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 0.5rem;
     font-size: 2.5rem;
 }
@@ -1194,7 +1255,7 @@ td ul ul {
 .services-content {
     display: flex;
     flex-direction: row-reverse;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
 }
 
 .main-services {
@@ -1234,7 +1295,7 @@ td ul ul {
 
 .sort-options select:focus {
     outline: none;
-    border-color: var(--brand);
+    border-color: #A376A2; /* بدل var(--brand) */
     box-shadow: 0 0 5px rgba(163, 118, 162, 0.5);
 }
 
@@ -1247,7 +1308,7 @@ td ul ul {
 
 .service-items {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-top: 1.5rem;
     justify-content: space-between;
 }
@@ -1271,7 +1332,7 @@ td ul ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
 }
 
 /* ===================================== */
@@ -1294,7 +1355,7 @@ td ul ul {
 }
 
 .header-left h2 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin-bottom: 0.5rem;
 }
 
@@ -1303,16 +1364,33 @@ td ul ul {
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 22px;
+    display: flex;
+    /* grid-template-columns: 1fr 360px; - غير مشروحة، تمت إزالته */
+    /* gap: 22px; - غير مشروحة، تمت إزالته */
     align-items: start;
+}
+
+.content > .left {
+    width: calc(100% - 382px); /* بديل لـ grid-template-columns */
+    margin-right: 22px; /* بديل لـ gap */
+}
+
+.content > .sidebar {
+    width: 360px;
 }
 
 .left {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    /* gap: 18px; - غير مشروحة، تمت إزالته */
+}
+
+.left > * {
+    margin-bottom: 18px; /* بديل لـ gap */
+}
+
+.left > *:last-child {
+    margin-bottom: 0;
 }
 
 .card h3 {
@@ -1326,9 +1404,18 @@ td ul ul {
 
 .options-grid {
     display: flex;
-    gap: 12px;
+    /* gap: 12px; - غير مشروحة، تمت إزالته */
     flex-wrap: wrap;
     margin-bottom: 15px;
+}
+
+.options-grid > * {
+    margin-right: 12px; /* بديل لـ gap */
+    margin-bottom: 12px;
+}
+
+.options-grid > *:nth-child(3n) {
+    margin-right: 0;
 }
 
 .option {
@@ -1345,7 +1432,9 @@ td ul ul {
 .option img.placeholder {
     width: 100%;
     height: 80px;
-    object-fit: cover;
+    /* object-fit: cover; - غير مشروحة، تمت إزالته */
+    max-width: 100%;
+    max-height: 80px; /* بديل لـ object-fit: cover */
     border-radius: 6px;
     background: linear-gradient(90deg, #EEE, #DDD);
     margin-bottom: 8px;
@@ -1405,7 +1494,7 @@ td ul ul {
 }
 
 .send-btn {
-    background: var(--brand);
+    background: #A376A2; /* بدل var(--brand) */
     color: white;
     padding: 12px 18px;
     border: none;
@@ -1462,7 +1551,7 @@ td ul ul {
 .provider-quick-actions {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-bottom: 20px; 
 }
 
@@ -1471,8 +1560,8 @@ td ul ul {
     padding: 12px 24px;
     margin: 8px; 
     background-color: white;
-    border: 2px solid var(--brand);
-    color: var(--brand);
+    border: 2px solid #A376A2; /* بدل var(--brand) */
+    color: #A376A2; /* بدل var(--brand) */
     border-radius: 20px;
     text-decoration: none;
     font-weight: 600;
@@ -1481,7 +1570,7 @@ td ul ul {
 
 .quick-action-btn:hover,
 .quick-action-btn.active {
-    background-color: var(--brand);
+    background-color: #A376A2; /* بدل var(--brand) */
     color: white;
 }
 
@@ -1514,7 +1603,7 @@ td ul ul {
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-thumb {
-    background-color: var(--brand); 
+    background-color: #A376A2; /* بدل var(--brand) */
     border: 1px solid #ccc;         
 }
 
@@ -1531,12 +1620,12 @@ td ul ul {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eee; /* بدل var(--border-color) */
 }
 
 .services-horizontal-scroll .service-card:hover {
     background-color: #f5f5fc; 
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .services-horizontal-scroll .service-card:hover {
@@ -1548,7 +1637,7 @@ td ul ul {
     width: 100%;
     height: 180px;
     display: block;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #eee; /* بدل var(--border-color) */
     
     /* بدل object-fit: cover استخدمنا background-image */
     background-image: url("images/sample.jpg");
@@ -1564,10 +1653,10 @@ td ul ul {
 }
 
 .service-info h3 {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     margin: 0 0 12px 0;
     font-size: 1.2em;
-    border-bottom: 2px solid var(--brand);
+    border-bottom: 2px solid #A376A2; /* بدل var(--brand) */
     padding-bottom: 8px;
 }
 
@@ -1617,8 +1706,8 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: var(--light-gray);
-    border-top: 1px solid var(--border-color);
+    background-color: #f9f9f9; /* بدل var(--light-gray) */
+    border-top: 1px solid #eee; /* بدل var(--border-color) */
 }
 
 .edit-pause-group {
@@ -1643,18 +1732,18 @@ td ul ul {
 }
 
 .action-btn:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: #fff;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .action-btn.edit-btn {
-    color: var(--edit-pause-color);
-    border-color: var(--edit-pause-color);
+    color: #BFB5BE; /* بدل var(--edit-pause-color) */
+    border-color: #BFB5BE; /* بدل var(--edit-pause-color) */
 }
 
 .action-btn.edit-btn:hover {
-    background-color: var(--edit-pause-color);
+    background-color: #BFB5BE; /* بدل var(--edit-pause-color) */
     color: white;
 }
 
@@ -1679,12 +1768,12 @@ td ul ul {
 }
 
 .action-btn.delete-btn-action {
-    color: var(--delete-color);
-    border-color: var(--delete-color);
+    color: #EF5473; /* بدل var(--delete-color) */
+    border-color: #EF5473; /* بدل var(--delete-color) */
 }
 
 .action-btn.delete-btn-action:hover {
-    background-color: var(--delete-color);
+    background-color: #EF5473; /* بدل var(--delete-color) */
     color: white;
 }
 
@@ -1694,9 +1783,9 @@ td ul ul {
     padding: 20px;
     background-color: #F5EFFF;
     border-radius: 10px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: center;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eee; /* بدل var(--border-color) */
 }
 
 .service-filters button {
@@ -1710,34 +1799,33 @@ td ul ul {
 
 .filter-button {
     padding: 12px 24px;
-    border: 2px solid var(--brand);
+    border: 2px solid #A376A2; /* بدل var(--brand) */
     border-radius: 25px;
     background-color: white;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     font-size: 0.95em;
     font-weight: 600;
 }
 
 .filter-button:hover {
-    background-color: var(--brand);
+    background-color: #A376A2; /* بدل var(--brand) */
     color: white;
-    border-color: var(--brand);
+    border-color: #A376A2; /* بدل var(--brand) */
 }
 
 .filter-button.active-filter,
 .filter-button:hover {
-    background-color: var(--brand);
+    background-color: #A376A2; /* بدل var(--brand) */
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(163, 118, 162, 0.3);
 }
 
-
 /* ===================================== */
 /* Planning Hub Styles */
 /* ===================================== */
 .planning-hub-header {
-    background-color: var(--planning-hub-bg);
+    background-color: #3C0048; /* بدل var(--planning-hub-bg) */
     color: white;
     text-align: center;
     padding: 12px 0;
@@ -1752,10 +1840,10 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     padding: 12px 40px;
-    box-shadow: 0 2px 10px var(--shadow-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
     margin-bottom: 20px;
     max-width: 100%;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     position: relative;
 }
 
@@ -1775,21 +1863,23 @@ td ul ul {
 .logo-area img {
     height: 45px;
     width: auto;
-    object-fit: contain;
+    /* object-fit: contain; - غير مشروحة، تمت إزالته */
+    max-width: 100%;
+    max-height: 45px; /* بديل لـ object-fit: contain */
 }
 
 .user-profile-icon {
     display: flex;
     align-items: center;
     font-size: 0.9em;
-    color: var(--accent-color);
+    color: #3C0048; /* بدل var(--accent-color) */
     flex-shrink: 0;
     font-weight: bold;
     white-space: nowrap;
     padding: 8px 16px;
     background-color: white;
     border-radius: 6px;
-    border: 1px solid var(--accent-color);
+    border: 1px solid #3C0048; /* بدل var(--accent-color) */
 }
 
 .user-profile-icon::before {
@@ -1824,7 +1914,7 @@ td ul ul {
     margin-bottom: 10px;
     background-color: #fff;
     border: 2px solid #ddd;
-    color: var(--text-color);
+    color: #6B3F69; /* بدل var(--text-color) */
     text-align: left;
     border-radius: 8px;
     font-weight: 600;
@@ -1832,23 +1922,23 @@ td ul ul {
 }
 
 .sidebar-button:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .sidebar-button:hover {
-    outline: 2px solid var(--accent-color);
-    background-color: var(--accent-color);
+    outline: 2px solid #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: #fff;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .sidebar-button.active-side,
 .sidebar-button:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
     margin-left: 5px; 
 }
 
@@ -1857,7 +1947,7 @@ td ul ul {
     justify-content: flex-start;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 2px solid var(--light-gray);
+    border-top: 2px solid #f9f9f9; /* بدل var(--light-gray) */
 }
 
 .page-bottom-actions .back-btn {
@@ -1886,8 +1976,8 @@ td ul ul {
     display: flex;
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 2px solid var(--accent-color);
-    flex-wrap: wrap;
+    border-bottom: 2px solid #3C0048; /* بدل var(--accent-color) */
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     background-color: #F3E9F7;
     padding: 20px;
     border-radius: 10px;
@@ -1905,31 +1995,31 @@ td ul ul {
 
 .filter-button {
     padding: 12px 24px;
-    border: 2px solid var(--accent-color);
+    border: 2px solid #3C0048; /* بدل var(--accent-color) */
     border-radius: 25px;
     background-color: white;
-    color: var(--accent-color);
+    color: #3C0048; /* بدل var(--accent-color) */
     font-size: 0.95em;
     font-weight: 600;
 }
 
 .filter-button:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .filter-button:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
+    border-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
 }
 
 .filter-button.active-filter,
 .filter-button:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
-    border: 2px solid var(--accent-color);
+    border: 2px solid #3C0048; /* بدل var(--accent-color) */
 }
 
 .services-scroll-container {
@@ -1948,7 +2038,7 @@ td ul ul {
 }
 
 .services-scroll-container::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
+    background: #3C0048; /* بدل var(--accent-color) */
     border-radius: 4px;
 }
 
@@ -1968,16 +2058,16 @@ td ul ul {
 
 .service-grid .service-card {
     flex: 0 0 320px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eee; /* بدل var(--border-color) */
     border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
     overflow: hidden;
     background-color: white;
 }
 
 .service-grid .service-card:hover {
     background-color: #f5f5f5; 
-    box-shadow: 0 6px 20px var(--shadow-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
 }
 
 .service-image {
@@ -1985,7 +2075,7 @@ td ul ul {
     width: 100%;
     background-size: cover; 
     background-position: center;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #eee; /* بدل var(--border-color) */
 }
 
 .service-info {
@@ -1995,8 +2085,8 @@ td ul ul {
 .service-info h3 {
     margin: 0 0 10px 0;
     font-size: 1.2em;
-    color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-color);
+    color: #3C0048; /* بدل var(--accent-color) */
+    border-bottom: 2px solid #3C0048; /* بدل var(--accent-color) */
     padding-bottom: 8px;
 }
 
@@ -2043,8 +2133,8 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: var(--light-gray);
-    border-top: 1px solid var(--border-color);
+    background-color: #f9f9f9; /* بدل var(--light-gray) */
+    border-top: 1px solid #eee; /* بدل var(--border-color) */
 }
 
 .edit-pause-group {
@@ -2076,13 +2166,13 @@ td ul ul {
 .edit-btn,
 .pause-btn {
     background-color: #fff;
-    color: var(--edit-pause-color);
-    border-color: var(--edit-pause-color);
+    color: #BFB5BE; /* بدل var(--edit-pause-color) */
+    border-color: #BFB5BE; /* بدل var(--edit-pause-color) */
 }
 
 .edit-btn:hover,
 .pause-btn:hover {
-    background-color: var(--edit-pause-color);
+    background-color: #BFB5BE; /* بدل var(--edit-pause-color) */
     color: white;
 }
 
@@ -2098,12 +2188,12 @@ td ul ul {
 
 .delete-btn-action {
     background-color: #fff;
-    color: var(--delete-color);
-    border-color: var(--delete-color);
+    color: #EF5473; /* بدل var(--delete-color) */
+    border-color: #EF5473; /* بدل var(--delete-color) */
 }
 
 .delete-btn-action:hover {
-    background-color: var(--delete-color);
+    background-color: #EF5473; /* بدل var(--delete-color) */
     color: white;
 }
 
@@ -2114,19 +2204,19 @@ td ul ul {
     height: 120px;
     border: 2px dashed #ccc;
     border-radius: 8px;
-    background-color: var(--light-gray);
+    background-color: #f9f9f9; /* بدل var(--light-gray) */
     color: #666;
     font-weight: 600;
 }
 
 .service-photo-container:hover {
     background-color: #e6e6e6;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .service-photo-container:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
+    color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .availability-section {
@@ -2135,7 +2225,7 @@ td ul ul {
 
 .week-days-grid {
     display: flex;
-    flex-wrap: wrap; 
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
 }
 
 .week-days-grid .day-option {
@@ -2150,7 +2240,7 @@ td ul ul {
     margin-right: 0;
 }.week-days-grid {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-top: 15px;
 }
 
@@ -2183,19 +2273,19 @@ td ul ul {
 }
 
 .day-label:hover {
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
     background-color: #f5e9ff; 
 }
 
 .day-label:hover {
-    border-color: var(--accent-color);
-    background-color: var(--light-gray);
+    border-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #f9f9f9; /* بدل var(--light-gray) */
 }
 
 .day-option input[type="radio"]:checked + .day-label {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
-    border-color: var(--accent-color);
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .create-btn,
@@ -2211,13 +2301,13 @@ td ul ul {
 .create-btn:hover,
 .cancel-btn:hover,
 .add-member-btn:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
 }
 
 .create-btn,
 .add-member-btn {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
 }
 
@@ -2258,10 +2348,10 @@ td ul ul {
 
 .available-members-section {
     padding: 25px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eee; /* بدل var(--border-color) */
     border-radius: 12px;
     background-color: white;
-    box-shadow: 0 4px 15px var(--shadow-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
 }
 
 .team-actions {
@@ -2281,20 +2371,20 @@ td ul ul {
 .team-actions .action-btn {
     padding: 10px 20px;
     background-color: white;
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color);
+    border: 2px solid #3C0048; /* بدل var(--accent-color) */
+    color: #3C0048; /* بدل var(--accent-color) */
     border-radius: 8px;
     font-weight: 600;
 }
 
 .team-actions .action-btn:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .team-actions .action-btn:hover {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
     color: white;
 }
 
@@ -2309,15 +2399,15 @@ td ul ul {
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #eee; /* بدل var(--border-color) */
 }
 
 .member-item:hover {
-    background-color: var(--light-gray);
+    background-color: #f9f9f9; /* بدل var(--light-gray) */
 }
 
 .member-item:hover {
-    background-color: var(--light-gray);
+    background-color: #f9f9f9; /* بدل var(--light-gray) */
     border-radius: 8px;
     padding: 15px;
     margin: 0 -10px;
@@ -2340,7 +2430,7 @@ td ul ul {
 .member-avatar {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--accent-color), #6a0080);
+    background: linear-gradient(135deg, #3C0048, #6a0080); /* بدل var(--accent-color) */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -2359,7 +2449,7 @@ td ul ul {
 
 .member-details .role {
     font-weight: bold;
-    color: var(--text-color);
+    color: #6B3F69; /* بدل var(--text-color) */
     font-size: 1em;
     margin-bottom: 4px;
 }
@@ -2391,18 +2481,18 @@ td ul ul {
     display: inline-block;
     width: 22px;
     height: 22px;
-    border: 2px solid var(--accent-color);
+    border: 2px solid #3C0048; /* بدل var(--accent-color) */
     border-radius: 4px;
     position: relative;
 }
 
 .custom-checkbox:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
+    border-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .delete-checkbox:checked + .custom-checkbox {
-    background-color: var(--accent-color);
+    background-color: #3C0048; /* بدل var(--accent-color) */
 }
 
 .delete-checkbox:checked + .custom-checkbox::after {
@@ -2421,7 +2511,7 @@ td ul ul {
     justify-content: flex-start;
     margin-top: 25px;
     padding-top: 20px;
-    border-top: 2px solid var(--light-gray);
+    border-top: 2px solid #f9f9f9; /* بدل var(--light-gray) */
 }
 
 .delete-member-action > * {
@@ -2461,7 +2551,7 @@ td ul ul {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     padding: 0 40px;
 }
 
@@ -2517,7 +2607,7 @@ td ul ul {
 /* ===================================== */
 .contact-grid {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: space-between;
     margin: 2rem 0; 
 }
@@ -2605,7 +2695,7 @@ td ul ul {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--brand), #C8A9C5);
+    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
     color: #fff;
     font-weight: 700;
     text-decoration: none;
@@ -2613,7 +2703,7 @@ td ul ul {
 }
 
 .social-btn:hover {
-    background: var(--brand);
+    background: #A376A2; /* بدل var(--brand) */
     text-decoration: underline;
 }
 
@@ -2623,7 +2713,7 @@ td ul ul {
 }
 
 .info-heading {
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     font-weight: bold;
     margin: 1.5rem 0 0.5rem;
 }
@@ -2660,7 +2750,7 @@ td ul ul {
 
     .week-days-grid {
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
         justify-content: space-between;
     }
 
@@ -2687,7 +2777,7 @@ td ul ul {
   .content {
     display: flex;              
     flex-direction: column;     
-    flex-wrap: nowrap;          
+    /* flex-wrap: nowrap; - غير مشروحة، تمت إزالته */          
   }
 }
 
@@ -2699,7 +2789,7 @@ td ul ul {
    .contact-grid {
     display: flex;              
     flex-direction: column;     
-    flex-wrap: nowrap;          
+    /* flex-wrap: nowrap; - غير مشروحة، تمت إزالته */          
     align-items: stretch;       
 }
 
@@ -2744,7 +2834,7 @@ td ul ul {
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; - غير مشروحة، تمت إزالته */
         margin-top: 30px;
         text-align: center;
     }
@@ -2776,7 +2866,7 @@ td ul ul {
 /* Partners Grid (using flex instead of grid + margins for spacing) */
 .partners-grid {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -2791,16 +2881,16 @@ td ul ul {
 
 .partner-category:hover {
     background-color: #f8f8ff; 
-    border: 1px solid var(--brand);
+    border: 1px solid #A376A2; /* بدل var(--brand) */
 }
 
 .partner-category h3 {
     text-align: left;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--brand);
+    border-bottom: 2px solid #A376A2; /* بدل var(--brand) */
     font-size: 1.5em;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
 }
 
 /* Partner Card (transition uses only allowed properties) */
@@ -2818,7 +2908,7 @@ td ul ul {
 
 .partner-card:hover {
     background-color: #f8f8ff; 
-    border: 1px solid var(--brand);
+    border: 1px solid #A376A2; /* بدل var(--brand) */
 }
 
 /* Partner Header */
@@ -2827,13 +2917,13 @@ td ul ul {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 15px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
   }
 
 .partner-name {
     font-weight: bold;
     font-size: 1.1em;
-    color: var(--brand);
+    color: #A376A2; /* بدل var(--brand) */
     flex: 1;
     min-width: 200px;
 }
@@ -2859,7 +2949,7 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     font-size: 0.9em;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
 }
 .partner-contact .pc-item {
     margin: 0 10px 10px 0;
@@ -2874,5 +2964,5 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     font-size: 0.9em;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
 }
