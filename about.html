@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
@@ -25,112 +24,108 @@
         </ul>
     </nav>
 
-  <main class="container">
-    <div class="breadcrumb">Home &raquo; <a href="about.html">About Us</a></div>
-    <h1 class="about-h1">About Us</h1>
+ <main class="container">
+  <div class="breadcrumb">Home &raquo; <a href="about.html">About Us</a></div>
+  <h1 class="about-h1">About Us</h1>
 
-    <section class="about-rows">
-      <!-- Mission (kept white text) -->
-      <section class="mission-section">
-        <div class="mission-overlay">
-          <h2>Our Mission</h2>
-          <p>
-            We pledge to achieve success through professional organization
-            and advanced logistics services.
-          </p>
-          <p>
-            Our main mission is to raise the level of our performance in managing events to reach
-            levels no one else has reached. We strive to achieve excellence in all aspects of event
-            management and organization.
-          </p>
-        </div>
-      </section>
-
-      <!-- Join Us (form card) -->
-      <div class="card-purple joinus">
-        <h3>Join Us!</h3>
-        <form action="#" method="post" class="join-grid" enctype="multipart/form-data">
-          <div>
-            <label for="jn">Add your name</label>
-            <input id="jn" name="name" type="text" required />
-          </div>
-          <div>
-            <label for="skills">Skills</label>
-            <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" />
-          </div>
-          <div>
-            <label for="dob">DoB</label>
-            <input id="dob" name="dob" type="date" />
-          </div>
-          <div>
-            <label for="jemail">Email</label>
-            <input id="jemail" name="email" type="email" required />
-          </div>
-          <div>
-            <label for="pass">Password</label>
-            <input id="pass" name="password" type="password" required />
-          </div>
-          <div>
-            <label for="cpass">Confirm the Password</label>
-            <input id="cpass" name="confirm_password" type="password" required />
-          </div>
-          <div>
-            <label for="edu">Education</label>
-            <input id="edu" name="education" type="text" />
-          </div>
-          <div>
-            <label for="reemail">Add your Email</label>
-            <input id="reemail" name="email2" type="email" />
-          </div>
-          <div>
-            <label for="area">Area of Expertise</label>
-            <input id="area" name="area" type="text" />
-          </div>
-          <div>
-            <label>Add Photo</label>
-            <div class="photo-pad">Upload</div>
-          </div>
-          <div style="grid-column:1 / -1;">
-            <label for="msg">Message</label>
-            <textarea id="msg" name="message" rows="3"></textarea>
-          </div>
-          <div class="join-actions">
-            <button class="btn" type="submit">Submit</button>
-          </div>
-        </form>
+  <div class="about-rows">
+    <section class="mission-section">
+      <div class="mission-overlay">
+        <h2>Our Mission</h2>
+        <p>
+          We pledge to achieve success through professional organization
+          and advanced logistics services.
+        </p>
+        <p>
+          Our main mission is to raise the level of our performance in managing events to reach
+          levels no one else has reached. We strive to achieve excellence in all aspects of event
+          management and organization.
+        </p>
       </div>
     </section>
+  </div>
 
-    <h3 class="team-h2">Meet Our Team</h3>
-    <div class="team-carousel" aria-label="Meet Our Team">
-      <div class="slide">
-        <div class="avatar">
-          <div class="pic"><img src="images/girl.png" alt="Farah Al-Hamed"></div>
-          <a href="profile.html">Farah Al-Hamed</a>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="avatar">
-          <div class="pic"><img src="images/girl.png" alt="Noura Al-Tuwiam"></div>
-          <a href="noraprofile.html">Noura Al-Tuwiam</a>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="avatar">
-          <div class="pic"><img src="images/girl.png" alt="Juri Al-Zahem"></div>
-          <a href="juriprofile.html">Juri Al-Zahem</a>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="avatar">
-          <div class="pic"><img src="images/girl.png" alt="Sadeem Al-Sultan"></div>
-          <a href="sadeemprofile.html">Sadeem Al-Sultan</a>
-        </div>
+  <h3 class="team-h2">Meet Our Team</h3>
+  <div class="team-carousel" >
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Farah Al-Hamed"></div>
+        <a href="profile.html">Farah Al-Hamed</a>
       </div>
     </div>
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Noura Al-Tuwiam"></div>
+        <a href="noraprofile.html">Noura Al-Tuwiam</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Juri Al-Zahem"></div>
+        <a href="juriprofile.html">Juri Al-Zahem</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="avatar">
+        <div class="pic"><img src="images/girl.png" alt="Sadeem Al-Sultan"></div>
+        <a href="sadeemprofile.html">Sadeem Al-Sultan</a>
+      </div>
+    </div>
+  </div>
+
+  <section aria-label="Join Us">
+    <div class="card-purple joinus">
+      <h3>Join Us!</h3>
+      <form action="#" method="post" class="join-grid" enctype="multipart/form-data">
+        <div>
+          <label for="jn">Add your name</label>
+          <input id="jn" name="name" type="text" required >
+        </div>
+        <div>
+          <label for="skills">Skills</label>
+          <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" >
+        </div>
+        <div>
+          <label for="dob">DoB</label>
+          <input id="dob" name="dob" type="date" >
+        </div>
+        <div>
+          <label for="jemail">Email</label>
+          <input id="jemail" name="email" type="email" required >
+        </div>
+        <div>
+          <label for="pass">Password</label>
+          <input id="pass" name="password" type="password" required >
+        </div>
+        <div>
+          <label for="cpass">Confirm the Password</label>
+          <input id="cpass" name="confirm_password" type="password" required >
+        </div>
+        <div>
+          <label for="edu">Education</label>
+          <input id="edu" name="education" type="text" >
+        </div>
+        
+        <div>
+          <label for="area">Area of Expertise</label>
+          <input id="area" name="area" type="text" >
+        </div>
+        <div>
+          <label>Add Photo</label>
+          <div class="photo-pad">Upload</div>
+        </div>
+        <div style="grid-column:1 / -1;">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="3"></textarea>
+        </div>
+        <div class="join-actions">
+          <button class="btn" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
   </main>
 
-  <!-- FOOTER (white text kept) -->
  <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>

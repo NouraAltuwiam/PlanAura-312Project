@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
@@ -28,23 +27,21 @@
         <div class="breadcrumbs">
     <a href="index.html">Home</a> &raquo; <a href="about.html">About Us</a> &raquo; Staff Profile
         </div>
-  <!-- Page intro (left side) -->
   <header>
     <h1 class="staff">Staff</h1>
     <p class="staff-desc">Here are some information about this staff member:</p>
   </header>
 
   <main class="container">
-    <section class="section">
-      <table border="6">
+    <div class="section">
+      <table style="border: 6px solid; border-collapse: collapse;">
         <thead>
           <tr>
             <th>Name</th>
             <th>Photo</th>
             <th>DoB</th>
             <th>Email</th>
-            <!-- Split Area of Expertise across 3 cells -->
-            <th >Area of<br>Expertise</th>
+            <th>Area of<br>Expertise</th>
             <th>Skills</th>
             <th>Education</th>
           </tr>
@@ -63,10 +60,7 @@
             <td rowspan="3">2005/05/22</td>
             <td rowspan="3"><a href="mailto:farah_1426@icloud.com">Sadeem_1426@icloud.com</a></td>
 
-
             <td>Web Development</td>
-            
-        
 
             <td rowspan="1">
               <ul class="skills-list">
@@ -77,7 +71,7 @@
                   </ul>
                 </li>
               </ul>
-            </td rowspan="3">
+            </td> 
 
             <td rowspan="3">
               <ul class="edu-list">
@@ -98,30 +92,31 @@
           </tr>
 
           <tr>
-          <td>Project Coordination</td>
-          <td rowspan="2">
-          <ul><li >Design
+            <td>Project Coordination</td>
+            <td rowspan="2">
+              <ul>
+                <li>Design
                   <ul>
                     <li>Figma &amp; Prototyping</li>
                     <li>Accessibility Basics</li>
                   </ul>
                 </li>
-                </ul>
-                </td>
+              </ul>
+            </td>
           </tr>
 
           <tr>
-          <td>UI / UX</td>
+            <td>UI / UX</td>
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
   </main>
 
-  <!-- Back Button -->
   <a class="back-btn" href="about.html">Back</a>
 
-  <!-- Footer -->
+  </div>
+
   <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
