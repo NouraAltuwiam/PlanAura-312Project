@@ -9,13 +9,12 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; - غير مشروحة، تمت إزالته */
     font-family: Arial, sans-serif;
 }
 
 body {
     background-color: #f0f0f0;
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
@@ -24,14 +23,14 @@ body {
 
 a {
     text-decoration: none;
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
 }
 
 /* ===================================== */
 /* NAVIGATION BAR - موحد لكل الصفحات */
 /* ===================================== */
 .navbar {
-    background: #A376A2; /* بدل var(--brand) */
+    background: #A376A2;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -41,34 +40,30 @@ a {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff; /* بدل var(--white) */
+    color: #fff;
     display: flex;
     align-items: center;
-    /* gap: 0.5rem; - غير مشروحة، تمت إزالته */
 }
 
 .logo > *:not(:last-child) {
-    margin-right: 0.5rem; /* بديل لـ gap */
+    margin-right: 0.5rem;
 }
 
 .logo-img {
     height: 120px;
     width: auto;
-    /* object-fit: contain; - غير مشروحة، تمت إزالته */
     max-width: 100%;
-    max-height: 120px; /* بديل لـ object-fit: contain */
-    /* size: 90px; - غير مشروحة، تمت إزالته */
+    max-height: 120px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    /* gap: 2rem; - غير مشروحة، تمت إزالته */
 }
 
 .nav-links li {
     margin: 0;
-    margin-right: 2rem; /* بديل لـ gap */
+    margin-right: 2rem;
 }
 
 .nav-links li:last-child {
@@ -76,11 +71,10 @@ a {
 }
 
 .nav-links a {
-    color: #fff; /* بدل var(--white) */
+    color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    /* transition: background-color 0.2s; - غير مشروحة، تمت إزالته */
 }
 
 .nav-links a:hover,
@@ -92,8 +86,8 @@ a {
 /* FOOTER - موحد لكل الصفحات */
 /* ===================================== */
 footer {
-    background: #A376A2; /* بدل var(--brand) */
-    color: #fff; /* بدل var(--white) */
+    background: #A376A2;
+    color: #fff;
     text-align: center;
     padding: 2rem;
     margin-top: auto;
@@ -101,11 +95,11 @@ footer {
 
 footer p {
     margin: 0.5rem 0;
-    color: #fff; /* بدل var(--white) */
+    color: #fff;
 }
 
 footer a {
-    color: #fff; /* بدل var(--white) */
+    color: #fff;
     text-decoration: none;
     margin: 0 0.5rem;
 }
@@ -143,7 +137,7 @@ footer a:hover {
 }
 
 .breadcrumb a, .breadcrumbs a {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     text-decoration: none;
 }
 
@@ -151,30 +145,30 @@ footer a:hover {
 /* Headings */
 /* ===================================== */
 h1, h2, h3, h4, h5, h6 {
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
 }
 
 h1 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 1rem;
 }
 
 h2 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 1rem;
 }
 
 h3 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 0.5rem;
 }
 
 .section-title {
     font-size: 2.2em;
-    color: #3C0048; /* بدل var(--accent-color) */
+    color: #3C0048;
     margin-bottom: 25px;
     text-align: center;
-    border-bottom: 3px solid #3C0048; /* بدل var(--accent-color) */
+    border-bottom: 3px solid #3C0048;
     padding-bottom: 15px;
 }
 
@@ -184,14 +178,13 @@ h3 {
 .btn {
     display: inline-block;
     padding: 0.7rem 1.4rem;
-    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
-    color: #fff; /* بدل var(--white) */
+    background: linear-gradient(135deg, #A376A2, #C8A9C5);
+    color: #fff;
     border: none;
     border-radius: 22px;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(163, 118, 162, 0.35);
-    /* transition: transform 0.15s ease; - غير مشروحة، تمت إزالته */
     text-decoration: none;
 }
 
@@ -202,7 +195,7 @@ h3 {
 .start-planning-btn {
     display: inline-block;
     background: white;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 25px;
@@ -219,7 +212,6 @@ h3 {
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
 }
 
 .card:hover {
@@ -228,7 +220,7 @@ h3 {
 }
 
 /* ===================================== */
-/* Forms */
+/* Forms - إصلاح المشاكل */
 /* ===================================== */
 form {
     display: flex;
@@ -243,7 +235,7 @@ form {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
     font-size: 1em;
 }
 
@@ -265,10 +257,10 @@ textarea {
     padding: 0.65rem 0.75rem;
     border: 1px solid #c9b0c6;
     border-radius: 8px;
-    background: #fff; /* بدل var(--white) */
+    background: #fff;
     font-size: 0.95rem;
-    color: #6B3F69; /* بدل var(--text) */
-    /* transition: border-color 0.3s ease; - غير مشروحة، تمت إزالته */
+    color: #6B3F69;
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -278,7 +270,7 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #A376A2; /* بدل var(--brand) */
+    border-color: #A376A2;
 }
 
 textarea {
@@ -287,8 +279,8 @@ textarea {
 }
 
 .form-card {
-    background-color: #DDC3C3; /* بدل var(--form) */
-    border: 1px solid #A376A2; /* بدل var(--brand) */
+    background-color: #DDC3C3;
+    border: 1px solid #A376A2;
     border-radius: 12px;
     padding: 1.25rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -296,12 +288,12 @@ textarea {
 
 .inline-form-group {
     display: flex;
-    /* gap: 20px; - غير مشروحة، تمت إزالته */
+    justify-content: space-between;
 }
 
 .inline-form-group > div {
     flex: 1;
-    margin-right: 20px; /* بديل لـ gap */
+    margin-right: 20px;
 }
 
 .inline-form-group > div:last-child {
@@ -311,12 +303,11 @@ textarea {
 .form-actions {
     display: flex;
     justify-content: center;
-    /* gap: 15px; - غير مشروحة، تمت إزالته */
     margin-top: 30px;
 }
 
 .form-actions > * {
-    margin-right: 15px; /* بديل لـ gap */
+    margin-right: 15px;
 }
 
 .form-actions > *:last-child {
@@ -338,7 +329,7 @@ table {
 
 th {
     background-color: #F5EFFF;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     font-weight: bold;
     text-align: left;
     padding: 0.85rem;
@@ -351,16 +342,16 @@ td {
     padding: 0.85rem;
     text-align: left;
     font-size: 0.95rem;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     background-color: #ffffff;
 }
 
 table td {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
 }
 
 td a {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     text-decoration: none;
 }
 
@@ -371,22 +362,21 @@ td a {
     text-align: left;
     margin-top: 2rem;
     margin-left: 1rem;
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
 }
 
 .staff-desc {
     text-align: left;
     margin-top: 5rem;
     margin-left: 6rem;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
 }
 
 .staff-photo {
     width: 120px;
     height: 120px;
-    /* object-fit: cover; - غير مشروحة، تمت إزالته */
     max-width: 100%;
-    max-height: 120px; /* بديل لـ object-fit: cover */
+    max-height: 120px;
     border-radius: 8px;
     border: 1px solid #CDC1FF;
     background: #fff;
@@ -431,14 +421,13 @@ td ul ul {
     position: fixed;
     right: 22px;
     bottom: 22px;
-    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
+    background: linear-gradient(135deg, #A376A2, #C8A9C5);
     color: #fff;
     padding: 10px 18px;
     border-radius: 22px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 6px 16px rgba(163, 118, 162, 0.35);
-    /* transition: transform 0.15s ease, box-shadow 0.15s ease; - غير مشروحة، تمت إزالته */
 }
 
 .back-btn:hover {
@@ -447,18 +436,25 @@ td ul ul {
 }
 
 /* ===================================== */
-/* About Page Specific */
+/* About Page Specific - الستايل القديم مع التعديلات */
 /* ===================================== */
 .about-h1 {
     text-align: center;
     margin: 0.75rem 0 1rem;
 }
 
+/* Mission و Join Us جنب بعض في صف واحد */
 .about-rows {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: flex-start; 
-  margin: 1rem 0; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 1.5rem 0;
+}
+
+/* Mission Section - اليسار */
+.about-rows .mission-section {
+    width: 58%;
+    margin-right: 2%;
 }
 
 .mission-section {
@@ -492,9 +488,14 @@ td ul ul {
     line-height: 1.6;
 }
 
+/* Join Us Form - اليمين */
+.about-rows .card-purple.joinus {
+    width: 40%;
+}
+
 .card-purple.joinus {
-    background: #DDC3C3; /* بدل var(--form) */
-    border: 1px solid #A376A2; /* بدل var(--brand) */
+    background: #DDC3C3;
+    border: 1px solid #A376A2;
     border-radius: 12px;
     padding: 1.25rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -502,29 +503,29 @@ td ul ul {
 
 .joinus h3 {
     margin: 0 0 0.75rem;
+    color: #6B3F69;
 }
 
 .join-grid {
     display: flex;
     flex-wrap: wrap;
-    /* gap: 0.85rem 1rem; - غير مشروحة، تمت إزالته */
     align-items: start;
 }
 
-.join-grid > * {
-    width: calc(50% - 0.5rem); /* بديل لـ grid-template-columns */
+.join-grid > div {
+    width: calc(50% - 0.5rem);
     margin-right: 1rem;
     margin-bottom: 0.85rem;
 }
 
-.join-grid > *:nth-child(2n) {
+.join-grid > div:nth-child(2n) {
     margin-right: 0;
 }
 
 .join-grid label {
     display: block;
     font-size: 0.9rem;
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
     margin-bottom: 0.25rem;
 }
 
@@ -536,7 +537,8 @@ td ul ul {
     border-radius: 18px;
     background: #fff;
     font-size: 0.95rem;
-    color: #6B3F69; /* بدل var(--text) */
+    color: #6B3F69;
+    box-sizing: border-box;
 }
 
 .join-grid textarea {
@@ -559,17 +561,18 @@ td ul ul {
 }
 
 .join-actions {
-    width: 100%; /* بديل لـ grid-column */
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 0.25rem;
 }
 
-/* Team Carousel */
+/* Team Section - تحت Mission و Join مع Scroll Horizontal */
 .team-h2 {
+    clear: both;
     text-align: center;
-    margin: 1.25rem 0 0.5rem;
-    color: #6B3F69; /* بدل var(--text) */
+    margin: 2rem 0 0.5rem;
+    color: #666;
 }
 
 .team-carousel {
@@ -577,15 +580,34 @@ td ul ul {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    /* gap: 0; - غير مشروحة، تمت إزالته */
+    padding: 1rem 0;
+}
+
+.team-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.team-carousel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.team-carousel::-webkit-scrollbar-thumb {
+    background: #A376A2;
+    border-radius: 4px;
+}
+
+.team-carousel::-webkit-scrollbar-thumb:hover {
+    background: #8d6d8b;
 }
 
 .team-carousel .slide {
-    flex: 0 0 100%;
+    flex: 0 0 25%;
+    min-width: 200px;
     scroll-snap-align: center;
     display: flex;
     justify-content: center;
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .avatar {
@@ -597,27 +619,27 @@ td ul ul {
     height: 120px;
     border-radius: 50%;
     background: #E5D9F2;
-    border: 3px solid #A376A2; /* بدل var(--brand) */
+    border: 3px solid #A376A2;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: inset 0 0 0 6px #fff;
-    margin: 0 auto;
+    margin: 0 auto 0.5rem;
 }
 
 .avatar .pic img {
     width: 100%;
     height: 100%;
-    /* object-fit: cover; - غير مشروحة، تمت إزالته */
     max-width: 100%;
-    max-height: 100%; /* بديل لـ object-fit: cover */
+    max-height: 100%;
     border-radius: 50%;
 }
 
 .avatar a {
-    color: #6B3F69; /* بدل var(--text) */
+    color: #A376A2;
     text-decoration: underline;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 /* ===================================== */
@@ -633,7 +655,7 @@ td ul ul {
 }
 
 .hero h1 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 1rem;
     font-size: 2.5rem;
 }
@@ -649,7 +671,7 @@ td ul ul {
 }
 
 .services-section h2 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -657,7 +679,6 @@ td ul ul {
 
 .services-container {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: center;
 }
 
@@ -669,7 +690,6 @@ td ul ul {
     padding: 1.5rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     position: relative;
     overflow: hidden;
 }
@@ -680,7 +700,7 @@ td ul ul {
 }
 
 .service-card h3 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 1rem;
 }
 
@@ -691,7 +711,6 @@ td ul ul {
     color: #555;
     opacity: 0;
     max-height: 0;
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
 }
 
 .service-card:hover .service-info {
@@ -705,7 +724,7 @@ td ul ul {
 }
 
 .reviews-section h2 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -713,7 +732,6 @@ td ul ul {
 
 .review-row {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-bottom: 2rem;
 }
 
@@ -725,7 +743,6 @@ td ul ul {
     border-radius: 12px;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     width: 48%;
     margin: 1%;
 }
@@ -793,42 +810,42 @@ td ul ul {
     padding: 0.5rem 1rem;
     border: 1px solid #CDC1FF;
     background-color: #F5EFFF;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     border-radius: 4px;
     cursor: pointer;
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
     font-size: 0.8rem;
 }
 
 .review-actions button:hover {
-    background-color: #A376A2; /* بدل var(--brand) */
+    background-color: #A376A2;
     color: white;
-    border-color: #A376A2; /* بدل var(--brand) */
+    border-color: #A376A2;
 }
 
 .review-feedback {
     display: flex;
-    /* gap: 15px; - غير مشروحة، تمت إزالته */
     margin-top: 8px;
     font-size: 14px;
     color: #666;
 }
 
 .review-feedback > * {
-    margin-right: 15px; /* بديل لـ gap */
+    margin-right: 15px;
 }
 
 .review-feedback > *:last-child {
     margin-right: 0;
 }
 
-/* Partners Section */
+/* ===================================== */
+/* Partners Section - البطاقات بالعرض (Horizontal) */
+/* ===================================== */
 .partners-section {
     margin-bottom: 3rem;
 }
 
 .partners-section h2 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -836,31 +853,30 @@ td ul ul {
 
 .partners-container {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-    justify-content: center;
+    flex-direction: column;
 }
 
+/* كل category تاخذ السطر كامل */
 .partner-category {
-    width: 48%;
-    margin: 1%;
+    width: 100%;
+    margin: 30px 0;
+    padding: 25px;
     background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .partner-category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .partner-category h3 {
-    color: #A376A2; /* بدل var(--brand) */
-    margin-bottom: 1rem;
-    text-align: center;
-    border-bottom: 1px dashed #CDC1FF;
-    padding-bottom: 0.5rem;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #A376A2;
+    font-size: 1.5em;
+    color: #A376A2;
 }
 
 .partner-list {
@@ -888,61 +904,113 @@ td ul ul {
     font-size: 0.9rem;
 }
 
+/* البطاقات - Horizontal Layout مع Scroll */
 .partners-grid {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-    justify-content: space-between;
+    overflow-x: auto;
+    margin-top: 20px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+}
+
+.partners-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.partners-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.partners-grid::-webkit-scrollbar-thumb {
+    background: #A376A2;
+    border-radius: 4px;
+}
+
+.partners-grid::-webkit-scrollbar-thumb:hover {
+    background: #8d6d8b;
 }
 
 .partner-card {
-    width: 48%;
-    margin-bottom: 1.5rem;
+    flex: 0 0 350px;
+    min-width: 350px;
+    margin-right: 20px;
+    margin-bottom: 10px;
     background-color: #F9F7FF;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* transition: all 0.3s ease; - غير مشروحة، تمت إزالته */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
+    border: 1px solid #E5D9F2;
+    scroll-snap-align: start;
+}
+
+.partner-card:last-child {
+    margin-right: 0;
 }
 
 .partner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: #A376A2;
 }
 
 .partner-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.partner-header .partner-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #A376A2;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.partner-header .partner-rating {
+    color: gold;
+    font-size: 1em;
+    white-space: nowrap;
 }
 
 .partner-details {
-    margin-top: 0.5rem;
+    margin-top: 10px;
     color: #666;
     flex-grow: 1;
+    line-height: 1.6;
+    font-size: 0.95em;
+    min-height: 60px;
 }
 
 .partner-contact {
-    margin-top: 1rem;
-    padding-top: 1rem;
+    margin-top: 15px;
+    padding-top: 15px;
     border-top: 1px dashed #CDC1FF;
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.partner-contact span {
+    color: #666;
 }
 
 .partner-price {
     font-weight: bold;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
+    font-size: 1em;
 }
 
 /* ===================================== */
 /* Customer Dashboard */
 /* ===================================== */
 .welcome-section {
-    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
+    background: linear-gradient(135deg, #A376A2, #C8A9C5);
     color: white;
     padding: 30px;
     border-radius: 10px;
@@ -962,11 +1030,10 @@ td ul ul {
 
 .dashboard-layout {
     display: flex;
-    /* gap: 30px; - غير مشروحة، تمت إزالته */
 }
 
 .dashboard-layout > * {
-    margin-right: 30px; /* بديل لـ gap */
+    margin-right: 30px;
 }
 
 .dashboard-layout > *:last-child {
@@ -978,7 +1045,7 @@ td ul ul {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
-    border-left: 4px solid #A376A2; /* بدل var(--brand) */
+    border-left: 4px solid #A376A2;
 }
 
 .booking-header {
@@ -1023,7 +1090,7 @@ td ul ul {
 }
 
 .booking-cost {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     font-weight: bold;
     font-size: 16px;
 }
@@ -1077,7 +1144,7 @@ td ul ul {
 }
 
 .evaluate-btn {
-    background: #A376A2; /* بدل var(--brand) */
+    background: #A376A2;
     color: white;
     padding: 12px 25px;
     text-decoration: none;
@@ -1096,11 +1163,10 @@ td ul ul {
 /* ===================================== */
 .evaluation-layout {
     display: flex;
-    /* gap: 30px; - غير مشروحة، تمت إزالته */
 }
 
 .evaluation-layout > * {
-    margin-right: 30px; /* بديل لـ gap */
+    margin-right: 30px;
 }
 
 .evaluation-layout > *:last-child {
@@ -1116,7 +1182,7 @@ td ul ul {
 }
 
 .services-list h3 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -1126,14 +1192,14 @@ td ul ul {
     padding: 15px;
     border-radius: 6px;
     margin-bottom: 10px;
-    border-left: 4px solid #A376A2; /* بدل var(--brand) */
+    border-left: 4px solid #A376A2;
 }
 
 .service-name {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 5px;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
 }
 
 .service-date {
@@ -1142,7 +1208,7 @@ td ul ul {
 }
 
 .service-cost {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     font-weight: bold;
     margin-top: 5px;
 }
@@ -1155,7 +1221,7 @@ td ul ul {
 }
 
 .review-form-section h2 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -1163,12 +1229,11 @@ td ul ul {
 .rating-options {
     display: flex;
     flex-direction: column;
-    /* gap: 10px; - غير مشروحة، تمت إزالته */
     margin: 15px 0;
 }
 
 .rating-options > * {
-    margin-bottom: 10px; /* بديل لـ gap */
+    margin-bottom: 10px;
 }
 
 .rating-options > *:last-child {
@@ -1178,7 +1243,6 @@ td ul ul {
 .rating-option {
     display: flex;
     align-items: center;
-    /* gap: 10px; - غير مشروحة، تمت إزالته */
     padding: 10px;
     background: #E5D9F2;
     border-radius: 6px;
@@ -1186,7 +1250,7 @@ td ul ul {
 }
 
 .rating-option > * {
-    margin-right: 10px; /* بديل لـ gap */
+    margin-right: 10px;
 }
 
 .rating-option > *:last-child {
@@ -1199,7 +1263,7 @@ td ul ul {
 }
 
 .rating-option:hover {
-    border-color: #A376A2; /* بدل var(--brand) */
+    border-color: #A376A2;
 }
 
 .rating-label {
@@ -1213,7 +1277,7 @@ td ul ul {
 }
 
 .submit-btn {
-    background: #A376A2; /* بدل var(--brand) */
+    background: #A376A2;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -1242,7 +1306,7 @@ td ul ul {
 }
 
 .services-header h1 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 0.5rem;
     font-size: 2.5rem;
 }
@@ -1255,7 +1319,6 @@ td ul ul {
 .services-content {
     display: flex;
     flex-direction: row-reverse;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
 }
 
 .main-services {
@@ -1295,7 +1358,7 @@ td ul ul {
 
 .sort-options select:focus {
     outline: none;
-    border-color: #A376A2; /* بدل var(--brand) */
+    border-color: #A376A2;
     box-shadow: 0 0 5px rgba(163, 118, 162, 0.5);
 }
 
@@ -1308,7 +1371,6 @@ td ul ul {
 
 .service-items {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-top: 1.5rem;
     justify-content: space-between;
 }
@@ -1332,11 +1394,11 @@ td ul ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
 }
 
 /* ===================================== */
-/* Request Service Page */
+/* Request Service Page - التعديلات الجديدة */
 /* ===================================== */
 .page {
     max-width: 1200px;
@@ -1355,7 +1417,7 @@ td ul ul {
 }
 
 .header-left h2 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin-bottom: 0.5rem;
 }
 
@@ -1365,14 +1427,12 @@ td ul ul {
 
 .content {
     display: flex;
-    /* grid-template-columns: 1fr 360px; - غير مشروحة، تمت إزالته */
-    /* gap: 22px; - غير مشروحة، تمت إزالته */
     align-items: start;
 }
 
 .content > .left {
-    width: calc(100% - 382px); /* بديل لـ grid-template-columns */
-    margin-right: 22px; /* بديل لـ gap */
+    width: calc(100% - 382px);
+    margin-right: 22px;
 }
 
 .content > .sidebar {
@@ -1382,11 +1442,10 @@ td ul ul {
 .left {
     display: flex;
     flex-direction: column;
-    /* gap: 18px; - غير مشروحة، تمت إزالته */
 }
 
 .left > * {
-    margin-bottom: 18px; /* بديل لـ gap */
+    margin-bottom: 18px;
 }
 
 .left > *:last-child {
@@ -1402,15 +1461,15 @@ td ul ul {
     padding-bottom: 10px;
 }
 
+/* تحسين عرض الصور - التعديلات الجديدة */
 .options-grid {
     display: flex;
-    /* gap: 12px; - غير مشروحة، تمت إزالته */
     flex-wrap: wrap;
     margin-bottom: 15px;
 }
 
 .options-grid > * {
-    margin-right: 12px; /* بديل لـ gap */
+    margin-right: 12px;
     margin-bottom: 12px;
 }
 
@@ -1419,31 +1478,44 @@ td ul ul {
 }
 
 .option {
-    flex: 1 1 140px;
-    min-width: 120px;
+    flex: 1 1 160px;
+    min-width: 140px;
     background: linear-gradient(180deg, #fff, #F0E9FF);
     border-radius: 10px;
-    padding: 12px;
+    padding: 15px;
     text-align: center;
-    border: 2px solid transparent;
+    border: 2px solid #E5D9F2;
     user-select: none;
+}
+
+.option:hover {
+    border-color: #A376A2;
+    box-shadow: 0 4px 10px rgba(163, 118, 162, 0.2);
 }
 
 .option img.placeholder {
     width: 100%;
-    height: 80px;
-    /* object-fit: cover; - غير مشروحة، تمت إزالته */
+    height: 120px;
     max-width: 100%;
-    max-height: 80px; /* بديل لـ object-fit: cover */
+    max-height: 120px;
     border-radius: 6px;
     background: linear-gradient(90deg, #EEE, #DDD);
     margin-bottom: 8px;
+    border: 2px solid #E5D9F2;
 }
 
 .option .title {
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: #3a2a7a;
+    font-size: 1em;
+}
+
+.option .description {
+    font-size: 0.85em;
+    color: #666;
+    line-height: 1.3;
+    margin-bottom: 8px;
 }
 
 .option small {
@@ -1478,13 +1550,14 @@ td ul ul {
     justify-content: space-between;
     margin: -6px;
 }
-.form-grid *{
-    width: calc(50%-12px);
+
+.form-grid > * {
+    width: calc(50% - 12px);
     margin: 6px;
 }
 
 .full {
-    width: 100% ;
+    width: 100%;
 }
 
 .note {
@@ -1494,7 +1567,7 @@ td ul ul {
 }
 
 .send-btn {
-    background: #A376A2; /* بدل var(--brand) */
+    background: #A376A2;
     color: white;
     padding: 12px 18px;
     border: none;
@@ -1502,6 +1575,8 @@ td ul ul {
     font-size: 16px;
     font-weight: 800;
     margin-top: 12px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .send-btn:hover {
@@ -1551,17 +1626,16 @@ td ul ul {
 .provider-quick-actions {
     display: flex;
     justify-content: center;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .quick-action-btn {
     display: inline-block;
     padding: 12px 24px;
-    margin: 8px; 
+    margin: 8px;
     background-color: white;
-    border: 2px solid #A376A2; /* بدل var(--brand) */
-    color: #A376A2; /* بدل var(--brand) */
+    border: 2px solid #A376A2;
+    color: #A376A2;
     border-radius: 20px;
     text-decoration: none;
     font-weight: 600;
@@ -1570,7 +1644,7 @@ td ul ul {
 
 .quick-action-btn:hover,
 .quick-action-btn.active {
-    background-color: #A376A2; /* بدل var(--brand) */
+    background-color: #A376A2;
     color: white;
 }
 
@@ -1583,28 +1657,28 @@ td ul ul {
     overflow-x: auto;
     padding: 20px 10px;
     margin: 0 -10px;
-
 }
+
 .services-horizontal-scroll > * {
     margin-right: 25px;
 }
+
 .services-horizontal-scroll > *:last-child {
     margin-right: 0;
 }
-
 
 .services-horizontal-scroll::-webkit-scrollbar {
     height: 10px;
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-track {
-    background-color: #f1f1f1; 
-    border: 1px solid #ddd;  
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-thumb {
-    background-color: #A376A2; /* بدل var(--brand) */
-    border: 1px solid #ccc;         
+    background-color: #A376A2;
+    border: 1px solid #ccc;
 }
 
 .services-horizontal-scroll::-webkit-scrollbar-thumb:hover {
@@ -1620,16 +1694,16 @@ td ul ul {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    border: 1px solid #eee; /* بدل var(--border-color) */
+    border: 1px solid #eee;
 }
 
 .services-horizontal-scroll .service-card:hover {
-    background-color: #f5f5fc; 
-    border-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #f5f5fc;
+    border-color: #3C0048;
 }
 
 .services-horizontal-scroll .service-card:hover {
-    background-color: #F3E9F7; 
+    background-color: #F3E9F7;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -1637,9 +1711,7 @@ td ul ul {
     width: 100%;
     height: 180px;
     display: block;
-    border-bottom: 1px solid #eee; /* بدل var(--border-color) */
-    
-    /* بدل object-fit: cover استخدمنا background-image */
+    border-bottom: 1px solid #eee;
     background-image: url("images/sample.jpg");
     background-size: cover;
     background-position: center;
@@ -1653,10 +1725,10 @@ td ul ul {
 }
 
 .service-info h3 {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     margin: 0 0 12px 0;
     font-size: 1.2em;
-    border-bottom: 2px solid #A376A2; /* بدل var(--brand) */
+    border-bottom: 2px solid #A376A2;
     padding-bottom: 8px;
 }
 
@@ -1706,8 +1778,8 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #f9f9f9; /* بدل var(--light-gray) */
-    border-top: 1px solid #eee; /* بدل var(--border-color) */
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
 }
 
 .edit-pause-group {
@@ -1729,21 +1801,22 @@ td ul ul {
     font-weight: bold;
     font-size: 0.8em;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .action-btn:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
     color: #fff;
-    border-color: #3C0048; /* بدل var(--accent-color) */
+    border-color: #3C0048;
 }
 
 .action-btn.edit-btn {
-    color: #BFB5BE; /* بدل var(--edit-pause-color) */
-    border-color: #BFB5BE; /* بدل var(--edit-pause-color) */
+    color: #BFB5BE;
+    border-color: #BFB5BE;
 }
 
 .action-btn.edit-btn:hover {
-    background-color: #BFB5BE; /* بدل var(--edit-pause-color) */
+    background-color: #BFB5BE;
     color: white;
 }
 
@@ -1768,12 +1841,12 @@ td ul ul {
 }
 
 .action-btn.delete-btn-action {
-    color: #EF5473; /* بدل var(--delete-color) */
-    border-color: #EF5473; /* بدل var(--delete-color) */
+    color: #EF5473;
+    border-color: #EF5473;
 }
 
 .action-btn.delete-btn-action:hover {
-    background-color: #EF5473; /* بدل var(--delete-color) */
+    background-color: #EF5473;
     color: white;
 }
 
@@ -1783,9 +1856,8 @@ td ul ul {
     padding: 20px;
     background-color: #F5EFFF;
     border-radius: 10px;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: center;
-    border: 1px solid #eee; /* بدل var(--border-color) */
+    border: 1px solid #eee;
 }
 
 .service-filters button {
@@ -1799,23 +1871,24 @@ td ul ul {
 
 .filter-button {
     padding: 12px 24px;
-    border: 2px solid #A376A2; /* بدل var(--brand) */
+    border: 2px solid #A376A2;
     border-radius: 25px;
     background-color: white;
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     font-size: 0.95em;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .filter-button:hover {
-    background-color: #A376A2; /* بدل var(--brand) */
+    background-color: #A376A2;
     color: white;
-    border-color: #A376A2; /* بدل var(--brand) */
+    border-color: #A376A2;
 }
 
 .filter-button.active-filter,
 .filter-button:hover {
-    background-color: #A376A2; /* بدل var(--brand) */
+    background-color: #A376A2;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(163, 118, 162, 0.3);
@@ -1825,7 +1898,7 @@ td ul ul {
 /* Planning Hub Styles */
 /* ===================================== */
 .planning-hub-header {
-    background-color: #3C0048; /* بدل var(--planning-hub-bg) */
+    background-color: #3C0048;
     color: white;
     text-align: center;
     padding: 12px 0;
@@ -1840,10 +1913,9 @@ td ul ul {
     justify-content: space-between;
     align-items: center;
     padding: 12px 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
     max-width: 100%;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     position: relative;
 }
 
@@ -1863,23 +1935,22 @@ td ul ul {
 .logo-area img {
     height: 45px;
     width: auto;
-    /* object-fit: contain; - غير مشروحة، تمت إزالته */
     max-width: 100%;
-    max-height: 45px; /* بديل لـ object-fit: contain */
+    max-height: 45px;
 }
 
 .user-profile-icon {
     display: flex;
     align-items: center;
     font-size: 0.9em;
-    color: #3C0048; /* بدل var(--accent-color) */
+    color: #3C0048;
     flex-shrink: 0;
     font-weight: bold;
     white-space: nowrap;
     padding: 8px 16px;
     background-color: white;
     border-radius: 6px;
-    border: 1px solid #3C0048; /* بدل var(--accent-color) */
+    border: 1px solid #3C0048;
 }
 
 .user-profile-icon::before {
@@ -1895,11 +1966,11 @@ td ul ul {
     padding: 20px;
 }
 
-.page-container {
+.page-container > * {
     margin-right: 30px;
 }
 
-.page-container:last-child {
+.page-container > *:last-child {
     margin-right: 0;
 }
 
@@ -1907,6 +1978,7 @@ td ul ul {
     max-width: 900px;
     margin: 0 auto;
 }
+
 .sidebar-button {
     display: block;
     width: 100%;
@@ -1914,32 +1986,26 @@ td ul ul {
     margin-bottom: 10px;
     background-color: #fff;
     border: 2px solid #ddd;
-    color: #6B3F69; /* بدل var(--text-color) */
+    color: #6B3F69;
     text-align: left;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.95em;
+    cursor: pointer;
 }
 
 .sidebar-button:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
     color: white;
-    border-color: #3C0048; /* بدل var(--accent-color) */
-}
-
-.sidebar-button:hover {
-    outline: 2px solid #3C0048; /* بدل var(--accent-color) */
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    color: #fff;
-    border-color: #3C0048; /* بدل var(--accent-color) */
+    border-color: #3C0048;
 }
 
 .sidebar-button.active-side,
 .sidebar-button:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
     color: white;
-    border-color: #3C0048; /* بدل var(--accent-color) */
-    margin-left: 5px; 
+    border-color: #3C0048;
+    margin-left: 5px;
 }
 
 .page-bottom-actions {
@@ -1947,7 +2013,7 @@ td ul ul {
     justify-content: flex-start;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 2px solid #f9f9f9; /* بدل var(--light-gray) */
+    border-top: 2px solid #f9f9f9;
 }
 
 .page-bottom-actions .back-btn {
@@ -1960,66 +2026,11 @@ td ul ul {
     font-size: 1em;
     min-width: 120px;
     position: static;
+    cursor: pointer;
 }
 
 .page-bottom-actions .back-btn:hover {
     background-color: #5a6268;
-}
-
-.page-bottom-actions .back-btn:hover {
-    outline: 2px solid #5a6268;
-    background-color: #5a6268;
-    color: #fff;
-}
-
-.service-filters {
-    display: flex;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #3C0048; /* بدل var(--accent-color) */
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-    background-color: #F3E9F7;
-    padding: 20px;
-    border-radius: 10px;
-    justify-content: center;
-}
-
-.service-filters .filter-button {
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.service-filters .filter-button:last-child {
-    margin-right: 0;
-}
-
-.filter-button {
-    padding: 12px 24px;
-    border: 2px solid #3C0048; /* بدل var(--accent-color) */
-    border-radius: 25px;
-    background-color: white;
-    color: #3C0048; /* بدل var(--accent-color) */
-    font-size: 0.95em;
-    font-weight: 600;
-}
-
-.filter-button:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    color: white;
-    border-color: #3C0048; /* بدل var(--accent-color) */
-}
-
-.filter-button:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    border-color: #3C0048; /* بدل var(--accent-color) */
-    color: white;
-}
-
-.filter-button.active-filter,
-.filter-button:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    color: white;
-    border: 2px solid #3C0048; /* بدل var(--accent-color) */
 }
 
 .services-scroll-container {
@@ -2038,7 +2049,7 @@ td ul ul {
 }
 
 .services-scroll-container::-webkit-scrollbar-thumb {
-    background: #3C0048; /* بدل var(--accent-color) */
+    background: #3C0048;
     border-radius: 4px;
 }
 
@@ -2058,143 +2069,16 @@ td ul ul {
 
 .service-grid .service-card {
     flex: 0 0 320px;
-    border: 1px solid #eee; /* بدل var(--border-color) */
+    border: 1px solid #eee;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     background-color: white;
 }
 
 .service-grid .service-card:hover {
-    background-color: #f5f5f5; 
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
-}
-
-.service-image {
-    height: 180px;
-    width: 100%;
-    background-size: cover; 
-    background-position: center;
-    border-bottom: 1px solid #eee; /* بدل var(--border-color) */
-}
-
-.service-info {
-    padding: 20px;
-}
-
-.service-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
-    color: #3C0048; /* بدل var(--accent-color) */
-    border-bottom: 2px solid #3C0048; /* بدل var(--accent-color) */
-    padding-bottom: 8px;
-}
-
-.service-info .description {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.5;
-    min-height: 60px;
-}
-
-.service-status {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    border-top: 1px dashed #ddd;
-}
-
-.status-badge {
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: bold;
-}
-
-.status-badge.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.status-badge.paused {
-    background-color: #FF9800;
-    color: white;
-}
-
-.clients-count {
-    font-size: 0.9em;
-    color: #666;
-    font-weight: 600;
-}
-
-.service-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #f9f9f9; /* بدل var(--light-gray) */
-    border-top: 1px solid #eee; /* بدل var(--border-color) */
-}
-
-.edit-pause-group {
-    display: flex;
-}
-
-.edit-pause-group .action-btn {
-    margin-right: 8px;
-}
-
-.edit-pause-group .action-btn:last-child {
-    margin-right: 0;
-}
-
-.action-btn {
-    padding: 8px 16px;
-    border: 1px solid;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.8em;
-    background-color: #fff;
-}
-
-.action-btn:hover {
-    background-color: #f3f3f3;
-    border-color: #999;
-}
-
-.edit-btn,
-.pause-btn {
-    background-color: #fff;
-    color: #BFB5BE; /* بدل var(--edit-pause-color) */
-    border-color: #BFB5BE; /* بدل var(--edit-pause-color) */
-}
-
-.edit-btn:hover,
-.pause-btn:hover {
-    background-color: #BFB5BE; /* بدل var(--edit-pause-color) */
-    color: white;
-}
-
-.resume-btn {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #4CAF50;
-}
-
-.resume-btn:hover {
-    background-color: #45a049;
-}
-
-.delete-btn-action {
-    background-color: #fff;
-    color: #EF5473; /* بدل var(--delete-color) */
-    border-color: #EF5473; /* بدل var(--delete-color) */
-}
-
-.delete-btn-action:hover {
-    background-color: #EF5473; /* بدل var(--delete-color) */
-    color: white;
+    background-color: #f5f5f5;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
 .service-photo-container {
@@ -2204,19 +2088,16 @@ td ul ul {
     height: 120px;
     border: 2px dashed #ccc;
     border-radius: 8px;
-    background-color: #f9f9f9; /* بدل var(--light-gray) */
+    background-color: #f9f9f9;
     color: #666;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .service-photo-container:hover {
     background-color: #e6e6e6;
-    border-color: #3C0048; /* بدل var(--accent-color) */
-}
-
-.service-photo-container:hover {
-    border-color: #3C0048; /* بدل var(--accent-color) */
-    color: #3C0048; /* بدل var(--accent-color) */
+    border-color: #3C0048;
+    color: #3C0048;
 }
 
 .availability-section {
@@ -2225,27 +2106,11 @@ td ul ul {
 
 .week-days-grid {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-}
-
-.week-days-grid .day-option {
-    width: 14.28%; 
-}
-
-.week-days-grid .day-option {
-    margin-right: 8px;
-}
-
-.week-days-grid .day-option:last-child {
-    margin-right: 0;
-}.week-days-grid {
-    display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     margin-top: 15px;
 }
 
 .week-days-grid .day-option {
-    width: 14.28%; 
+    width: 14.28%;
     margin-right: 8px;
     margin-bottom: 8px;
 }
@@ -2270,22 +2135,18 @@ td ul ul {
     background-color: white;
     font-weight: 600;
     font-size: 0.85em;
+    cursor: pointer;
 }
 
 .day-label:hover {
-    border-color: #3C0048; /* بدل var(--accent-color) */
-    background-color: #f5e9ff; 
-}
-
-.day-label:hover {
-    border-color: #3C0048; /* بدل var(--accent-color) */
-    background-color: #f9f9f9; /* بدل var(--light-gray) */
+    border-color: #3C0048;
+    background-color: #f9f9f9;
 }
 
 .day-option input[type="radio"]:checked + .day-label {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
     color: white;
-    border-color: #3C0048; /* بدل var(--accent-color) */
+    border-color: #3C0048;
 }
 
 .create-btn,
@@ -2296,18 +2157,12 @@ td ul ul {
     border-radius: 8px;
     font-weight: bold;
     font-size: 1em;
-}
-
-.create-btn:hover,
-.cancel-btn:hover,
-.add-member-btn:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    color: white;
+    cursor: pointer;
 }
 
 .create-btn,
 .add-member-btn {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
     color: white;
 }
 
@@ -2337,21 +2192,20 @@ td ul ul {
     justify-content: space-between;
 }
 
-.team-management-grid .available-members-section {
-    width: 40%;
-    margin-right: 40px;
+.team-management-grid .add-member-section {
+    width: 55%;
 }
 
-.team-management-grid .team-details-section {
-    width: 55%;
+.team-management-grid .available-members-section {
+    width: 40%;
 }
 
 .available-members-section {
     padding: 25px;
-    border: 1px solid #eee; /* بدل var(--border-color) */
+    border: 1px solid #eee;
     border-radius: 12px;
     background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* بدل var(--shadow-color) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .team-actions {
@@ -2371,21 +2225,17 @@ td ul ul {
 .team-actions .action-btn {
     padding: 10px 20px;
     background-color: white;
-    border: 2px solid #3C0048; /* بدل var(--accent-color) */
-    color: #3C0048; /* بدل var(--accent-color) */
+    border: 2px solid #3C0048;
+    color: #3C0048;
     border-radius: 8px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .team-actions .action-btn:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.team-actions .action-btn:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    color: white;
 }
 
 .available-members-list {
@@ -2399,15 +2249,11 @@ td ul ul {
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
-    border-bottom: 1px solid #eee; /* بدل var(--border-color) */
+    border-bottom: 1px solid #eee;
 }
 
 .member-item:hover {
-    background-color: #f9f9f9; /* بدل var(--light-gray) */
-}
-
-.member-item:hover {
-    background-color: #f9f9f9; /* بدل var(--light-gray) */
+    background-color: #f9f9f9;
     border-radius: 8px;
     padding: 15px;
     margin: 0 -10px;
@@ -2430,7 +2276,7 @@ td ul ul {
 .member-avatar {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #3C0048, #6a0080); /* بدل var(--accent-color) */
+    background: linear-gradient(135deg, #3C0048, #6a0080);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -2449,7 +2295,7 @@ td ul ul {
 
 .member-details .role {
     font-weight: bold;
-    color: #6B3F69; /* بدل var(--text-color) */
+    color: #6B3F69;
     font-size: 1em;
     margin-bottom: 4px;
 }
@@ -2481,27 +2327,26 @@ td ul ul {
     display: inline-block;
     width: 22px;
     height: 22px;
-    border: 2px solid #3C0048; /* بدل var(--accent-color) */
+    border: 2px solid #3C0048;
     border-radius: 4px;
     position: relative;
 }
 
 .custom-checkbox:hover {
-    background-color: #3C0048; /* بدل var(--accent-color) */
-    border-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
+    border-color: #3C0048;
 }
 
 .delete-checkbox:checked + .custom-checkbox {
-    background-color: #3C0048; /* بدل var(--accent-color) */
+    background-color: #3C0048;
 }
 
 .delete-checkbox:checked + .custom-checkbox::after {
-    content: '✓';
+    content: '✔';
     color: white;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 4px;
+    left: 6px;
     font-size: 14px;
     font-weight: bold;
 }
@@ -2511,7 +2356,7 @@ td ul ul {
     justify-content: flex-start;
     margin-top: 25px;
     padding-top: 20px;
-    border-top: 2px solid #f9f9f9; /* بدل var(--light-gray) */
+    border-top: 2px solid #f9f9f9;
 }
 
 .delete-member-action > * {
@@ -2522,14 +2367,15 @@ td ul ul {
     margin-right: 0;
 }
 
-.delete-checkbox:checked + .custom-checkbox::after {
-    content: '✓';
+.delete-submit-btn-team {
+    padding: 12px 30px;
+    background-color: #EF5473;
     color: white;
-    position: absolute;
-    top: 4px;   /* تقريبًا وسط المربع */
-    left: 6px;  /* لضبط موقع العلامة */
-    font-size: 14px;
+    border: none;
+    border-radius: 8px;
     font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
 }
 
 .delete-submit-btn-team:hover {
@@ -2551,17 +2397,16 @@ td ul ul {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     padding: 0 40px;
 }
 
 .footer-content > div {
     width: 33.33%;
-    margin-right: 40px; 
+    margin-right: 40px;
 }
 
 .footer-content > div:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
 .footer-section h4 {
@@ -2583,11 +2428,11 @@ td ul ul {
 }
 
 .social-links a {
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 
 .social-links a:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
 .social-links a {
@@ -2607,21 +2452,13 @@ td ul ul {
 /* ===================================== */
 .contact-grid {
     display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
     justify-content: space-between;
-    margin: 2rem 0; 
+    margin: 2rem 0;
 }
 
 .contact-grid div {
-    width: 48%; 
-    margin-bottom: 2rem; /
-}
-
-@media (max-width: 768px) {
-    .contact-grid div {
-        width: 100%; 
-        margin-bottom: 1.5rem;
-    }
+    width: 48%;
+    margin-bottom: 2rem;
 }
 
 .lead {
@@ -2641,11 +2478,11 @@ td ul ul {
 }
 
 .contact-list li {
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
 }
 
 .contact-list li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .contact-list a {
@@ -2681,11 +2518,11 @@ td ul ul {
 }
 
 .socials a {
-    margin-right: 0.5rem; 
+    margin-right: 0.5rem;
 }
 
 .socials a:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
 .social-btn {
@@ -2695,7 +2532,7 @@ td ul ul {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: linear-gradient(135deg, #A376A2, #C8A9C5); /* بدل var(--brand) */
+    background: linear-gradient(135deg, #A376A2, #C8A9C5);
     color: #fff;
     font-weight: 700;
     text-decoration: none;
@@ -2703,17 +2540,14 @@ td ul ul {
 }
 
 .social-btn:hover {
-    background: #A376A2; /* بدل var(--brand) */
+    background: #A376A2;
     text-decoration: underline;
-}
-
-.social-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(163, 118, 162, 0.4);
 }
 
 .info-heading {
-    color: #A376A2; /* بدل var(--brand) */
+    color: #A376A2;
     font-weight: bold;
     margin: 1.5rem 0 0.5rem;
 }
@@ -2741,6 +2575,32 @@ td ul ul {
 }
 
 /* ===================================== */
+/* Reviews Page - التعديلات الإضافية */
+/* ===================================== */
+.reviews-header {
+    text-align: center;
+    background-color: white;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-header h1 {
+    color: #A376A2;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.review-section h2 {
+    color: #A376A2;
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E5D9F2;
+    font-size: 1.8rem;
+}
+
+/* ===================================== */
 /* Responsive Design */
 /* ===================================== */
 @media (max-width: 1024px) {
@@ -2750,48 +2610,76 @@ td ul ul {
 
     .week-days-grid {
         display: flex;
-        /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
         justify-content: space-between;
     }
 
     .team-management-grid {
-    display: flex;
-    flex-direction: column;
-}
+        display: flex;
+        flex-direction: column;
+    }
 
-.team-management-grid div {
-    margin-bottom: 30px;
-}
+    .team-management-grid .add-member-section,
+    .team-management-grid .available-members-section {
+        width: 100%;
+        margin-bottom: 30px;
+    }
 
-.team-management-grid div:last-child {
-    margin-bottom: 0; 
-}
+    .team-management-grid > div:last-child {
+        margin-bottom: 0;
+    }
 
+    /* About page responsive */
     .about-rows {
         display: flex;
         flex-direction: column;
     }
+
+    .about-rows .mission-section,
+    .about-rows .card-purple.joinus {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    /* البروفايلز تبقى horizontal scroll */
+    .team-carousel .slide {
+        flex: 0 0 40%;
+        min-width: 180px;
+    }
+
+    /* Partners - البطاقات تبقى horizontal */
+    .partner-card {
+        flex: 0 0 300px;
+        min-width: 300px;
+    }
 }
 
 @media (max-width: 980px) {
-  .content {
-    display: flex;              
-    flex-direction: column;     
-    /* flex-wrap: nowrap; - غير مشروحة، تمت إزالته */          
-  }
-}
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content > .left,
+    .content > .sidebar {
+        width: 100%;
+        margin-right: 0;
+    }
 
     .sidebar .cost-box {
         position: relative;
         top: auto;
     }
 
-   .contact-grid {
-    display: flex;              
-    flex-direction: column;     
-    /* flex-wrap: nowrap; - غير مشروحة، تمت إزالته */          
-    align-items: stretch;       
-}
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-grid div {
+        width: 100%;
+    }
 
     .map-thumb img {
         height: 200px;
@@ -2805,7 +2693,7 @@ td ul ul {
         margin-left: 0;
         min-width: auto;
     }
-
+}
 
 @media (max-width: 768px) {
     .advanced-navbar {
@@ -2825,6 +2713,11 @@ td ul ul {
         margin-top: 20px;
     }
 
+    .page-container > * {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
     .sidebar {
         width: 100%;
     }
@@ -2834,135 +2727,42 @@ td ul ul {
     }
 
     .footer-content {
-        /* grid-template-columns: 1fr; - غير مشروحة، تمت إزالته */
+        flex-direction: column;
         margin-top: 30px;
         text-align: center;
+    }
+
+    .footer-content > div {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
     }
 
     .social-links {
         justify-content: center;
     }
-  
-    .partners-grid .partner-card {
-    width: calc(33.333% - 20px);
-    margin-bottom: 20px;
-}
+
+    /* Partners - تبقى horizontal scroll في الموبايل */
+    .partner-card {
+        flex: 0 0 280px;
+        min-width: 280px;
+    }
+
+    /* About - البروفايلز تبقى horizontal */
+    .team-carousel .slide {
+        flex: 0 0 60%;
+        min-width: 200px;
+    }
 
     .service-grid {
-    display: flex;
-}
+        display: flex;
+    }
 
-.service-grid .service-card {
-    margin-right: 15px; 
-}
+    .service-grid .service-card {
+        margin-right: 15px;
+    }
 
-.service-grid .service-card:last-child {
-    margin-right: 0; 
-}
-}
-    /* ===================================== */
-/* Partners Page Horizontal Layout */
-/* ===================================== */
-/* Partners Grid (using flex instead of grid + margins for spacing) */
-.partners-grid {
-    display: flex;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.partner-category {
-    width: 100%;
-    margin: 30px 0;
-    padding: 0;
-    background: none;
-    box-shadow: none;
-}
-
-.partner-category:hover {
-    background-color: #f8f8ff; 
-    border: 1px solid #A376A2; /* بدل var(--brand) */
-}
-
-.partner-category h3 {
-    text-align: left;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #A376A2; /* بدل var(--brand) */
-    font-size: 1.5em;
-    color: #A376A2; /* بدل var(--brand) */
-}
-
-/* Partner Card (transition uses only allowed properties) */
-.partner-card {
-    width: 100%;
-    margin-bottom: 0;
-    background-color: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.partner-card:hover {
-    background-color: #f8f8ff; 
-    border: 1px solid #A376A2; /* بدل var(--brand) */
-}
-
-/* Partner Header */
-.partner-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-  }
-
-.partner-name {
-    font-weight: bold;
-    font-size: 1.1em;
-    color: #A376A2; /* بدل var(--brand) */
-    flex: 1;
-    min-width: 200px;
-}
-
-.partner-rating {
-    color: gold;
-    font-size: 1em;
-    white-space: nowrap;
-}
-
-.partner-details {
-    margin-top: 10px;
-    color: #666;
-    flex-grow: 1;
-    line-height: 1.5;
-}
-
-.partner-contact {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px dashed #CDC1FF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
-}
-.partner-contact .pc-item {
-    margin: 0 10px 10px 0;
-}
-
-/* Partner Contact */
-.partner-contact {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px dashed #CDC1FF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    /* flex-wrap: wrap; - غير مشروحة، تمت إزالته */
+    .service-grid .service-card:last-child {
+        margin-right: 0;
+    }
 }
