@@ -1,135 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanAura</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanAura — Staff Profile</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
-            planAura
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="customer_dashboard.html">My Account</a></li>
-            <li><a href="provider_dashboard.html">Provider</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="partners.html">Our Partners</a></li>
-        </ul>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="PlanAura Logo" class="logo-img">
+      <span class="brand-text">planAura</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="customer_dashboard.html">My Account</a></li>
+      <li><a href="provider_dashboard.html">Provider</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="partners.html">Our Partners</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index.html">Home</a> &raquo;
+      <a href="about.html">About Us</a> &raquo;
+      <span>Staff Profile</span>
     </nav>
-     <div class="container">
-        <div class="breadcrumbs">
-    <a href="index.html">Home</a> &raquo; <a href="about.html">About Us</a> &raquo; Staff Profile
-        </div>
-  <!-- Page intro (left side) -->
-  <header>
-    <h1 class="staff">Staff</h1>
-    <p class="staff-desc">Here are some information about this staff member:</p>
-  </header>
 
-  <main class="container">
-    <section class="section">
-      <table border="6">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Photo</th>
-            <th>DoB</th>
-            <th>Email</th>
-            <!-- Split Area of Expertise across 3 cells -->
-            <th >Area of<br>Expertise</th>
-            <th>Skills</th>
-            <th>Education</th>
-          </tr>
-        </thead>
+    <header class="page-header">
+      <h1 class="staff">Staff</h1>
+      <p class="staff-desc">Here is some information about this staff member:</p>
+    </header>
 
-        <tbody>
-          <tr>
-            <td rowspan="3">Noura Al-Tuwiam</td>
+    <main class="staff-container" id="main-content">
+      <section class="section">
+        <table class="staff-table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Photo</th>
+              <th scope="col">DoB</th>
+              <th scope="col">Email</th>
+              <th scope="col">Area of<br>Expertise</th>
+              <th scope="col">Skills</th>
+              <th scope="col">Education</th>
+            </tr>
+          </thead>
 
-            <td rowspan="3">
-              <img class="staff-photo"
-                   src="images/girl.png"
-                   alt="Noura Al-Tuwiam">
-            </td>
+          <tbody>
+            <tr>
+              <td rowspan="3">Noura Al-Tuwiam</td>
 
-            <td rowspan="3">2005/05/22</td>
-            <td rowspan="3"><a href="mailto:farah_1426@icloud.com">Noura_1426@icloud.com</a></td>
+              <td rowspan="3">
+                <img
+                  class="staff-photo"
+                  src="images/girl.png"
+                  alt="Portrait of Noura Al-Tuwiam"
+                  width="120" height="120">
+              </td>
 
+              <td rowspan="3">2005/05/22</td>
 
-            <td>Web Development</td>
-            
-        
+              <td rowspan="3">
+                <a href="mailto:noura_1426@icloud.com">noura_1426@icloud.com</a>
+              </td>
 
-            <td rowspan="1">
-              <ul class="skills-list">
-                <li>Front-End
-                  <ul>
-                    <li>HTML5 / CSS3 / Flexbox</li>
-                    <li>JavaScript (ES6+)</li>
-                  </ul>
-                </li>
-              </ul>
-            </td rowspan="3">
+              <td>Web Development</td>
 
-            <td rowspan="3">
-              <ul class="edu-list">
-                <li>Undergraduate
-                  <ul>
-                    <li>BSc IT, CCIS — KSU</li>
-                    <li>Focus: AI / Security</li>
-                  </ul>
-                </li>
-                <li>Certificates
-                  <ul>
-                    <li>ML Foundations</li>
-                    <li>Generative AI </li>
-                  </ul>
-                </li>
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-          <td>Project Coordination</td>
-          <td rowspan="2">
-          <ul><li >Design
-                  <ul>
-                    <li>Figma &amp; Prototyping</li>
-                    <li>Accessibility Basics</li>
-                  </ul>
-                </li>
+              <td>
+                <ul class="skills-list">
+                  <li>Front-End
+                    <ul>
+                      <li>HTML5 / CSS3 / Flexbox</li>
+                      <li>JavaScript (ES6+)</li>
+                    </ul>
+                  </li>
                 </ul>
-                </td>
-          </tr>
+              </td>
 
-          <tr>
-          <td>UI / UX</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+              <td rowspan="3">
+                <ul class="edu-list">
+                  <li>Undergraduate
+                    <ul>
+                      <li>BSc IT, CCIS — KSU</li>
+                      <li>Focus: AI / Security</li>
+                    </ul>
+                  </li>
+                  <li>Certificates
+                    <ul>
+                      <li>ML Foundations</li>
+                      <li>Generative AI</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
 
-  <!-- Back Button -->
-  <a class="back-btn" href="about.html">Back</a>
+            <tr>
+              <td>Project Coordination</td>
 
-  <!-- Footer -->
-  <footer>
-        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
-        <p>@copyrights EventPlanner 2024</p>
-        <div style="margin-top: 1rem;">
-            <a href="#">Help Center</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Terms of Service</a>
-        </div>
-    </footer>
+              <td rowspan="2">
+                <ul class="skills-list">
+                  <li>Design
+                    <ul>
+                      <li>Figma &amp; Prototyping</li>
+                      <li>Accessibility Basics</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td>UI / UX</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <p class="back-row">
+        <a class="back-btn" href="about.html">Back</a>
+      </p>
+    </main>
+  </div> 
+
+  <footer class="site-footer">
+    <p>Contact us: <a href="mailto:info@eventplanner.com">info@eventplanner.com</a> | Phone: (555) 123-4567</p>
+    <p>&copy; EventPlanner 2024</p>
+    <div class="footer-links" style="margin-top: 1rem;">
+      <a href="#">Help Center</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a>
+    </div>
+  </footer>
+
 </body>
 </html>
