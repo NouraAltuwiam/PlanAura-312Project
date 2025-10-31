@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <title>PlanAura</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
-    <!-- UNIFIED NAVIGATION BAR - استخدم هذا في كل الصفحات -->
+    <!-- UNIFIED NAVIGATION BAR -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
             PlanAura
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="services.html">Our Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="customer_dashboard.html">My Account</a></li>
@@ -24,6 +24,7 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
+
     <!-- المحتوى الرئيسي -->
     <div class="container">
         <!-- قسم الرؤية -->
@@ -32,38 +33,43 @@
             <p>Your vision, our expertise - creating unforgettable events that bring your dreams to life. We specialize in turning your ideas into memorable experiences with attention to every detail.</p>
         </section>
         
-        <!-- قسم الخدمات -->
+        <!-- قسم الخدمات مع الصور -->
         <section class="services-section">
             <h2>Our Services</h2>
             <div class="services-container">
                 <div class="service-card">
-                    <h3>Food&Beverage</h3>
+                    <img src="platte.jpg" alt="Food & Beverage" class="service-image">
+                    <h3>Food & Beverage</h3>
                     <p>We offer exceptional catering experiences with delicious menus tailored to your event.</p>
                     <div class="service-info">
-                        <p>1- Buffet<br>2- dinner<br>3- coffee&desert<br>4- drinks only</p>
+                        <p>1- Buffet<br>2- Dinner<br>3- Coffee & Dessert<br>4- Drinks Only</p>
                         <p><strong>Price:</strong> Starting from $2,500</p>
                     </div>
                 </div>
+
                 <div class="service-card">
+                    <img src="hotel.jpg" alt="Venues" class="service-image">
                     <h3>Venues</h3>
                     <p>From intimate gatherings to grand celebrations, we help you find the perfect venue that fits your event's theme, size, and style.</p>
                     <div class="service-info">
-                        <p>1- Hotel<br>2- Resturant<br>3- outdoor</p>
+                        <p>1- Hotel<br>2- Restaurant<br>3- Outdoor</p>
                         <p><strong>Price:</strong> Starting from $1,800</p>
                     </div>
                 </div>
+
                 <div class="service-card">
-                    <h3>Decoration&Theme</h3>
+                    <img src="birth.jpg" alt="Decoration & Theme" class="service-image">
+                    <h3>Decoration & Theme</h3>
                     <p>We design and decorate events with creativity and elegance to reflect your unique style.</p>
                     <div class="service-info">
-                        <p>1- Baby shower<br>2- Birthday<br>3- Graduation<br></p>
+                        <p>1- Baby Shower<br>2- Birthday<br>3- Graduation</p>
                         <p><strong>Price:</strong> Starting from $800</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- قسم المراجعات - بدون أزرار Like/Dislike -->
+        <!-- قسم المراجعات -->
         <section class="reviews-section">
             <h2>Our Customer Reviews</h2>
             
@@ -73,7 +79,7 @@
                         <div class="review-meta-info">
                             <div class="review-avatar">👤</div>
                             <div class="review-details">
-                                 <p>sara ahmed</p> 
+                                 <p>Sara Ahmed</p> 
                             </div>
                         </div>
                     </div>
@@ -86,12 +92,12 @@
                         <div class="review-meta-info">
                             <div class="review-avatar">👤</div>
                             <div class="review-details">
-                                <p>nora khalid</p>
+                                <p>Nora Khalid</p>
                             </div>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
-                    <div class="review-text">Absolutely thrilled with the service. Everything went smoothly, and the decorations were exactly as we imagined.Thank you, EventPlanner!</div>
+                    <div class="review-text">Absolutely thrilled with the service. Everything went smoothly, and the decorations were exactly as we imagined. Thank you, EventPlanner!</div>
                 </div>
             </div>
 
@@ -101,7 +107,7 @@
                         <div class="review-meta-info">
                             <div class="review-avatar">👤</div>
                             <div class="review-details">
-                                <p>mona sami</p>
+                                <p>Mona Sami</p>
                             </div>
                         </div>
                     </div>
@@ -114,7 +120,7 @@
                         <div class="review-meta-info">
                             <div class="review-avatar">👤</div>
                             <div class="review-details">
-                                <p>fahad</p>
+                                <p>Fahad</p>
                             </div>
                         </div>
                     </div>
@@ -123,13 +129,12 @@
                 </div>
             </div>
             
-            <!-- الزر المضاف -->
             <div style="text-align: center; margin-top: 2rem;">
                 <a href="reviews.html" style="background-color: #A594F9; color: white; padding: 0.8rem 1.5rem; border-radius: 4px; text-decoration: none; display: inline-block; transition: background-color 0.3s;">View All Reviews</a>
             </div>
         </section>
         
-        <!-- قسم الشركاء - جديد -->
+        <!-- قسم الشركاء -->
         <section class="partners-section">
             <h2>Our Partners</h2>
             <div class="partners-container">
@@ -192,7 +197,7 @@
     </div>
 
     <!-- Footer -->
-   <footer>
+    <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
         <div style="margin-top: 1rem;">
