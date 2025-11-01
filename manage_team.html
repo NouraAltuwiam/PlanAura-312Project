@@ -34,158 +34,160 @@
         <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; Manage Team
         </div>
 
-    <div class="page-container">
-        <div class="main-content centered-form">
-            <h1 class="section-title">Manage Team</h1>
+        <div class="page-container">
+            <div class="main-content centered-form">
+                <h1 class="section-title">Manage Team</h1>
 
-            <div class="team-management-grid">
-                <div class="add-member-section form-card">
-                    <h2>+ Add Team Member</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                        </div>
-                        
-                        <div class="inline-form-group">
+                <div class="team-management-grid">
+                    <div class="add-member-section form-card">
+                        <h2>+ Add Team Member</h2>
+                        <form>
                             <div class="form-group">
-                                <label for="photo">Photo</label>
-                                <div class="service-photo-container" style="height: 80px;">
-                                    Upload Photo
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            
+                            <div class="inline-form-group">
+                                <div class="form-group">
+                                    <label for="photo">Photo</label>
+                                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
+                                    <div class="service-photo-container" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
+                                        Upload Photo
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date Of Birth</label>
+                                    <input type="date" id="dob" name="dob" required>
                                 </div>
                             </div>
+                            
                             <div class="form-group">
-                                <label for="dob">Date Of Birth</label>
-                                <input type="date" id="dob" name="dob" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="areaExpertise">Area of Expertise</label>
-                            <input type="text" id="areaExpertise" name="areaExpertise" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="skills">Skills</label>
-                            <textarea id="skills" name="skills" rows="2" placeholder="Enter skills separated by commas" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="education">Education</label>
-                            <select id="education" name="education" required>
-                                <option value="">Select Education Level</option>
-                                <option value="highschool">High School</option>
-                                <option value="bachelor">Bachelor's Degree</option>
-                                <option value="master">Master's Degree</option>
-                                <option value="phd">PhD</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">General Message</label>
-                            <textarea id="message" name="message" rows="3" placeholder="Any additional information..."></textarea>
-                        </div>
-                        
-                        <div class="form-actions" style="justify-content: flex-start;">
-                            <button type="submit" class="add-member-btn">Add Team Member</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="available-members-section">
-                    <h2>Available Members</h2>
-                    
-                    <div class="team-actions">
-                        <button class="action-btn export-btn">Export List</button>
-                        <button class="action-btn bulk-action-btn">Bulk Action</button>
+                            
+                            <div class="form-group">
+                                <label for="areaExpertise">Area of Expertise</label>
+                                <input type="text" id="areaExpertise" name="areaExpertise" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="skills">Skills</label>
+                                <textarea id="skills" name="skills" rows="2" placeholder="Enter skills separated by commas" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="education">Education</label>
+                                <select id="education" name="education" required>
+                                    <option value="">Select Education Level</option>
+                                    <option value="highschool">High School</option>
+                                    <option value="bachelor">Bachelor's Degree</option>
+                                    <option value="master">Master's Degree</option>
+                                    <option value="phd">PhD</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">General Message</label>
+                                <textarea id="message" name="message" rows="3" placeholder="Any additional information..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions" style="justify-content: flex-start;">
+                                <button type="submit" class="add-member-btn">Add Team Member</button>
+                            </div>
+                        </form>
                     </div>
 
-                    <form>
-                        <div class="available-members-list">
-                            <div class="member-item">
-                                <div class="member-info">
-                                    <div class="member-avatar" style="background-color: #4CAF50;">
-                                        <img src="girl.png" alt="Sadeem" class="member-img">
-                                    </div>
-                                    <div class="member-details">
-                                        <span class="role">Sadeem Alsultan (Manager)</span>
-                                        <span class="email">sadeem@plan.com</span>
-                                        <span class="expertise">Event Planning, Management</span>
-                                    </div>
-                                </div>
-                                <label class="delete-checkbox-label">
-                                    <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="1">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            
-                            <div class="member-item">
-                                <div class="member-info">
-                                    <div class="member-avatar" style="background-color: #2196F3;">
-                                        <img src="girl.png" alt="Noura" class="member-img">
-                                    </div>
-                                    <div class="member-details">
-                                        <span class="role">Noura Altuwiam (Designer)</span>
-                                        <span class="email">noura@plan.com</span>
-                                        <span class="expertise">Decoration, Theme Design</span>
-                                    </div>
-                                </div>
-                                <label class="delete-checkbox-label">
-                                    <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="2">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            
-                            <div class="member-item">
-                                <div class="member-info">
-                                    <div class="member-avatar" style="background-color: #FF9800;">
-                                        <img src="girl.png" alt="Farah" class="member-img">
-                                    </div>
-                                    <div class="member-details">
-                                        <span class="role">Farah Alhamed (Developer)</span>
-                                        <span class="email">farah@plan.com</span>
-                                        <span class="expertise">Web Development, Technical Support</span>
-                                    </div>
-                                </div>
-                                <label class="delete-checkbox-label">
-                                    <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="3">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            
-                            <div class="member-item">
-                                <div class="member-info">
-                                    <div class="member-avatar" style="background-color: #9C27B0;">
-                                        <img src="girl.png" alt="Juri" class="member-img">
-                                    </div>
-                                    <div class="member-details">
-                                        <span class="role">Juri Alzahem (Coordinator)</span>
-                                        <span class="email">juri@plan.com</span>
-                                        <span class="expertise">Client Relations, Venue Management</span>
-                                    </div>
-                                </div>
-                                <label class="delete-checkbox-label">
-                                    <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="4">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
+                    <div class="available-members-section">
+                        <h2>Available Members</h2>
+                        
+                        <div class="team-actions">
+                            <button class="action-btn export-btn">Export List</button>
+                            <button class="action-btn bulk-action-btn">Bulk Action</button>
                         </div>
 
-                        <div class="delete-member-action">
-                            <button type="submit" class="delete-submit-btn-team">Delete Selected Members</button>
-                        </div>
-                    </form>
+                        <form>
+                            <div class="available-members-list">
+                                <div class="member-item">
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background-color: #4CAF50;">
+                                            <img src="girl.png" alt="Sadeem" class="member-img">
+                                        </div>
+                                        <div class="member-details">
+                                            <span class="role">Sadeem Alsultan (Manager)</span>
+                                            <span class="email">sadeem@plan.com</span>
+                                            <span class="expertise">Event Planning, Management</span>
+                                        </div>
+                                    </div>
+                                    <label class="delete-checkbox-label">
+                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="1">
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="member-item">
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background-color: #2196F3;">
+                                            <img src="girl.png" alt="Noura" class="member-img">
+                                        </div>
+                                        <div class="member-details">
+                                            <span class="role">Noura Altuwiam (Designer)</span>
+                                            <span class="email">noura@plan.com</span>
+                                            <span class="expertise">Decoration, Theme Design</span>
+                                        </div>
+                                    </div>
+                                    <label class="delete-checkbox-label">
+                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="2">
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="member-item">
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background-color: #FF9800;">
+                                            <img src="girl.png" alt="Farah" class="member-img">
+                                        </div>
+                                        <div class="member-details">
+                                            <span class="role">Farah Alhamed (Developer)</span>
+                                            <span class="email">farah@plan.com</span>
+                                            <span class="expertise">Web Development, Technical Support</span>
+                                        </div>
+                                    </div>
+                                    <label class="delete-checkbox-label">
+                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="3">
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="member-item">
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background-color: #9C27B0;">
+                                            <img src="girl.png" alt="Juri" class="member-img">
+                                        </div>
+                                        <div class="member-details">
+                                            <span class="role">Juri Alzahem (Coordinator)</span>
+                                            <span class="email">juri@plan.com</span>
+                                            <span class="expertise">Client Relations, Venue Management</span>
+                                        </div>
+                                    </div>
+                                    <label class="delete-checkbox-label">
+                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="4">
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="delete-member-action">
+                                <button type="submit" class="delete-submit-btn-team">Delete Selected Members</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="page-bottom-actions">
-                <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                <div class="page-bottom-actions">
+                    <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                </div>
             </div>
         </div>
     </div>
