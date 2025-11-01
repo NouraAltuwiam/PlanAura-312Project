@@ -1,11 +1,4 @@
-/* ===================================== */
-/* المتغيرات الأساسية (CSS Variables) - تم الاستبدال */
-/* ===================================== */
-/* تم إزالة :root واستبدال var() بالقيم الفعلية */
 
-/* ===================================== */
-/* التنسيقات العامة */
-/* ===================================== */
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +20,7 @@ a {
 }
 
 /* ===================================== */
-/* NAVIGATION BAR - موحد لكل الصفحات */
+/* NAVIGATION BAR  */
 /* ===================================== */
 .navbar {
     background: #A376A2;
@@ -85,7 +78,7 @@ a {
 }
 
 /* ===================================== */
-/* FOOTER - موحد لكل الصفحات */
+/* FOOTER    */
 /* ===================================== */
 footer {
     background: #A376A2;
@@ -222,7 +215,7 @@ h3 {
 }
 
 /* ===================================== */
-/* Forms - إصلاح المشاكل */
+/* Forms -   */
 /* ===================================== */
 form {
     display: flex;
@@ -437,14 +430,13 @@ td ul ul {
 }
 
 /* ===================================== */
-/* About Page Specific - الستايل القديم مع التعديلات */
+/* About Page Specific  */
 /* ===================================== */
 .about-h1 {
     text-align: center;
     margin: 0.75rem 0 1rem;
 }
 
-/* Mission و Join Us جنب بعض في صف واحد */
 .about-rows {
     display: flex;
     justify-content: space-between;
@@ -452,7 +444,7 @@ td ul ul {
     margin: 1.5rem 0;
 }
 
-/* Mission Section - اليسار */
+/* Mission Section  */
 .about-rows .mission-section {
     width: 58%;
     margin-right: 2%;
@@ -489,7 +481,7 @@ td ul ul {
     line-height: 1.6;
 }
 
-/* Join Us Form - اليمين */
+/* Join Us Form  */
 .about-rows .card-purple.joinus {
     width: 40%;
 }
@@ -568,7 +560,6 @@ td ul ul {
     margin-top: 0.25rem;
 }
 
-/* Team Section - تحت Mission و Join مع Scroll Horizontal */
 .team-h2 {
     clear: both;
     text-align: center;
@@ -719,7 +710,6 @@ td ul ul {
     max-height: 200px;
 }
 
-  /* تعديلات خاصة لإضافة الصور */
         .service-card {
             position: relative;
             overflow: hidden;
@@ -859,7 +849,7 @@ td ul ul {
 }
 
 /* ===================================== */
-/* Partners Section - البطاقات بالعرض (Horizontal) */
+/* Partners Section -   (Horizontal) */
 /* ===================================== */
 .partners-section {
     margin-bottom: 3rem;
@@ -877,7 +867,6 @@ td ul ul {
     flex-direction: column;
 }
 
-/* كل category تاخذ السطر كامل */
 .partner-category {
     width: 100%;
     margin: 30px 0;
@@ -925,7 +914,7 @@ td ul ul {
     font-size: 0.9rem;
 }
 
-/* البطاقات - Horizontal Layout مع Scroll */
+/*  - Horizontal Layout  Scroll */
 .partners-grid {
     display: flex;
     overflow-x: auto;
@@ -2407,7 +2396,7 @@ td ul ul {
 }
 
 /* ===================================== */
-/* Site Footer (للصفحات الخاصة بـ Planning Hub) */
+/* Site Footer (  Planning Hub) */
 /* ===================================== */
 .site-footer {
     background-color: #212A31;
@@ -2598,7 +2587,7 @@ td ul ul {
 }
 
 /* ===================================== */
-/* Reviews Page - التعديلات الإضافية */
+/* Reviews Page  */
 /* ===================================== */
 .reviews-header {
     text-align: center;
@@ -2651,7 +2640,6 @@ td ul ul {
         margin-bottom: 0;
     }
 
-    /* About page responsive */
     .about-rows {
         display: flex;
         flex-direction: column;
@@ -2664,13 +2652,11 @@ td ul ul {
         margin-bottom: 2rem;
     }
     
-    /* البروفايلز تبقى horizontal scroll */
     .team-carousel .slide {
         flex: 0 0 40%;
         min-width: 180px;
     }
 
-    /* Partners - البطاقات تبقى horizontal */
     .partner-card {
         flex: 0 0 300px;
         min-width: 300px;
@@ -2765,13 +2751,11 @@ td ul ul {
         justify-content: center;
     }
 
-    /* Partners - تبقى horizontal scroll في الموبايل */
     .partner-card {
         flex: 0 0 280px;
         min-width: 280px;
     }
 
-    /* About - البروفايلز تبقى horizontal */
     .team-carousel .slide {
         flex: 0 0 60%;
         min-width: 200px;
@@ -2793,26 +2777,22 @@ td ul ul {
 /* About Page - New Layout */
 /* ===================================== */
 
-/* إزالة التنسيق القديم واستبداله */
 .about-rows {
     display: block;
     margin: 1.5rem 0;
 }
 
-/* Mission في الأعلى - صف كامل */
 .about-rows .mission-section {
     width: 100%;
     margin-right: 0;
     margin-bottom: 2rem;
 }
 
-/* Join Us في الأسفل - صف كامل */
 .card-purple.joinus {
     width: 100%;
     margin-top: 2rem;
 }
 
-/* Team Section تبقى في الوسط */
 .team-h2 {
     clear: both;
     text-align: center;
@@ -2824,7 +2804,6 @@ td ul ul {
     margin-bottom: 2rem;
 }
 
-/* تحسين عرض Join Us Form */
 .join-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2837,12 +2816,10 @@ td ul ul {
     margin-bottom: 0;
 }
 
-/* Message field يأخذ السطر كامل */
 .join-grid > div:has(#msg) {
     grid-column: 1 / -1;
 }
 
-/* Submit button في الوسط */
 .join-actions {
     grid-column: 1 / -1;
     width: 100%;
@@ -2851,7 +2828,6 @@ td ul ul {
     margin-top: 0.5rem;
 }
 
-/* Add Photo field تحسينات */
 .join-grid > div:has(.photo-pad) {
     display: flex;
     flex-direction: column;
