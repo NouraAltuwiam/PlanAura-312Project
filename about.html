@@ -193,7 +193,10 @@
             }
             
            
-            if (photoInput.files.length > 0) {
+            if (photoInput.files.length === 0) {
+                isValid = false;
+                errorMessage += "- Photo is required\n";
+            } else {
                 const file = photoInput.files[0];
                 if (!file.type.startsWith('image/')) {
                     isValid = false;
