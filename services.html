@@ -40,7 +40,7 @@
          <div class="sidebar">
                 <div class="sort-options card">
                     <h3>Sort By</h3>
-                    <select>
+                    <select id="sortSelect">
                         <optgroup label="Price">
                             <option value="price_low_high">Low to High</option>
                             <option value="price_high_low">High to Low</option>
@@ -63,19 +63,19 @@
                             <img src="velvetspoon.jpEg" alt="Buffet By Velvet Spoon Restaurant" class="service-image">
                             <h3>Buffet</h3>
                             <p>Enjoy a luxurious buffet experience with a wide selection of gourmet dishes prepared by top chefs.</p>
-                            <p><strong>Starting from 450$$</strong></p>
+                            <p><strong>Starting from $450</strong></p>
                         </div>
                         <div class="card">
                             <img src="catering.jpEg" alt="Gourmet Catering" class="service-image">
-                            <h3>Dinner&Catering</h3>
+                            <h3>Dinner & Catering</h3>
                             <p>Premium dinner&catering service offering custom menus to match your event's style and taste.</p>
-                            <p><strong>Starting from 550$$</strong></p>
+                            <p><strong>Starting from $550</strong></p>
                         </div>
                         <div class="card">
                             <img src="cof.jpEg" alt="Coffee and Dessert Bar" class="service-image">
                             <h3>Coffee & Dessert Bar</h3>
                             <p>Add a sweet touch to your event with our elegant coffee and dessert setup — perfect for every occasion.</p>
-                            <p><strong>Starting from 175$$</strong></p>
+                            <p><strong>Starting from $175</strong></p>
                         </div>
                     </div>
                 </div>
@@ -87,19 +87,19 @@
                             <img src="hiltoon.jpEg" alt="Hilton Ballroom" class="service-image">
                             <h3>Hotel</h3>
                             <p>A sophisticated indoor venue ideal for weddings, galas, and elegant gatherings.</p>
-                            <p><strong>Starting from 700$$</strong></p>
+                            <p><strong>Starting from $700</strong></p>
                         </div>
                         <div class="card">
                             <img src="rose.jpEg" alt="Rose Garden Outdoor" class="service-image">
                             <h3>Outdoor</h3>
                             <p>A charming outdoor garden setting, perfect for romantic events and open-air celebrations.</p>
-                            <p><strong>Starting from 300$$</strong></p>
+                            <p><strong>Starting from $300</strong></p>
                         </div>
                         <div class="card">
                             <img src="res.jpEg" alt="Bloom & Bite Restaurant Hall" class="service-image">
                             <h3>Restaurant</h3>
                             <p>A versatile space offering comfort and elegance, suitable for both casual and formal events.</p>
-                            <p><strong>Starting from 500$$</strong></p>
+                            <p><strong>Starting from $500</strong></p>
                         </div>
                     </div>
                 </div>
@@ -110,14 +110,14 @@
                         <div class="card">
                             <img src="graduation.png" alt="graduation Theme" class="service-image">
                             <h3>Graduation</h3>
-                            <p>Graduation party themes add style and meaning to the celebration, reflecting the graduate’s personality and achievements.</p>
-                            <p><strong>Starting from 270$$</strong></p>
+                            <p>Graduation party themes add style and meaning to the celebration, reflecting the graduate's personality and achievements.</p>
+                            <p><strong>Starting from $270</strong></p>
                         </div>
                         <div class="card">
                             <img src="birthday.jpg" alt="birthday Theme" class="service-image">
                             <h3>Birthday Theme</h3>
-                            <p>A birthday party theme sets the mood of the celebration, creating a special atmosphere that matches the person’s taste and personality.</p>
-                            <p><strong>Starting from 170$$</strong></p>
+                            <p>A birthday party theme sets the mood of the celebration, creating a special atmosphere that matches the person's taste and personality.</p>
+                            <p><strong>Starting from $170</strong></p>
                         </div>
                         <div class="card">
                             <img src="baby.jpg" alt="baby shower Theme" class="service-image">
@@ -125,7 +125,7 @@
                             <h3>Baby Shower Theme</h3>
 
                             <p>A baby shower theme brings the celebration to life, uniting guests with creative decorations and activities to celebrate the upcoming arrival.</p>
-                            <p><strong>Starting from 250$$</strong></p>
+                            <p><strong>Starting from $250</strong></p>
                         </div>
                     </div>
                 </div>
@@ -142,5 +142,56 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
+
+    <script>
+
+            //sorting system
+            document.addEventListener('DOMContentLoaded', function() {
+            const sortSelect = document.getElementById('sortSelect');
+            const serviceCategories = document.querySelectorAll('.service-category');
+            
+            sortSelect.addEventListener('change', function() {
+                const sortValue = this.value;
+                
+                serviceCategories.forEach(category => {
+                    const serviceItems = category.querySelector('.service-items');
+                    const cards = Array.from(serviceItems.querySelectorAll('.card'));
+                    
+                    cards.sort((a, b) => {
+                        switch(sortValue) {
+                            case 'price_low_high':
+                                return getPrice(a) - getPrice(b);
+                            case 'price_high_low':
+                                return getPrice(b) - getPrice(a);
+                            case 'name_a_z':
+                                return getServiceName(a).localeCompare(getServiceName(b));
+                            case 'name_z_a':
+                                return getServiceName(b).localeCompare(getServiceName(a));
+                            default:
+                                return 0;
+                        }
+                    });
+                    
+                    cards.forEach(card => {
+                        serviceItems.appendChild(card);
+                    });
+                });
+            });
+            
+            function getPrice(card) {
+                const priceText = card.querySelector('p:last-child').textContent;
+                const priceMatch = priceText.match(/\$(\d+)/);
+                return priceMatch ? parseInt(priceMatch[1]) : 0;
+            }
+            
+            function getServiceName(card) {
+                return card.querySelector('h3').textContent.trim();
+            }
+        });
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
 </body>
 </html>

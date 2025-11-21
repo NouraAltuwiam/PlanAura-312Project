@@ -164,6 +164,12 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
-    </div>  
+    </div> 
+    <script>
+    // Apply dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script> 
 </body>
 </html>

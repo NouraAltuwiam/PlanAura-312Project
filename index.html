@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PlanAura</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>PlanAura</title>
     <link rel="stylesheet" href="style.css">
-    
+    <style>
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #A376A2;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        #backToTop:hover {
+            background-color: #8d6d8b;
+            transform: translateY(-3px);
+        }
+        
+        /* Dark mode toggle button */
+        #darkModeToggle {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background-color: #A376A2;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        #darkModeToggle:hover {
+            background-color: #8d6d8b;
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 <body>
 
@@ -23,6 +69,12 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">↑</button>
 
     <div class="container">
         <section class="hero">
@@ -190,7 +242,7 @@
         </section>
     </div>
 
-    <footer>
+        <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
         <div style="margin-top: 1rem;">
@@ -198,7 +250,75 @@
             <a href="#">Privacy Policy</a> |
             <a href="#">Terms of Service</a>
         </div>
+        <div style="margin-top: 1rem; font-size: 0.9rem; color: #f0f0f0;">
+            Current Time: <span id="currentTime">Loading...</span>
+        </div>
     </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.textContent = '🌙';
+            }
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update Current Time (Simple Format)
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+            const dateString = now.toLocaleDateString('en-US', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+            document.getElementById('currentTime').textContent = `${dateString} - ${timeString}`;
+        }
+
+        // Update time immediately and then every second
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        
+    </script>
 
 </body>
 </html>
