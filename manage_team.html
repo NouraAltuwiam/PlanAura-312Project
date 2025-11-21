@@ -12,8 +12,7 @@
         PLANNING HUB
     </div>
     
-    
-<nav class="navbar">
+    <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
             PlanAura
@@ -28,11 +27,18 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
-     
+
+    <!-- ✅ breadcrumb صار خارج الـ container مثل البروفايدر -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> &raquo; 
+        <a href="provider_dashboard.html">Planning Hub</a> &raquo; 
+        Manage Team
+    </div>
+
     <div class="container">
-        <div class="breadcrumbs">
-        <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; Manage Team
-        </div>
+        <div class="page-container">
+            <div class="main-content centered-form">
+                <h1 class="section-title">Manage Team</h1>
 
         <div class="page-container">
             <div class="main-content centered-form">
@@ -52,6 +58,7 @@
                                     <label for="photo">Photo</label>
                                     <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
                                     <div class="service-photo-container" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
+                                    <div class="service-photo-container" style="height: 80px;">
                                         Upload Photo
                                     </div>
                                 </div>
@@ -84,6 +91,7 @@
                                     <option value="bachelor">Bachelor's Degree</option>
                                     <option value="master">Master's Degree</option>
                                     <option value="phd">PhD</option>
+                                    <option value="master">Master's Degree</option><option value="phd">PhD</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
@@ -109,6 +117,8 @@
 
                         <form>
                             <div class="available-members-list">
+
+                                <!-- 👇 كل الأعضاء مثل ما أرسلتيهم -->
                                 <div class="member-item">
                                     <div class="member-info">
                                         <div class="member-avatar" style="background-color: #4CAF50;">
@@ -126,6 +136,7 @@
                                     </label>
                                 </div>
                                 
+                            
                                 <div class="member-item">
                                     <div class="member-info">
                                         <div class="member-avatar" style="background-color: #2196F3;">
@@ -147,6 +158,10 @@
                                     <div class="member-info">
                                         <div class="member-avatar" style="background-color: #FF9800;">
                                             <img src="girl.png" alt="Farah" class="member-img">
+                            
+                                <div class="member-item">
+                                    <div class="member-info">
+                                        <div class="member-avatar" style="background-color: #FF9800;"><img src="girl.png" alt="Farah" class="member-img">
                                         </div>
                                         <div class="member-details">
                                             <span class="role">Farah Alhamed (Developer)</span>
@@ -160,6 +175,7 @@
                                     </label>
                                 </div>
                                 
+                            
                                 <div class="member-item">
                                     <div class="member-info">
                                         <div class="member-avatar" style="background-color: #9C27B0;">
@@ -192,6 +208,7 @@
         </div>
     </div>
 
+    <!-- ✅ الفوتر مطابق للبروفايدر -->
     <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
