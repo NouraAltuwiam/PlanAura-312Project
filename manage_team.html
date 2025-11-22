@@ -41,7 +41,7 @@
                 <div class="team-management-grid">
                     <div class="add-member-section form-card">
                         <h2>+ Add Team Member</h2>
-                        <form>
+                        <form id="addMemberForm">
                             <div class="form-group">
                                 <label for="fullName">Full Name</label>
                                 <input type="text" id="fullName" name="fullName" required>
@@ -51,7 +51,7 @@
                                 <div class="form-group">
                                     <label for="photo">Photo</label>
                                     <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
-                                    <div class="service-photo-container" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
+                                    <div class="service-photo-container" id="photoContainer" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
                                         Upload Photo
                                     </div>
                                 </div>
@@ -102,13 +102,10 @@
                     <div class="available-members-section">
                         <h2>Available Members</h2>
                         
-                        <div class="team-actions">
-                            <button class="action-btn export-btn">Export List</button>
-                            <button class="action-btn bulk-action-btn">Bulk Action</button>
-                        </div>
+                    
 
-                        <form>
-                            <div class="available-members-list">
+                        <form id="deleteMembersForm">
+                            <div class="available-members-list" id="membersList">
                                 <div class="member-item">
                                     <div class="member-info">
                                         <div class="member-avatar" style="background-color: #4CAF50;">
@@ -202,9 +199,244 @@
         </div>
     </footer>
     <script>
-    // Apply dark mode from localStorage
+ 
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
+    }
+
+
+    let teamMembers = [
+        {
+            id: 1,
+            name: "Sadeem Alsultan",
+            role: "Manager",
+            email: "sadeem@plan.com",
+            expertise: "Event Planning, Management",
+            photo: "girl.png",
+            color: "#4CAF50"
+        },
+        {
+            id: 2,
+            name: "Noura Altuwiam",
+            role: "Designer",
+            email: "noura@plan.com",
+            expertise: "Decoration, Theme Design",
+            photo: "girl.png",
+            color: "#2196F3"
+        },
+        {
+            id: 3,
+            name: "Farah Alhamed",
+            role: "Developer",
+            email: "farah@plan.com",
+            expertise: "Web Development, Technical Support",
+            photo: "girl.png",
+            color: "#FF9800"
+        },
+        {
+            id: 4,
+            name: "Juri Alzahem",
+            role: "Coordinator",
+            email: "juri@plan.com",
+            expertise: "Client Relations, Venue Management",
+            photo: "girl.png",
+            color: "#9C27B0"
+        }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setupEventListeners();
+        renderMembersList();
+    });
+
+ 
+    function setupEventListeners() {
+ 
+        const photoInput = document.getElementById('photo');
+        const photoContainer = document.getElementById('photoContainer');
+        
+        photoInput.addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    photoContainer.style.backgroundImage = `url(${event.target.result})`;
+                    photoContainer.classList.add('has-image');
+                    photoContainer.textContent = '';
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        document.getElementById('addMemberForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+          
+            let isValid = true;
+            let errorMessage = '';
+            
+            const fullName = document.getElementById('fullName').value.trim();
+            const photo = document.getElementById('photo').files[0];
+            const dob = document.getElementById('dob').value;
+            const email = document.getElementById('email').value.trim();
+            const areaExpertise = document.getElementById('areaExpertise').value.trim();
+            const skills = document.getElementById('skills').value.trim();
+            const education = document.getElementById('education').value;
+            
+  
+            const requiredFields = document.querySelectorAll('#addMemberForm input[required], #addMemberForm select[required], #addMemberForm textarea[required]');
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    const fieldLabel = field.closest('.form-group').querySelector('label').textContent;
+                    errorMessage += `- ${fieldLabel} is required\n`;
+                }
+            });
+            
+    
+            if (fullName && /^\d/.test(fullName)) {
+                isValid = false;
+                errorMessage += "- Name cannot start with numbers\n";
+            }
+            
+            if (!photo) {
+                isValid = false;
+                errorMessage += "- Photo is required\n";
+            } else if (!photo.type.startsWith('image/')) {
+                isValid = false;
+                errorMessage += "- Photo must be an image file\n";
+            }
+            
+      
+            if (dob) {
+                const dobDate = new Date(dob);
+                const cutoffDate = new Date('2008-12-31');
+                if (dobDate > cutoffDate) {
+                    isValid = false;
+                    errorMessage += "- Date of Birth should not be after 2008\n";
+                }
+            }
+            
+  
+            if (email && !isValidEmail(email)) {
+                isValid = false;
+                errorMessage += "- Please enter a valid email address\n";
+            }
+            
+    
+            if (!isValid) {
+                alert("Please fix the following errors:\n\n" + errorMessage);
+            } else {
+                addNewMember();
+            }
+        });
+
+        document.getElementById('deleteMembersForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            deleteSelectedMembers();
+        });
+    }
+
+
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function addNewMember() {
+        const fullName = document.getElementById('fullName').value.trim();
+        const photoFile = document.getElementById('photo').files[0];
+        const dob = document.getElementById('dob').value;
+        const email = document.getElementById('email').value.trim();
+        const areaExpertise = document.getElementById('areaExpertise').value.trim();
+        const skills = document.getElementById('skills').value.trim();
+        const education = document.getElementById('education').value;
+        const message = document.getElementById('message').value.trim();
+        
+       
+        const reader = new FileReader();
+        reader.onload = function(event) {
+         
+            const newMember = {
+                id: teamMembers.length > 0 ? Math.max(...teamMembers.map(m => m.id)) + 1 : 1,
+                name: fullName,
+                role: areaExpertise,
+                email: email,
+                expertise: skills,
+                photo: event.target.result,
+                color: getRandomColor()
+            };
+            
+        
+            teamMembers.push(newMember);
+            
+          
+            renderMembersList();
+            
+          
+            document.getElementById('addMemberForm').reset();
+            document.getElementById('photoContainer').style.backgroundImage = '';
+            document.getElementById('photoContainer').classList.remove('has-image');
+            document.getElementById('photoContainer').textContent = 'Upload Photo';
+            
+            alert(`Thank you! Team member ${fullName} has been added successfully!`);
+        };
+        reader.readAsDataURL(photoFile);
+    }
+
+
+    function deleteSelectedMembers() {
+        const selectedCheckboxes = document.querySelectorAll('.delete-checkbox:checked');
+        
+        if (selectedCheckboxes.length === 0) {
+            alert("Please select at least one member to delete");
+            return;
+        }
+        
+        const confirmDelete = confirm(`Are you sure you want to delete ${selectedCheckboxes.length} member(s)?`);
+        
+        if (confirmDelete) {
+  
+            const membersToDelete = Array.from(selectedCheckboxes).map(checkbox => parseInt(checkbox.value));
+       
+            teamMembers = teamMembers.filter(member => !membersToDelete.includes(member.id));
+            
+           
+            renderMembersList();
+            
+            alert("Selected members have been deleted successfully!");
+        }
+    }
+
+    function renderMembersList() {
+        const membersList = document.getElementById('membersList');
+        membersList.innerHTML = '';
+        
+        teamMembers.forEach(member => {
+            const memberItem = document.createElement('div');
+            memberItem.className = 'member-item';
+            memberItem.innerHTML = `
+                <div class="member-info">
+                    <div class="member-avatar" style="background-color: ${member.color};">
+                        <img src="${member.photo}" alt="${member.name}" class="member-img">
+                    </div>
+                    <div class="member-details">
+                        <span class="role">${member.name} (${member.role})</span>
+                        <span class="email">${member.email}</span>
+                        <span class="expertise">${member.expertise}</span>
+                    </div>
+                </div>
+                <label class="delete-checkbox-label">
+                    <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="${member.id}">
+                    <span class="custom-checkbox"></span>
+                </label>
+            `;
+            membersList.appendChild(memberItem);
+        });
+    }
+
+    function getRandomColor() {
+        const colors = ['#4CAF50', '#2196F3', '#FF9800', '#9C27B0', '#F44336', '#009688', '#795548'];
+        return colors[Math.floor(Math.random() * colors.length)];
     }
 </script>
 </body>
