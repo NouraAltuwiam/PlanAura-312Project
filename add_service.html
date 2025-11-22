@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanAura</title>
+    <title>PlanAura - Add Service</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,12 +23,15 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
-    
+
+    <!-- ✅ breadcrumb خارج الـ container -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> &raquo; 
+        <a href="provider_dashboard.html">Planning Hub</a> &raquo; 
+        Add Service
+    </div>
+
     <div class="container">
-        <div class="breadcrumbs">
-        <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; Add Service
-        </div>
-        
         <div class="page-container">
             <div class="main-content centered-form">
                 <h1 class="section-title">Add Service</h1>
@@ -82,9 +85,8 @@
                     <div class="form-group">
                         <label for="description">Service Description</label>
                         <textarea id="description" name="description" rows="4" required></textarea>
-                    </div>
-
-                    <div class="form-group"><label for="serviceLocation">Service Location</label>
+                    </div><div class="form-group">
+                        <label for="serviceLocation">Service Location</label>
                         <input type="text" id="serviceLocation" name="serviceLocation">
                     </div>
 
@@ -136,7 +138,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>

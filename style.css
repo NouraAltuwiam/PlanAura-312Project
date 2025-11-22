@@ -3,8 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-
+} 
 body {
     background-color: #f0f0f0;
     color: #6B3F69;
@@ -12,7 +11,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    /* ✨ الإضافات الجديدة */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* يمنع الشريط الأفقي ويخلي النافبار تمتد */
 }
+
 
 a {
     text-decoration: none;
@@ -24,10 +30,25 @@ a {
 /* ===================================== */
 .navbar {
     background: #A376A2;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+
+    /* 👇 يمدها عرض الصفحة بالكامل */
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+nav.navbar {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 .logo {
@@ -134,6 +155,13 @@ footer a:hover {
 .breadcrumb a, .breadcrumbs a {
     color: #A376A2;
     text-decoration: none;
+}
+/* توحيد تموضع breadcrumb في كل الصفحات */
+.breadcrumb {
+    margin-left: 2rem; /* نفس المسافة اللي يستخدمها البروفايدر تقريباً */
+    margin-top: 1rem;
+    text-align: left;
+    width: fit-content;
 }
 
 /* ===================================== */
@@ -2968,4 +2996,93 @@ body.dark-mode .start-planning {
 body.dark-mode .start-planning:hover {
     background-color: #ffffff;
     color: #2d1b2d !important;
+/* Responsive */
+@media (max-width: 768px) {
+    .join-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .join-grid > div:has(#msg) {
+        grid-column: 1;
+    }
+}
+/* ===================================== */
+/* تحسينات صفحة Add Service */
+/* ===================================== */
+
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.centered-form .form-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.container {
+    min-height: calc(100vh - 300px);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تحسينات للاستجابة على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .inline-form-group {
+        flex-direction: column;
+    }
+    
+    .inline-form-group > div {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .week-days-grid {
+        flex-wrap: wrap;
+    }
+    
+    .week-days-grid .day-option {
+        width: 30%;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .centered-form .form-card {
+        padding: 20px 15px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-actions > * {
+        margin-right: 0;
+        width: 100%;
+    }
+}
+footer {
+    width: 100vw; /* يجعل الفوتر بعرض الشاشة بالكامل */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
