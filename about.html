@@ -76,7 +76,7 @@
   <section aria-label="Join Us">
     <div class="card-purple joinus">
       <h3>Join Us!</h3>
-      <form action="#" method="post" class="join-grid" enctype="multipart/form-data">
+      <form id="joinForm" action="#" method="post" class="join-grid" enctype="multipart/form-data">
         <div>
           <label for="jn">Add your name</label>
           <input id="jn" name="name" type="text" required >
@@ -111,8 +111,9 @@
           <input id="area" name="area" type="text" >
         </div>
         <div>
-          <label>Add Photo</label>
-          <div class="photo-pad">Upload</div>
+          <label for="photo">Add Photo</label>
+          <input id="photo" name="photo" type="file" accept="image/*" style="display: none;">
+          <div class="photo-pad" id="photoUpload">Upload</div>
         </div>
         <div style="grid-column:1 / -1;">
           <label for="msg">Message</label>
@@ -135,11 +136,95 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
+    
     <script>
-    // Apply dark mode from localStorage
+    
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
-</script>
+    
+   
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('joinForm');
+        const photoUpload = document.getElementById('photoUpload');
+        const photoInput = document.getElementById('photo');
+        
+        
+        photoUpload.addEventListener('click', function() {
+            photoInput.click();
+        });
+        
+       
+        photoInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                photoUpload.textContent = this.files[0].name;
+            } else {
+                photoUpload.textContent = 'Upload';
+            }
+        });
+        
+       
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+           
+            const nameInput = document.getElementById('jn');
+            const dobInput = document.getElementById('dob');
+            const photoInput = document.getElementById('photo');
+            
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            
+            const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    errorMessage += `- ${field.previousElementSibling.textContent} is required\n`;
+                }
+            });
+            
+            
+            const nameValue = nameInput.value.trim();
+            if (nameValue && /^\d/.test(nameValue)) {
+                isValid = false;
+                errorMessage += "- Name cannot start with numbers\n";
+            }
+            
+           
+            if (photoInput.files.length === 0) {
+                isValid = false;
+                errorMessage += "- Photo is required\n";
+            } else {
+                const file = photoInput.files[0];
+                if (!file.type.startsWith('image/')) {
+                    isValid = false;
+                    errorMessage += "- Photo must be an image file\n";
+                }
+            }
+            
+         
+            if (dobInput.value) {
+                const dob = new Date(dobInput.value);
+                const cutoffDate = new Date('2008-12-31');
+                if (dob > cutoffDate) {
+                    isValid = false;
+                    errorMessage += "- Date of Birth should not be after 2008\n";
+                }
+            }
+            
+       
+            if (!isValid) {
+                alert("Please fix the following errors:\n\n" + errorMessage);
+            } else {
+          
+                alert(`Thank you, ${nameValue}! You have joined us Successfully :)`);
+                
+                // form.submit();
+            }
+        });
+    });
+    </script>
 </body>
 </html>
