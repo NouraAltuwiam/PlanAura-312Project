@@ -43,41 +43,41 @@
                         <h2>+ Add Team Member</h2>
                         <form id="addMemberForm">
                             <div class="form-group">
-                                <label for="fullName">Full Name</label>
+                                <label for="fullName" class="required">Full Name</label>
                                 <input type="text" id="fullName" name="fullName" required>
                             </div>
                             
                             <div class="inline-form-group">
                                 <div class="form-group">
-                                    <label for="photo">Photo</label>
-                                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
+                                    <label for="photo" class="required">Photo</label>
+                                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;" required>
                                     <div class="service-photo-container" id="photoContainer" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
                                         Upload Photo
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="dob">Date Of Birth</label>
+                                    <label for="dob" class="required">Date Of Birth</label>
                                     <input type="date" id="dob" name="dob" required>
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email" class="required">Email</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="areaExpertise">Area of Expertise</label>
+                                <label for="areaExpertise" class="required">Area of Expertise</label>
                                 <input type="text" id="areaExpertise" name="areaExpertise" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="skills">Skills</label>
+                                <label for="skills" class="required">Skills</label>
                                 <textarea id="skills" name="skills" rows="2" placeholder="Enter skills separated by commas" required></textarea>
                             </div>
                             
                             <div class="form-group">
-                                <label for="education">Education</label>
+                                <label for="education" class="required">Education</label>
                                 <select id="education" name="education" required>
                                     <option value="">Select Education Level</option>
                                     <option value="highschool">High School</option>
@@ -89,8 +89,8 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="message">General Message</label>
-                                <textarea id="message" name="message" rows="3" placeholder="Any additional information..."></textarea>
+                                <label for="message" class="required">General Message</label>
+                                <textarea id="message" name="message" rows="3" placeholder="Any additional information..." required></textarea>
                             </div>
                             
                             <div class="form-actions" style="justify-content: flex-start;">
@@ -198,6 +198,12 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
+    <style>
+        .required::after {
+            content: " *";
+            color: #d32f2f;
+        }
+    </style>
     <script>
  
     if (localStorage.getItem('darkMode') === 'enabled') {
@@ -281,13 +287,14 @@
             const areaExpertise = document.getElementById('areaExpertise').value.trim();
             const skills = document.getElementById('skills').value.trim();
             const education = document.getElementById('education').value;
+            const message = document.getElementById('message').value.trim();
             
   
             const requiredFields = document.querySelectorAll('#addMemberForm input[required], #addMemberForm select[required], #addMemberForm textarea[required]');
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     isValid = false;
-                    const fieldLabel = field.closest('.form-group').querySelector('label').textContent;
+                    const fieldLabel = field.closest('.form-group').querySelector('label').textContent.replace(' *', '');
                     errorMessage += `- ${fieldLabel} is required\n`;
                 }
             });
@@ -320,6 +327,12 @@
             if (email && !isValidEmail(email)) {
                 isValid = false;
                 errorMessage += "- Please enter a valid email address\n";
+            }
+            
+            // التحقق من حقل الرسالة
+            if (!message) {
+                isValid = false;
+                errorMessage += "- General Message is required\n";
             }
             
     
