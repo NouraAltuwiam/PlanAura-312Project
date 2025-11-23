@@ -5,6 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlanAura</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        
+        .review-feedback {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #E5D9F2;
+            font-size: 14px;
+        }
+        
+        .review-feedback span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+        }
+        
+        .review-feedback strong {
+            color: #A376A2;
+            font-size: 16px;
+        }
+        
+        .review-actions button {
+            transition: all 0.3s ease;
+        }
+        
+        .review-actions button.active-like {
+            background-color: #4CAF50 !important;
+            color: white !important;
+            border-color: #4CAF50 !important;
+            font-weight: bold;
+        }
+        
+        .review-actions button.active-dislike {
+            background-color: #f44336 !important;
+            color: white !important;
+            border-color: #f44336 !important;
+            font-weight: bold;
+        }
+        
+        /* Dark mode support for feedback */
+        body.dark-mode .review-feedback {
+            border-top-color: #555;
+        }
+        
+        body.dark-mode .review-feedback span {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .review-feedback strong {
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 
@@ -45,8 +99,8 @@
                             </div>
                         </div>
                         <div class="review-actions">
-                            <button>Like</button>
-                            <button>Dislike</button>
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
@@ -62,8 +116,8 @@
                             </div>
                         </div>
                         <div class="review-actions">
-                            <button>Like</button>
-                            <button>Dislike</button>
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
@@ -82,8 +136,8 @@
                             </div>
                         </div>
                         <div class="review-actions">
-                            <button>Like</button>
-                            <button>Dislike</button>
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
@@ -99,8 +153,8 @@
                             </div>
                         </div>
                         <div class="review-actions">
-                            <button>Like</button>
-                            <button>Dislike</button>
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
@@ -119,8 +173,8 @@
                             </div>
                         </div>
                         <div class="review-actions">
-                            <button>Like</button>
-                            <button>Dislike</button>
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
@@ -136,8 +190,8 @@
                             </div>
                         </div>
                         <div class="review-actions">
-                            <button>Like</button>
-                            <button>Dislike</button>
+                            <button class="like-btn">Like</button>
+                            <button class="dislike-btn">Dislike</button>
                         </div>
                     </div>
                     <div class="review-rating">★★★★★</div>
@@ -165,11 +219,109 @@
         </div>
     </footer>
     </div> 
+    
     <script>
     // Apply dark mode from localStorage
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
-</script> 
+    </script>
+    
+    <script>
+    // ========================================
+    // Reviews Like/Dislike System with Counter
+    // Extra Functionality for Phase 3 - Point 9
+    // ========================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+       
+        const reviewContainers = document.querySelectorAll('.review-container');
+        
+        
+        let reviewData = {};
+        
+        
+        reviewContainers.forEach((container, index) => {
+            const reviewId = `review_${index}`;
+            const likeBtn = container.querySelector('.like-btn');
+            const dislikeBtn = container.querySelector('.dislike-btn');
+            
+            
+            if (!reviewData[reviewId]) {
+                reviewData[reviewId] = {
+                    likes: 0,
+                    dislikes: 0,
+                    userAction: null // null, 'like', or 'dislike'
+                };
+            }
+        
+            
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'review-feedback';
+            feedbackDiv.innerHTML = `
+                <span class="like-count">👍 <strong>${reviewData[reviewId].likes}</strong> Likes</span>
+                <span class="dislike-count">👎 <strong>${reviewData[reviewId].dislikes}</strong> Dislikes</span>
+            `;
+            
+            
+            const reviewText = container.querySelector('.review-text');
+            reviewText.after(feedbackDiv);
+            
+            function updateDisplay() {
+
+                feedbackDiv.querySelector('.like-count strong').textContent = reviewData[reviewId].likes;
+                feedbackDiv.querySelector('.dislike-count strong').textContent = reviewData[reviewId].dislikes;
+                
+                likeBtn.classList.remove('active-like');
+                dislikeBtn.classList.remove('active-dislike');
+                
+                if (reviewData[reviewId].userAction === 'like') {
+                    likeBtn.classList.add('active-like');
+                } else if (reviewData[reviewId].userAction === 'dislike') {
+                    dislikeBtn.classList.add('active-dislike');
+                }
+            }
+            
+            likeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (reviewData[reviewId].userAction === 'like') {
+
+                    reviewData[reviewId].likes--;
+                    reviewData[reviewId].userAction = null;
+                } else {
+                    if (reviewData[reviewId].userAction === 'dislike') {
+                        reviewData[reviewId].dislikes--;
+                    }
+                    reviewData[reviewId].likes++;
+                    reviewData[reviewId].userAction = 'like';
+                }
+                
+                updateDisplay();
+            });
+            
+            dislikeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (reviewData[reviewId].userAction === 'dislike') {
+                    reviewData[reviewId].dislikes--;
+                    reviewData[reviewId].userAction = null;
+                } else {
+                    if (reviewData[reviewId].userAction === 'like') {
+                        reviewData[reviewId].likes--;
+                    }
+                    reviewData[reviewId].dislikes++;
+                    reviewData[reviewId].userAction = 'dislike';
+                }
+                
+                updateDisplay();
+            });
+            
+            updateDisplay();
+        });
+        
+        console.log('✅ Reviews Like/Dislike System Loaded Successfully!');
+    });
+    </script>
 </body>
 </html>
