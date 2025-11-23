@@ -40,16 +40,13 @@
          <div class="sidebar">
                 <div class="sort-options card">
                     <h3>Sort By</h3>
-                    <select id="sortSelect">
-                        <optgroup label="Price">
-                            <option value="price_low_high">Low to High</option>
-                            <option value="price_high_low">High to Low</option>
-                        </optgroup>
-                        <optgroup label="Name">
-                            <option value="name_a_z">A - Z</option>
-                            <option value="name_z_a">Z - A</option>
-                        </optgroup>
-                    </select>
+                   <select id="sortSelect">
+    <option value="price_low_high">Price: Low to High</option>
+    <option value="price_high_low">Price: High to Low</option>
+    <option value="name_a_z">Name: A to Z</option>
+    <option value="name_z_a">Name: Z to A</option>
+    <option value="random">Random</option>
+</select>
                 </div>
 </div>
 
@@ -144,54 +141,54 @@
     </footer>
 
     <script>
-
-            //sorting system
-            document.addEventListener('DOMContentLoaded', function() {
-            const sortSelect = document.getElementById('sortSelect');
-            const serviceCategories = document.querySelectorAll('.service-category');
+    document.addEventListener('DOMContentLoaded', function() {
+        const sortSelect = document.getElementById('sortSelect');
+        const serviceCategories = document.querySelectorAll('.service-category');
+        
+        sortSelect.addEventListener('change', function() {
+            const sortValue = this.value;
             
-            sortSelect.addEventListener('change', function() {
-                const sortValue = this.value;
+            serviceCategories.forEach(category => {
+                const serviceItems = category.querySelector('.service-items');
+                const cards = Array.from(serviceItems.querySelectorAll('.card'));
                 
-                serviceCategories.forEach(category => {
-                    const serviceItems = category.querySelector('.service-items');
-                    const cards = Array.from(serviceItems.querySelectorAll('.card'));
-                    
+                if (sortValue === 'random') {
+                    // Random shuffle
+                    for (let i = cards.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [cards[i], cards[j]] = [cards[j], cards[i]];
+                    }
+                } else {
+                    // Normal sorting
                     cards.sort((a, b) => {
-                        switch(sortValue) {
-                            case 'price_low_high':
-                                return getPrice(a) - getPrice(b);
-                            case 'price_high_low':
-                                return getPrice(b) - getPrice(a);
-                            case 'name_a_z':
-                                return getServiceName(a).localeCompare(getServiceName(b));
-                            case 'name_z_a':
-                                return getServiceName(b).localeCompare(getServiceName(a));
-                            default:
-                                return 0;
-                        }
+                        if (sortValue === 'price_low_high') return getPrice(a) - getPrice(b);
+                        if (sortValue === 'price_high_low') return getPrice(b) - getPrice(a);
+                        if (sortValue === 'name_a_z') return getServiceName(a).localeCompare(getServiceName(b));
+                        if (sortValue === 'name_z_a') return getServiceName(b).localeCompare(getServiceName(a));
+                        return 0;
                     });
-                    
-                    cards.forEach(card => {
-                        serviceItems.appendChild(card);
-                    });
-                });
+                }
+                
+                // Reorder cards
+                cards.forEach(card => serviceItems.appendChild(card));
             });
-            
-            function getPrice(card) {
-                const priceText = card.querySelector('p:last-child').textContent;
-                const priceMatch = priceText.match(/\$(\d+)/);
-                return priceMatch ? parseInt(priceMatch[1]) : 0;
-            }
-            
-            function getServiceName(card) {
-                return card.querySelector('h3').textContent.trim();
-            }
         });
-
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.body.classList.add('dark-mode');
+        
+        function getPrice(card) {
+            const priceText = card.querySelector('p:last-child').textContent;
+            const priceMatch = priceText.match(/\$(\d+)/);
+            return priceMatch ? parseInt(priceMatch[1]) : 0;
         }
-    </script>
+        
+        function getServiceName(card) {
+            return card.querySelector('h3').textContent.trim();
+        }
+    });
+
+    // Dark mode
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
 </body>
 </html>

@@ -55,20 +55,21 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
-            PlanAura
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="customer_dashboard.html">My Account</a></li>
-            <li><a href="provider_dashboard.html">Provider</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="partners.html">Our Partners</a></li>
-        </ul>
-    </nav>
+    <div class="logo">
+        <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+        PlanAura
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="customer_dashboard.html">My Account</a></li>
+        <li><a href="provider_dashboard.html">Provider</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="partners.html">Our Partners</a></li>
+    </ul>
+</nav>
 
     <!-- Dark Mode Toggle Button -->
     <button id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
@@ -316,8 +317,22 @@
         // Update time immediately and then every second
         updateTime();
         setInterval(updateTime, 1000);
-
+    // Simple hamburger menu only
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
         
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Apply dark mode
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    });
     </script>
 
 </body>
