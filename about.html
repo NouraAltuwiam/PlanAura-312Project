@@ -78,7 +78,7 @@
       <h3>Join Us!</h3>
       <form id="joinForm" action="#" method="post" class="join-grid" enctype="multipart/form-data">
         <div>
-          <label for="jn">Add your name</label>
+          <label for="jn" class="required">Add your name</label>
           <input id="jn" name="name" type="text" required >
         </div>
         <div>
@@ -90,15 +90,15 @@
           <input id="dob" name="dob" type="date" >
         </div>
         <div>
-          <label for="jemail">Email</label>
+          <label for="jemail" class="required">Email</label>
           <input id="jemail" name="email" type="email" required >
         </div>
         <div>
-          <label for="pass">Password</label>
+          <label for="pass" class="required">Password</label>
           <input id="pass" name="password" type="password" required >
         </div>
         <div>
-          <label for="cpass">Confirm the Password</label>
+          <label for="cpass" class="required">Confirm the Password</label>
           <input id="cpass" name="confirm_password" type="password" required >
         </div>
         <div>
@@ -111,13 +111,13 @@
           <input id="area" name="area" type="text" >
         </div>
         <div>
-          <label for="photo">Add Photo</label>
+          <label for="photo" class="required">Add Photo</label>
           <input id="photo" name="photo" type="file" accept="image/*" style="display: none;">
           <div class="photo-pad" id="photoUpload">Upload</div>
         </div>
         <div style="grid-column:1 / -1;">
-          <label for="msg">Message</label>
-          <textarea id="msg" name="message" rows="3"></textarea>
+          <label for="msg" class="required">Message</label>
+          <textarea id="msg" name="message" rows="3" required></textarea>
         </div>
         <div class="join-actions">
           <button class="btn" type="submit">Submit</button>
@@ -171,6 +171,7 @@
             const nameInput = document.getElementById('jn');
             const dobInput = document.getElementById('dob');
             const photoInput = document.getElementById('photo');
+            const messageInput = document.getElementById('msg');
             
             
             let isValid = true;
@@ -181,7 +182,7 @@
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     isValid = false;
-                    errorMessage += `- ${field.previousElementSibling.textContent} is required\n`;
+                    errorMessage += `- ${field.previousElementSibling.textContent.replace(' *', '')} is required\n`;
                 }
             });
             
@@ -212,6 +213,13 @@
                     isValid = false;
                     errorMessage += "- Date of Birth should not be after 2008\n";
                 }
+            }
+            
+            // التحقق من حقل الرسالة
+            const messageValue = messageInput.value.trim();
+            if (!messageValue) {
+                isValid = false;
+                errorMessage += "- Message is required\n";
             }
             
        
