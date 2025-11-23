@@ -5,8 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlanAura - Add Service</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* إصلاح لون الخط عند اختيار اليوم في كل الأوضاع */
+        .day-option input[type="radio"]:checked + .day-label {
+            background-color: #3C0048 !important;
+            color: #ffffff !important;
+            border-color: #3C0048 !important;
+        }
+
+        /* Dark mode: نفس الشيء بس بألوان معكوسة */
+        body.dark-mode .day-option input[type="radio"]:checked + .day-label {
+            background-color: #ffffff !important;
+            color: #1a1a1a !important;
+            border-color: #ffffff !important;
+        }
+
+        /* Custom Alert Modal */
+        .custom-alert-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-alert-box {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            min-width: 350px;
+            max-width: 500px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .custom-alert-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .custom-alert-icon.success {
+            color: #4CAF50;
+        }
+
+        .custom-alert-icon.error {
+            color: #f44336;
+        }
+
+        .custom-alert-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .custom-alert-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .custom-alert-button {
+            background: linear-gradient(135deg, #A376A2, #C8A9C5);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-alert-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(163, 118, 162, 0.4);
+        }
+
+        /* Dark mode support */
+        body.dark-mode .custom-alert-box {
+            background: #2a2a2a;
+        }
+
+        body.dark-mode .custom-alert-title {
+            color: #ffffff;
+        }
+
+        body.dark-mode .custom-alert-message {
+            color: #cccccc;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Custom Alert Modal -->
+    <div class="custom-alert-overlay" id="customAlert">
+        <div class="custom-alert-box">
+            <div class="custom-alert-icon" id="alertIcon">✓</div>
+            <div class="custom-alert-title" id="alertTitle">Success!</div>
+            <div class="custom-alert-message" id="alertMessage">Operation completed successfully</div>
+            <button class="custom-alert-button" onclick="closeAlert()">OK</button>
+        </div>
+    </div>
 
     <nav class="navbar">
         <div class="logo">
@@ -24,19 +142,20 @@
         </ul>
     </nav>
 
-    <!-- ✅ breadcrumb خارج الـ container -->
     <div class="breadcrumb">
         <a href="index.html">Home</a> &raquo; 
         <a href="provider_dashboard.html">Planning Hub</a> &raquo; 
-        Add Service
+        <span id="pageTitleBreadcrumb">Add Service</span>
     </div>
 
     <div class="container">
         <div class="page-container">
             <div class="main-content centered-form">
-                <h1 class="section-title">Add Service</h1>
+                <h1 class="section-title" id="pageTitle">Add Service</h1>
 
-                <form class="form-card">
+                <form class="form-card" id="addServiceForm">
+                    <input type="hidden" id="serviceId" name="serviceId">
+
                     <div class="inline-form-group">
                         <div class="form-group">
                             <label for="category">Service Category</label>
@@ -50,8 +169,8 @@
                         </div>
                         <div class="form-group">
                             <label for="servicePhoto">Service Photo</label>
-                            <input type="file" id="servicePhoto" name="servicePhoto" hidden>
-                            <div class="service-photo-container">
+                            <input type="file" id="servicePhoto" name="servicePhoto" accept="image/*" hidden>
+                            <div class="service-photo-container" id="photoContainer" onclick="document.getElementById('servicePhoto').click()">
                                 Click to Upload Photo
                             </div>
                         </div>
@@ -85,7 +204,9 @@
                     <div class="form-group">
                         <label for="description">Service Description</label>
                         <textarea id="description" name="description" rows="4" required></textarea>
-                    </div><div class="form-group">
+                    </div>
+
+                    <div class="form-group">
                         <label for="serviceLocation">Service Location</label>
                         <input type="text" id="serviceLocation" name="serviceLocation">
                     </div>
@@ -96,31 +217,31 @@
                             <div class="week-days-grid">
                                 <div class="day-option">
                                     <input type="radio" id="monday" name="availability" value="Monday" checked>
-                                    <label for="monday" class="day-label">Monday</label>
+                                    <label for="monday" class="day-label">Mon</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="tuesday" name="availability" value="Tuesday">
-                                    <label for="tuesday" class="day-label">Tuesday</label>
+                                    <label for="tuesday" class="day-label">Tue</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="wednesday" name="availability" value="Wednesday">
-                                    <label for="wednesday" class="day-label">Wednesday</label>
+                                    <label for="wednesday" class="day-label">Wed</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="thursday" name="availability" value="Thursday">
-                                    <label for="thursday" class="day-label">Thursday</label>
+                                    <label for="thursday" class="day-label">Thu</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="friday" name="availability" value="Friday">
-                                    <label for="friday" class="day-label">Friday</label>
+                                    <label for="friday" class="day-label">Fri</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="saturday" name="availability" value="Saturday">
-                                    <label for="saturday" class="day-label">Saturday</label>
+                                    <label for="saturday" class="day-label">Sat</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="sunday" name="availability" value="Sunday">
-                                    <label for="sunday" class="day-label">Sunday</label>
+                                    <label for="sunday" class="day-label">Sun</label>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +249,7 @@
 
                     <div class="form-actions">
                         <button type="reset" class="cancel-btn">Cancel</button>
-                        <button type="submit" class="create-btn">Create Service</button>
+                        <button type="submit" class="create-btn" id="submitBtn">Create Service</button>
                     </div>
                 </form>
 
@@ -148,11 +269,266 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
+
     <script>
-    // Apply dark mode from localStorage
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-    }
-</script>
+        // Apply dark mode from localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // ============================================
+        // CUSTOM ALERT FUNCTION
+        // ============================================
+        function showAlert(message, type = 'success', title = '') {
+            const overlay = document.getElementById('customAlert');
+            const icon = document.getElementById('alertIcon');
+            const titleElement = document.getElementById('alertTitle');
+            const messageElement = document.getElementById('alertMessage');
+
+            if (type === 'success') {
+                icon.innerHTML = '✓';
+                icon.className = 'custom-alert-icon success';
+                titleElement.textContent = title || 'Success!';
+            } else if (type === 'error') {
+                icon.innerHTML = '✕';
+                icon.className = 'custom-alert-icon error';
+                titleElement.textContent = title || 'Error!';
+            }
+
+            messageElement.textContent = message;
+            overlay.style.display = 'flex';
+        }
+
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+
+        document.getElementById('customAlert').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAlert();
+            }
+        });
+
+        // ============================================
+        // CHECK IF EDITING MODE
+        // ============================================
+        let isEditMode = false;
+        let editingServiceId = null;
+
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceId = urlParams.get('edit');
+
+            if (serviceId) {
+                isEditMode = true;
+                editingServiceId = parseInt(serviceId);
+                loadServiceForEdit(editingServiceId);
+                
+                // تغيير العناوين
+                document.getElementById('pageTitle').textContent = 'Edit Service';
+                document.getElementById('pageTitleBreadcrumb').textContent = 'Edit Service';
+                document.getElementById('submitBtn').textContent = 'Update Service';
+            }
+        });
+
+        // ============================================
+        // LOAD SERVICE DATA FOR EDITING
+        // ============================================
+        function loadServiceForEdit(serviceId) {
+            const services = JSON.parse(localStorage.getItem('providerServices')) || [];
+            const service = services.find(s => s.id === serviceId);
+
+            if (service) {
+                document.getElementById('serviceId').value = service.id;
+                document.getElementById('category').value = service.category;
+                document.getElementById('serviceName').value = service.name;
+                document.getElementById('price').value = service.price;
+                document.getElementById('capacity').value = service.capacity === 'N/A' ? '' : service.capacity;
+                document.getElementById('pricingType').value = service.pricingType;
+                document.getElementById('description').value = service.description;
+                document.getElementById('serviceLocation').value = service.location === 'Not specified' ? '' : service.location;
+
+                // Set availability radio button
+                const availabilityRadio = document.querySelector(`input[name="availability"][value="${service.availability}"]`);
+                if (availabilityRadio) {
+                    availabilityRadio.checked = true;
+                }
+
+                // Show current image name
+                if (service.image && !service.image.startsWith('data:')) {
+                    photoContainer.textContent = 'Current: ' + service.image;
+                } else {
+                    photoContainer.textContent = 'Current image (click to change)';
+                }
+
+                uploadedImageBase64 = service.image;
+            }
+        }
+
+        // ============================================
+        // PHOTO UPLOAD HANDLING
+        // ============================================
+        const photoInput = document.getElementById('servicePhoto');
+        const photoContainer = document.getElementById('photoContainer');
+        let uploadedImageBase64 = null;
+
+        photoInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                
+                if (!file.type.startsWith('image/')) {
+                    showAlert('Please select a valid image file!', 'error');
+                    return;
+                }
+
+                photoContainer.textContent = file.name;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImageBase64 = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                photoContainer.textContent = 'Click to Upload Photo';
+                uploadedImageBase64 = null;
+            }
+        });
+
+        // ============================================
+        // FORM VALIDATION & SUBMISSION
+        // ============================================
+        const form = document.getElementById('addServiceForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const category = document.getElementById('category').value.trim();
+            const serviceName = document.getElementById('serviceName').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const capacity = document.getElementById('capacity').value.trim();
+            const pricingType = document.getElementById('pricingType').value;
+            const description = document.getElementById('description').value.trim();
+            const location = document.getElementById('serviceLocation').value.trim();
+            const availability = document.querySelector('input[name="availability"]:checked').value;
+
+            // VALIDATION
+            if (!category) {
+                showAlert('Please select a service category!', 'error');
+                return;
+            }
+
+            if (!serviceName) {
+                showAlert('Please enter a service name!', 'error');
+                return;
+            }
+
+            if (!price) {
+                showAlert('Please enter the price!', 'error');
+                return;
+            }
+
+            if (!description) {
+                showAlert('Please enter a service description!', 'error');
+                return;
+            }
+
+            if (/^\d/.test(serviceName)) {
+                showAlert('Service name cannot start with numbers!', 'error');
+                return;
+            }
+
+            const priceNum = parseFloat(price);
+            if (isNaN(priceNum) || priceNum <= 0) {
+                showAlert('Price must be a valid number greater than 0!', 'error');
+                return;
+            }
+
+            if (capacity && (isNaN(capacity) || parseInt(capacity) <= 0)) {
+                showAlert('Capacity must be a valid positive number!', 'error');
+                return;
+            }
+
+            // ============================================
+            // SAVE OR UPDATE SERVICE
+            // ============================================
+            let services = JSON.parse(localStorage.getItem('providerServices')) || [];
+
+            if (isEditMode && editingServiceId) {
+                // UPDATE EXISTING SERVICE
+                const serviceIndex = services.findIndex(s => s.id === editingServiceId);
+                
+                if (serviceIndex !== -1) {
+                    // Keep existing image if no new one uploaded
+                    const finalImage = uploadedImageBase64 || services[serviceIndex].image;
+
+                    services[serviceIndex] = {
+                        ...services[serviceIndex],
+                        category: category,
+                        name: serviceName,
+                        price: priceNum,
+                        capacity: capacity || 'N/A',
+                        pricingType: pricingType,
+                        description: description,
+                        location: location || 'Not specified',
+                        availability: availability,
+                        image: finalImage,
+                        lastModified: new Date().toISOString()
+                    };
+
+                    localStorage.setItem('providerServices', JSON.stringify(services));
+                    showAlert(`Service "${serviceName}" has been updated successfully!`, 'success');
+
+                    setTimeout(() => {
+                        window.location.href = 'provider_dashboard.html';
+                    }, 1500);
+                }
+            } else {
+                // ADD NEW SERVICE
+                let defaultImage = 'service_placeholder.jpg';
+                
+                switch(category.toLowerCase()) {
+                    case 'parties':
+                        defaultImage = 'birthday.jpg';
+                        break;
+                    case 'decorations':
+                        defaultImage = 'decoration_1.jpg';
+                        break;
+                    case 'venues':
+                        defaultImage = 'venue_1.jpg';
+                        break;
+                    case 'food':
+                        defaultImage = 'food.png';
+                        break;
+                }
+
+                const newService = {
+                    id: Date.now(),
+                    category: category,
+                    name: serviceName,
+                    price: priceNum,
+                    capacity: capacity || 'N/A',
+                    pricingType: pricingType,
+                    description: description,
+                    location: location || 'Not specified',
+                    availability: availability,
+                    status: 'active',
+                    clients: 0,
+                    image: uploadedImageBase64 || defaultImage,
+                    dateAdded: new Date().toISOString()
+                };
+
+                services.push(newService);
+                localStorage.setItem('providerServices', JSON.stringify(services));
+
+                showAlert(`Service "${serviceName}" has been added successfully!`, 'success');
+
+                setTimeout(() => {
+                    form.reset();
+                    photoContainer.textContent = 'Click to Upload Photo';
+                    uploadedImageBase64 = null;
+                }, 1500);
+            }
+        });
+    </script>
 </body>
 </html>

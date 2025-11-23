@@ -2995,7 +2995,7 @@ body.dark-mode .start-planning {
 
 body.dark-mode .start-planning:hover {
     background-color: #ffffff;
-    color: #2d1b2d !important;
+    color: #2d1b2d !important;}
 /* Responsive */
 @media (max-width: 768px) {
     .join-grid {
@@ -3007,7 +3007,7 @@ body.dark-mode .start-planning:hover {
     }
 }
 /* ===================================== */
-/* تحسينات صفحة Add Service */
+/* Add Service */
 /* ===================================== */
 
 .centered-form {
@@ -3043,7 +3043,6 @@ body.dark-mode .start-planning:hover {
     flex-direction: column;
 }
 
-/* تحسينات للاستجابة على الشاشات الصغيرة */
 @media (max-width: 768px) {
     .inline-form-group {
         flex-direction: column;
@@ -3079,10 +3078,186 @@ body.dark-mode .start-planning:hover {
     }
 }
 footer {
-    width: 100vw; /* يجعل الفوتر بعرض الشاشة بالكامل */
+    width: 100vw; 
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+}
+/* ===================================== */
+/* Responsive Design - Fixed */
+/* ===================================== */
+
+.service-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.logo-img {
+    height: 100px;
+    width: auto;
+}
+
+.staff-photo {
+    width: 120px;
+    height: 120px;
+}
+
+.option .placeholder {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        position: relative;
+        padding: 1rem;
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #A376A2;
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Hamburger button */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service-card {
+        width: 90% !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .review-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .review-container {
+        width: 90% !important;
+        margin: 1rem 0 !important;
+    }
+    
+    /* Partners Section */
+    .partner-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .partner-rating {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar {
+        flex-direction: row !important;
+        padding: 1rem 2rem !important;
+    }
+    
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        position: static !important;
+        width: auto !important;
+        background: transparent !important;
+    }
+    
+    .nav-links li {
+        margin-right: 2rem !important;
+        width: auto !important;
+    }
+    
+    .nav-links a {
+        display: inline-block !important;
+        padding: 0.5rem 1rem !important;
+        width: auto !important;
+        border-bottom: none !important;
+    }
+    
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    .services-container {
+        flex-direction: row !important;
+        align-items: stretch !important;
+    }
+    
+    .service-card {
+        width: 30% !important;
+        margin: 1% !important;
+    }
+    
+    .review-row {
+        flex-direction: row !important;
+        align-items: stretch !important;
+    }
+    
+    .review-container {
+        width: 48% !important;
+        margin: 1% !important;
+    }
+    
+    .partner-list li {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+    
+    .partner-rating {
+        margin-top: 0 !important;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
