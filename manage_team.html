@@ -50,7 +50,7 @@
                             <div class="inline-form-group">
                                 <div class="form-group">
                                     <label for="photo" class="required">Photo</label>
-                                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;" required>
+                                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
                                     <div class="service-photo-container" id="photoContainer" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
                                         Upload Photo
                                     </div>
@@ -102,77 +102,9 @@
                     <div class="available-members-section">
                         <h2>Available Members</h2>
                         
-                    
-
                         <form id="deleteMembersForm">
                             <div class="available-members-list" id="membersList">
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #4CAF50;">
-                                            <img src="girl.png" alt="Sadeem" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Sadeem Alsultan (Manager)</span>
-                                            <span class="email">sadeem@plan.com</span>
-                                            <span class="expertise">Event Planning, Management</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="1">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                                
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #2196F3;">
-                                            <img src="girl.png" alt="Noura" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Noura Altuwiam (Designer)</span>
-                                            <span class="email">noura@plan.com</span>
-                                            <span class="expertise">Decoration, Theme Design</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="2">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                                
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #FF9800;">
-                                            <img src="girl.png" alt="Farah" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Farah Alhamed (Developer)</span>
-                                            <span class="email">farah@plan.com</span>
-                                            <span class="expertise">Web Development, Technical Support</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="3">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                                
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #9C27B0;">
-                                            <img src="girl.png" alt="Juri" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Juri Alzahem (Coordinator)</span>
-                                            <span class="email">juri@plan.com</span>
-                                            <span class="expertise">Client Relations, Venue Management</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="4">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
+                                <!-- سيتم عرض الأعضاء هنا عبر JavaScript -->
                             </div>
 
                             <div class="delete-member-action">
@@ -290,8 +222,9 @@
             const message = document.getElementById('message').value.trim();
             
   
-            const requiredFields = document.querySelectorAll('#addMemberForm input[required], #addMemberForm select[required], #addMemberForm textarea[required]');
-            requiredFields.forEach(field => {
+            // التحقق من الحقول النصية المطلوبة
+            const requiredTextFields = document.querySelectorAll('#addMemberForm input[type="text"][required], #addMemberForm input[type="email"][required], #addMemberForm input[type="date"][required], #addMemberForm select[required], #addMemberForm textarea[required]');
+            requiredTextFields.forEach(field => {
                 if (!field.value.trim()) {
                     isValid = false;
                     const fieldLabel = field.closest('.form-group').querySelector('label').textContent.replace(' *', '');
@@ -305,6 +238,7 @@
                 errorMessage += "- Name cannot start with numbers\n";
             }
             
+            // التحقق من الصورة (مطلوبة)
             if (!photo) {
                 isValid = false;
                 errorMessage += "- Photo is required\n";
