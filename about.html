@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planaura</title>
+    <style>
+        .required::after {
+            content: " *";
+            color: #d32f2f;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -82,12 +88,12 @@
           <input id="jn" name="name" type="text" required >
         </div>
         <div>
-          <label for="skills">Skills</label>
-          <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" >
+          <label for="skills" class="required">Skills</label>
+          <input id="skills" name="skills" type="text" placeholder="e.g., HTML, CSS, Flexbox" required >
         </div>
         <div>
-          <label for="dob">DoB</label>
-          <input id="dob" name="dob" type="date" >
+          <label for="dob" class="required">DoB</label>
+          <input id="dob" name="dob" type="date" required >
         </div>
         <div>
           <label for="jemail" class="required">Email</label>
@@ -102,13 +108,13 @@
           <input id="cpass" name="confirm_password" type="password" required >
         </div>
         <div>
-          <label for="edu">Education</label>
-          <input id="edu" name="education" type="text" >
+          <label for="edu" class="required">Education</label>
+          <input id="edu" name="education" type="text" required >
         </div>
         
         <div>
-          <label for="area">Area of Expertise</label>
-          <input id="area" name="area" type="text" >
+          <label for="area" class="required">Area of Expertise</label>
+          <input id="area" name="area" type="text" required >
         </div>
         <div>
           <label for="photo" class="required">Add Photo</label>
@@ -143,7 +149,7 @@
         document.body.classList.add('dark-mode');
     }
     
-   
+    
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('joinForm');
         const photoUpload = document.getElementById('photoUpload');
@@ -154,7 +160,7 @@
             photoInput.click();
         });
         
-       
+        
         photoInput.addEventListener('change', function() {
             if (this.files.length > 0) {
                 photoUpload.textContent = this.files[0].name;
@@ -163,7 +169,7 @@
             }
         });
         
-       
+        
         form.addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -171,6 +177,9 @@
             const nameInput = document.getElementById('jn');
             const dobInput = document.getElementById('dob');
             const photoInput = document.getElementById('photo');
+            const skillsInput = document.getElementById('skills');
+            const educationInput = document.getElementById('edu');
+            const areaInput = document.getElementById('area');
             const messageInput = document.getElementById('msg');
             
             
@@ -178,11 +187,13 @@
             let errorMessage = '';
             
             
-            const requiredFields = form.querySelectorAll('input[required], textarea[required]');
-            requiredFields.forEach(field => {
+            // التحقق من الحقول النصية المطلوبة
+            const requiredTextFields = form.querySelectorAll('input[type="text"][required], input[type="email"][required], input[type="password"][required], input[type="date"][required], textarea[required]');
+            requiredTextFields.forEach(field => {
                 if (!field.value.trim()) {
                     isValid = false;
-                    errorMessage += `- ${field.previousElementSibling.textContent.replace(' *', '')} is required\n`;
+                    const fieldLabel = field.closest('div').querySelector('label').textContent.replace(' *', '');
+                    errorMessage += `- ${fieldLabel} is required\n`;
                 }
             });
             
@@ -194,6 +205,7 @@
             }
             
            
+            // التحقق من الصورة (مطلوبة)
             if (photoInput.files.length === 0) {
                 isValid = false;
                 errorMessage += "- Photo is required\n";
@@ -215,21 +227,11 @@
                 }
             }
             
-            // التحقق من حقل الرسالة
-            const messageValue = messageInput.value.trim();
-            if (!messageValue) {
-                isValid = false;
-                errorMessage += "- Message is required\n";
-            }
-            
        
             if (!isValid) {
                 alert("Please fix the following errors:\n\n" + errorMessage);
             } else {
-          
                 alert(`Thank you, ${nameValue}! You have joined us Successfully :)`);
-                
-                // form.submit();
             }
         });
     });
