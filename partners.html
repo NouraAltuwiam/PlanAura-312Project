@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Team</title>
+    <title>PlanAura</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="planning-hub-header">
-        PLANNING HUB
-    </div>
-    
-    
-<nav class="navbar">
+    <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
             PlanAura
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Our Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="customer_dashboard.html">My Account</a></li>
@@ -28,170 +23,268 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
-     
     <div class="container">
         <div class="breadcrumbs">
-        <a href="index.html">Home</a> &raquo; <a href="provider_dashboard.html">Planning Hub</a> &raquo; Manage Team
+    <a href="index.html">Home</a> &raquo; Our Partners
         </div>
-
-        <div class="page-container">
-            <div class="main-content centered-form">
-                <h1 class="section-title">Manage Team</h1>
-
-                <div class="team-management-grid">
-                    <div class="add-member-section form-card">
-                        <h2>+ Add Team Member</h2>
-                        <form>
-                            <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" id="fullName" name="fullName" required>
-                            </div>
-                            
-                            <div class="inline-form-group">
-                                <div class="form-group">
-                                    <label for="photo">Photo</label>
-                                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
-                                    <div class="service-photo-container" style="height: 80px; cursor: pointer;" onclick="document.getElementById('photo').click()">
-                                        Upload Photo
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="dob">Date Of Birth</label>
-                                    <input type="date" id="dob" name="dob" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="areaExpertise">Area of Expertise</label>
-                                <input type="text" id="areaExpertise" name="areaExpertise" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="skills">Skills</label>
-                                <textarea id="skills" name="skills" rows="2" placeholder="Enter skills separated by commas" required></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="education">Education</label>
-                                <select id="education" name="education" required>
-                                    <option value="">Select Education Level</option>
-                                    <option value="highschool">High School</option>
-                                    <option value="bachelor">Bachelor's Degree</option>
-                                    <option value="master">Master's Degree</option>
-                                    <option value="phd">PhD</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">General Message</label>
-                                <textarea id="message" name="message" rows="3" placeholder="Any additional information..."></textarea>
-                            </div>
-                            
-                            <div class="form-actions" style="justify-content: flex-start;">
-                                <button type="submit" class="add-member-btn">Add Team Member</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="available-members-section">
-                        <h2>Available Members</h2>
-                        
-                        <div class="team-actions">
-                            <button class="action-btn export-btn">Export List</button>
-                            <button class="action-btn bulk-action-btn">Bulk Action</button>
+    <div class="container">
+        <section class="hero">
+            <h1>Our Partners</h1>
+            <p>We collaborate with the best restaurants, hotels, flower shops, and decoration stores to provide a unique and unforgettable experience. All our partners are carefully selected to ensure service quality and excellence.</p>
+        </section>
+        
+        <!-- Restaurants Section -->
+        <section class="partners-section">
+            <div class="partner-category">
+                <h3>Restaurants</h3>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Royal Palace Restaurant</span>
+                            <span class="partner-rating">★★★★★</span>
                         </div>
-
-                        <form>
-                            <div class="available-members-list">
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #4CAF50;">
-                                            <img src="girl.png" alt="Sadeem" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Sadeem Alsultan (Manager)</span>
-                                            <span class="email">sadeem@plan.com</span>
-                                            <span class="expertise">Event Planning, Management</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="1">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                                
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #2196F3;">
-                                            <img src="girl.png" alt="Noura" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Noura Altuwiam (Designer)</span>
-                                            <span class="email">noura@plan.com</span>
-                                            <span class="expertise">Decoration, Theme Design</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="2">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                                
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #FF9800;">
-                                            <img src="girl.png" alt="Farah" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Farah Alhamed (Developer)</span>
-                                            <span class="email">farah@plan.com</span>
-                                            <span class="expertise">Web Development, Technical Support</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="3">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                                
-                                <div class="member-item">
-                                    <div class="member-info">
-                                        <div class="member-avatar" style="background-color: #9C27B0;">
-                                            <img src="girl.png" alt="Juri" class="member-img">
-                                        </div>
-                                        <div class="member-details">
-                                            <span class="role">Juri Alzahem (Coordinator)</span>
-                                            <span class="email">juri@plan.com</span>
-                                            <span class="expertise">Client Relations, Venue Management</span>
-                                        </div>
-                                    </div>
-                                    <label class="delete-checkbox-label">
-                                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="4">
-                                        <span class="custom-checkbox"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="delete-member-action">
-                                <button type="submit" class="delete-submit-btn-team">Delete Selected Members</button>
-                            </div>
-                        </form>
+                        <div class="partner-details">
+                            <p>A luxury restaurant offering the finest international and Arabic cuisine in elegant atmospheres suitable for parties and events.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456789</span>
+                            <span class="partner-price">Starting from $400</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="page-bottom-actions">
-                    <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Red Sea Restaurant</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Specializing in fresh seafood with elegant decor that makes you feel like you're at the beach.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456790</span>
+                            <span class="partner-price">Starting from $320</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Eastern Nights Restaurant</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Serving the finest Eastern dishes in authentic heritage atmospheres, perfect for weddings and family events.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456791</span>
+                            <span class="partner-price">Starting from $480</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Italian Garden Restaurant</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Serving delicious Italian dishes in European-style decor with indoor and outdoor spaces.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456792</span>
+                            <span class="partner-price">Starting from $430</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+            <!-- Hotels Section -->
+            <div class="partner-category">
+                <h3>Hotels</h3>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Hospitality Palace Hotel</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>A 5-star hotel offering luxurious halls for parties and events, with exceptional service and complete facilities.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456793</span>
+                            <span class="partner-price">Starting from $800</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Riyadh Oasis Hotel</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Features spacious areas for celebrations with modern decor and beautiful gardens for outdoor events.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456794</span>
+                            <span class="partner-price">Starting from $670</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Dream Beach Hotel</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>A charming beachfront location with glass halls offering stunning panoramic views.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456795</span>
+                            <span class="partner-price">Starting from $930</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Al-Madina Hotel</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Features a central location and multiple halls of various sizes suitable for all types of events and celebrations.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456796</span>
+                            <span class="partner-price">Starting from $750</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flower Shops Section -->
+            <div class="partner-category">
+                <h3>Flower Shops</h3>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Elegant Blooms</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Specializing in luxury floral arrangements for weddings and special events with fresh, imported flowers.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456797</span>
+                            <span class="partner-price">Starting from $200</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Heavenly Flowers</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Creative floral designs that transform any space into a floral paradise with unique arrangements.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456798</span>
+                            <span class="partner-price">Starting from $150</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Floral Fantasy</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Offers exotic and rare flowers with custom arrangements tailored to each client's vision.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456799</span>
+                            <span class="partner-price">Starting from $180</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Blossom & Bloom</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Specializes in seasonal floral designs and sustainable flower arrangements for eco-conscious clients.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456800</span>
+                            <span class="partner-price">Starting from $170</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decoration Stores Section -->
+            <div class="partner-category">
+                <h3>Decoration Stores</h3>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Creative Decor</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Transforming spaces with innovative decoration concepts and custom designs for all event types.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456801</span>
+                            <span class="partner-price">Starting from $300</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Designer Events</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Professional event styling with attention to detail and unique thematic decorations.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456802</span>
+                            <span class="partner-price">Starting from $250</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Elegant Spaces</span>
+                            <span class="partner-rating">★★★★★</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Creating luxurious and sophisticated environments with premium decoration materials.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456803</span>
+                            <span class="partner-price">Starting from $350</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-header">
+                            <span class="partner-name">Theme Masters</span>
+                            <span class="partner-rating">★★★★☆</span>
+                        </div>
+                        <div class="partner-details">
+                            <p>Specializing in thematic decorations that bring your event concept to life with immersive designs.</p>
+                        </div>
+                        <div class="partner-contact">
+                            <span>Phone: 0123456804</span>
+                            <span class="partner-price">Starting from $280</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
@@ -201,11 +294,12 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
-    <script>
+    </div>
+</body>
+<script>
     // Apply dark mode from localStorage
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
 </script>
-</body>
 </html>
