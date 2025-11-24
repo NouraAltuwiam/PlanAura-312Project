@@ -190,11 +190,11 @@
                     <div class="inline-form-group">
                         <div class="form-group">
                             <label for="capacity">Capacity / Max Servings</label>
-                            <input type="number" id="capacity" name="capacity" class="capacity-input">
+                            <input type="number" id="capacity" name="capacity" class="capacity-input" required>
                         </div>
                         <div class="form-group">
                             <label for="pricingType">Pricing Type</label>
-                            <select id="pricingType" name="pricingType">
+                            <select id="pricingType" name="pricingType" required>
                                 <option value="fixed">Fixed Price</option>
                                 <option value="per-person">Price Per Person</option>
                             </select>
@@ -208,7 +208,7 @@
 
                     <div class="form-group">
                         <label for="serviceLocation">Service Location</label>
-                        <input type="text" id="serviceLocation" name="serviceLocation">
+                        <input type="text" id="serviceLocation" name="serviceLocation" required>
                     </div>
 
                     <div class="form-group">
@@ -217,31 +217,31 @@
                             <div class="week-days-grid">
                                 <div class="day-option">
                                     <input type="radio" id="monday" name="availability" value="Monday" checked>
-                                    <label for="monday" class="day-label">Mon</label>
+                                    <label for="monday" class="day-label">Monday</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="tuesday" name="availability" value="Tuesday">
-                                    <label for="tuesday" class="day-label">Tue</label>
+                                    <label for="tuesday" class="day-label">Tuesday</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="wednesday" name="availability" value="Wednesday">
-                                    <label for="wednesday" class="day-label">Wed</label>
+                                    <label for="wednesday" class="day-label">Wednesday</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="thursday" name="availability" value="Thursday">
-                                    <label for="thursday" class="day-label">Thu</label>
+                                    <label for="thursday" class="day-label">Thursday</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="friday" name="availability" value="Friday">
-                                    <label for="friday" class="day-label">Fri</label>
+                                    <label for="friday" class="day-label">Friday</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="saturday" name="availability" value="Saturday">
-                                    <label for="saturday" class="day-label">Sat</label>
+                                    <label for="saturday" class="day-label">Saturday</label>
                                 </div>
                                 <div class="day-option">
                                     <input type="radio" id="sunday" name="availability" value="Sunday">
-                                    <label for="sunday" class="day-label">Sun</label>
+                                    <label for="sunday" class="day-label">Sunday</label>
                                 </div>
                             </div>
                         </div>
@@ -432,6 +432,30 @@
                 return;
             }
 
+            // ✅ Validate capacity (required field)
+            if (!capacity) {
+                showAlert('Please enter the capacity or max servings!', 'error');
+                return;
+            }
+
+            const capacityNum = parseInt(capacity);
+            if (isNaN(capacityNum) || capacityNum <= 0) {
+                showAlert('Capacity must be a valid positive number!', 'error');
+                return;
+            }
+
+            // ✅ Validate location (required field)
+            if (!location) {
+                showAlert('Please enter the service location!', 'error');
+                return;
+            }
+
+            // ✅ Validate photo upload (only for new services, not editing)
+            if (!isEditMode && !uploadedImageBase64) {
+                showAlert('Please upload a service photo!', 'error', 'Photo Required');
+                return;
+            }
+
             if (/^\d/.test(serviceName)) {
                 showAlert('Service name cannot start with numbers!', 'error');
                 return;
@@ -440,11 +464,6 @@
             const priceNum = parseFloat(price);
             if (isNaN(priceNum) || priceNum <= 0) {
                 showAlert('Price must be a valid number greater than 0!', 'error');
-                return;
-            }
-
-            if (capacity && (isNaN(capacity) || parseInt(capacity) <= 0)) {
-                showAlert('Capacity must be a valid positive number!', 'error');
                 return;
             }
 
