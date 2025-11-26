@@ -199,9 +199,37 @@
             
             
             const nameValue = nameInput.value.trim();
-            if (nameValue && /^\d/.test(nameValue)) {
+            if (nameValue && /^[0-9\W]/.test(nameValue)) {
                 isValid = false;
-                errorMessage += "- Name cannot start with numbers\n";
+                errorMessage += "- Name cannot start with numbers or symbols\n";
+            }
+            
+            // التحقق من Skills - يجب أن تبدأ بحروف وليس أرقام
+            const skillsValue = skillsInput.value.trim();
+            if (skillsValue && /^\d/.test(skillsValue)) {
+                isValid = false;
+                errorMessage += "- Skills cannot start with numbers\n";
+            }
+            
+            // التحقق من Education - يجب أن تبدأ بحروف وليس أرقام
+            const educationValue = educationInput.value.trim();
+            if (educationValue && /^\d/.test(educationValue)) {
+                isValid = false;
+                errorMessage += "- Education cannot start with numbers\n";
+            }
+            
+            // التحقق من Area of Expertise - يجب أن تبدأ بحروف وليس أرقام
+            const areaValue = areaInput.value.trim();
+            if (areaValue && /^\d/.test(areaValue)) {
+                isValid = false;
+                errorMessage += "- Area of Expertise cannot start with numbers\n";
+            }
+            
+            // التحقق من Message - يجب أن تبدأ بحروف وليس أرقام
+            const messageValue = messageInput.value.trim();
+            if (messageValue && /^\d/.test(messageValue)) {
+                isValid = false;
+                errorMessage += "- Message cannot start with numbers\n";
             }
             
            
