@@ -23,9 +23,14 @@
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
+
     <main class="page">
         <!-- breadcrumbs + header -->
-        <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <a href="customer_dashboard.html">My Account</a> &gt; <span>Request A Service</span></div>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> &gt;
+            <a href="customer_dashboard.html">My Account</a> &gt;
+            <span>Request A Service</span>
+        </div>
 
         <div class="header-card">
             <div class="header-left">
@@ -41,7 +46,6 @@
                 <div class="card" id="venue-card">
                     <h3>Venue Type - Price Per Hour</h3>
                     
-                    <!-- Visual options display -->
                     <div class="options-grid">
                         <div class="option">
                             <img class="placeholder" alt="Conference Hall" src="hotel.jpg">
@@ -65,7 +69,6 @@
                         </div>
                     </div>
 
-                    <!-- Selection dropdown -->
                     <div class="selection-group">
                         <label for="venueSelect">Select Your Venue:</label>
                         <select id="venueSelect" name="venueSelect" class="selection-dropdown" required>
@@ -84,7 +87,6 @@
                 <div class="card" id="food-card">
                     <h3>Food & Beverages - Price Per Person</h3>
                     
-                    <!-- Visual options display -->
                     <div class="options-grid">
                         <div class="option">
                             <img class="placeholder" alt="Buffet Service" src="buffet.jpg">
@@ -108,7 +110,6 @@
                         </div>
                     </div>
 
-                    <!-- Selection dropdown -->
                     <div class="selection-group">
                         <label for="foodSelect">Select Food Service:</label>
                         <select id="foodSelect" name="foodSelect" class="selection-dropdown" required>
@@ -127,7 +128,6 @@
                 <div class="card" id="theme-card">
                     <h3>Theme & Decorations - Fixed Price</h3>
                     
-                    <!-- Visual options display -->
                     <div class="options-grid">
                         <div class="option">
                             <img class="placeholder" alt="Birthday Theme" src="birth.jpg">
@@ -151,7 +151,6 @@
                         </div>
                     </div>
 
-                    <!-- Selection dropdown -->
                     <div class="selection-group">
                         <label for="themeSelect">Select Theme Package:</label>
                         <select id="themeSelect" name="themeSelect" class="selection-dropdown" required>
@@ -165,8 +164,6 @@
                         </select>
                     </div>
                 </div>
-
-
 
                 <!-- Final Details + Form -->
                 <div class="card" id="final-card">
@@ -219,6 +216,9 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- Requests added in this visit -->
+                <div id="requestsList" class="card" style="margin-top:18px; display:none;"></div>
             </div>
 
             <!-- RIGHT SIDEBAR -->
@@ -269,22 +269,195 @@
             </aside>
         </div>
 
-         <footer>
-        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
-        <p>@copyrights EventPlanner 2024</p>
-        <div style="margin-top: 1rem;">
-            <a href="#">Help Center</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Terms of Service</a>
-        </div>
+        <footer>
+            <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+            <p>@copyrights EventPlanner 2024</p>
+            <div style="margin-top: 1rem;">
+                <a href="#">Help Center</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a>
+            </div>
         </footer>
-       
     </main>
-</body>
+
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Dark mode from localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+
+    const form = document.getElementById('requestForm');
+    if (!form) return;
+
+    const venueSelect   = document.getElementById('venueSelect');
+    const foodSelect    = document.getElementById('foodSelect');
+    const themeSelect   = document.getElementById('themeSelect');
+    const custNameInput = document.getElementById('custName');
+    const dateInput     = document.getElementById('date');
+    const descInput     = document.getElementById('description');
+    const phoneInput    = document.getElementById('phone');
+    const hoursInput    = document.getElementById('hours');
+    const guestsInput   = document.getElementById('guests');
+    const timeInput     = document.getElementById('time');
+    const requestsListContainer = document.getElementById('requestsList');
+
+    const requests = [];
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const errors = [];
+
+        // 1) At least one service
+        if (!venueSelect.value && !foodSelect.value && !themeSelect.value) {
+            errors.push('Please select at least one service (venue, food, or theme).');
+        }
+
+        // 2) Name validation: full name, no numbers or symbols
+        const name = custNameInput.value.trim();
+        if (!name) {
+            errors.push('Customer name is required.');
+        } else {
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                errors.push('Name must contain letters and spaces only (no numbers or symbols).');
+            }
+            const parts = name.split(/\s+/);
+            if (parts.length < 2) {
+                errors.push('Please enter your full name (first and last).');
+            }
+        }
+
+        // 3) Date validation: not too soon
+        const dateValue = dateInput.value;
+        if (!dateValue) {
+            errors.push('Please choose an event date.');
+        } else {
+            const MIN_DAYS_AHEAD = 3;
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const selectedDate = new Date(dateValue);
+            const diffDays = (selectedDate - today) / (1000 * 60 * 60 * 24);
+
+            if (isNaN(selectedDate.getTime())) {
+                errors.push('Please enter a valid date.');
+            } else if (diffDays < MIN_DAYS_AHEAD) {
+                errors.push('Event date is too soon. Please select a date at least ' + MIN_DAYS_AHEAD + ' days from today.');
+            }
+        }
+
+        // 4) Description length >= 100
+        const desc = descInput.value.trim();
+        if (desc.length < 100) {
+            errors.push('Request description must be at least 100 characters.');
+        }
+
+        if (errors.length > 0) {
+            alert('Please fix the following before submitting:\n\n- ' + errors.join('\n- '));
+            return;
+        }
+
+        const stayOnPage = confirm(
+            'Your request was sent successfully.\n\n' +
+            'Press OK to stay on this page and review your request(s).\n' +
+            'Press Cancel to return to your dashboard.'
+        );
+
+        if (!stayOnPage) {
+            window.location.href = 'customer_dashboard.html';
+            return;
+        }
+
+        // Build service texts
+        const venueText = venueSelect.value
+            ? venueSelect.options[venueSelect.selectedIndex].text
+            : '—';
+        const foodText = foodSelect.value
+            ? foodSelect.options[foodSelect.selectedIndex].text
+            : '—';
+        const themeText = themeSelect.value
+            ? themeSelect.options[themeSelect.selectedIndex].text
+            : '—';
+
+        const request = {
+            venue: venueText,
+            food: foodText,
+            theme: themeText,
+            name: name,
+            phone: phoneInput.value.trim(),
+            guests: guestsInput.value,
+            hours: hoursInput.value,
+            date: dateValue,
+            time: timeInput.value.trim(),
+            description: desc
+        };
+
+        requests.push(request);
+        renderRequests();
+
+        // Reset form for another request
+        form.reset();
+        hoursInput.value = 3;
+        guestsInput.value = 50;
+    });
+
+    function renderRequests() {
+        if (!requestsListContainer) return;
+
+        if (requests.length === 0) {
+            requestsListContainer.style.display = 'none';
+            requestsListContainer.innerHTML = '';
+            return;
+        }
+
+        requestsListContainer.style.display = 'block';
+
+        let html = '<h3>Requests added in this visit</h3>';
+        html += '<p class="note">These requests are temporary and will disappear once you leave this page.</p>';
+        html += '<table><thead><tr>' +
+                '<th>#</th>' +
+                '<th>Services</th>' +
+                '<th>Customer</th>' +
+                '<th>Date & Time</th>' +
+                '<th>Description</th>' +
+                '</tr></thead><tbody>';
+
+        requests.forEach(function (r, index) {
+            html += '<tr>' +
+                    '<td>' + (index + 1) + '</td>' +
+                    '<td>' +
+                        '<strong>Venue:</strong> ' + r.venue + '<br>' +
+                        '<strong>Food:</strong> ' + r.food + '<br>' +
+                        '<strong>Theme:</strong> ' + r.theme +
+                    '</td>' +
+                    '<td>' +
+                        r.name + '<br>' +
+                        (r.phone ? 'Phone: ' + r.phone + '<br>' : '') +
+                        'Guests: ' + (r.guests || '—') + '<br>' +
+                        'Hours: ' + (r.hours || '—') +
+                    '</td>' +
+                    '<td>' +
+                        (r.date || '—') + '<br>' +
+                        (r.time || '—') +
+                    '</td>' +
+                    '<td>' +
+                        (r.description || '—') +
+                    '</td>' +
+                    '</tr>';
+        });
+
+        html += '</tbody></table>';
+        requestsListContainer.innerHTML = html;
+    }
+});
+</script>
+
+    <script>
     // Apply dark mode from localStorage
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
 </script>
+
+</body>
 </html>
