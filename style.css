@@ -12,11 +12,10 @@ body {
     display: flex;
     flex-direction: column;
 
-    /* ✨ الإضافات الجديدة */
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; /* يمنع الشريط الأفقي ويخلي النافبار تمتد */
+    overflow-x: hidden; 
 }
 
 
@@ -35,7 +34,6 @@ a {
     align-items: center;
     padding: 1rem 2rem;
 
-    /* 👇 يمدها عرض الصفحة بالكامل */
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -156,9 +154,8 @@ footer a:hover {
     color: #A376A2;
     text-decoration: none;
 }
-/* توحيد تموضع breadcrumb في كل الصفحات */
 .breadcrumb {
-    margin-left: 2rem; /* نفس المسافة اللي يستخدمها البروفايدر تقريباً */
+    margin-left: 2rem; 
     margin-top: 1rem;
     text-align: left;
     width: fit-content;
