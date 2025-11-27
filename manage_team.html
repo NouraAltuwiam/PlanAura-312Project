@@ -15,7 +15,7 @@
     
 <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
+            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
             PlanAura
         </div>
         <ul class="nav-links">
@@ -120,6 +120,7 @@
             </div>
         </div>
     </div>
+
     <footer>
         <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
@@ -352,18 +353,11 @@
             teamMembers.forEach(member => {
                 const memberItem = document.createElement('div');
                 memberItem.className = 'member-item';
-                
-                // استخدم innerHTML بدلاً من src للصورة إذا كانت Data URL
-                let photoHTML = '';
-                if (member.photo.startsWith('data:image/')) {
-                    photoHTML = `<div class="member-avatar" style="background-color: ${member.color}; background-image: url('${member.photo}'); background-size: cover; background-position: center;"></div>`;
-                } else {
-                    photoHTML = `<div class="member-avatar" style="background-color: ${member.color};"><img src="${member.photo}" alt="${member.name}" class="member-img"></div>`;
-                }
-                
                 memberItem.innerHTML = `
                     <div class="member-info">
-                        ${photoHTML}
+                        <div class="member-avatar" style="background-color: ${member.color};">
+                            <img src="${member.photo}" alt="${member.name}" class="member-img">
+                        </div>
                         <div class="member-details">
                             <span class="role">${member.name} (${member.role})</span>
                             <span class="email">${member.email}</span>
