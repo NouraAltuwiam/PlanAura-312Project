@@ -104,7 +104,6 @@
                         
                         <form id="deleteMembersForm">
                             <div class="available-members-list" id="membersList">
-                                <!-- سيتم عرض الأعضاء هنا عبر JavaScript -->
                             </div>
 
                             <div class="delete-member-action">
@@ -354,13 +353,19 @@
                 const memberItem = document.createElement('div');
                 memberItem.className = 'member-item';
                 
-                // استخدم innerHTML بدلاً من src للصورة إذا كانت Data URL
                 let photoHTML = '';
                 if (member.photo.startsWith('data:image/')) {
                     photoHTML = `<div class="member-avatar" style="background-color: ${member.color}; background-image: url('${member.photo}'); background-size: cover; background-position: center;"></div>`;
                 } else {
                     photoHTML = `<div class="member-avatar" style="background-color: ${member.color};"><img src="${member.photo}" alt="${member.name}" class="member-img"></div>`;
                 }
+                
+                const checkboxHTML = `
+                    <label class="delete-checkbox-label">
+                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="${member.id}">
+                        <span class="custom-checkbox"></span>
+                    </label>
+                `;
                 
                 memberItem.innerHTML = `
                     <div class="member-info">
@@ -371,10 +376,7 @@
                             <span class="expertise">${member.expertise}</span>
                         </div>
                     </div>
-                    <label class="delete-checkbox-label">
-                        <input type="checkbox" class="delete-checkbox" name="memberToDelete[]" value="${member.id}">
-                        <span class="custom-checkbox"></span>
-                    </label>
+                    ${checkboxHTML}
                 `;
                 membersList.appendChild(memberItem);
             });
