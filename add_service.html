@@ -173,9 +173,7 @@
             document.body.classList.add('dark-mode');
         }
 
-        // ============================================
         // CHECK IF EDITING MODE
-        // ============================================
         let isEditMode = false;
         let editingServiceId = null;
 
@@ -194,9 +192,7 @@
             }
         });
 
-        // ============================================
         // LOAD SERVICE DATA FOR EDITING
-        // ============================================
         function loadServiceForEdit(serviceId) {
             const services = JSON.parse(localStorage.getItem('providerServices')) || [];
             const service = services.find(s => s.id === serviceId);
@@ -228,9 +224,7 @@
             }
         }
 
-        // ============================================
         // PHOTO UPLOAD HANDLING
-        // ============================================
         const photoInput = document.getElementById('servicePhoto');
         const photoContainer = document.getElementById('photoContainer');
         let uploadedImageBase64 = null;
@@ -257,9 +251,7 @@
             }
         });
 
-        // ============================================
         // FORM VALIDATION & SUBMISSION
-        // ============================================
         const form = document.getElementById('addServiceForm');
 
         form.addEventListener('submit', function(e) {
@@ -330,9 +322,7 @@
                 return;
             }
 
-            // ============================================
             // SAVE OR UPDATE SERVICE
-            // ============================================
             let services = JSON.parse(localStorage.getItem('providerServices')) || [];
 
             if (isEditMode && editingServiceId) {

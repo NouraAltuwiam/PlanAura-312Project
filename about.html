@@ -187,7 +187,6 @@
             let errorMessage = '';
             
             
-            // التحقق من الحقول النصية المطلوبة
             const requiredTextFields = form.querySelectorAll('input[type="text"][required], input[type="email"][required], input[type="password"][required], input[type="date"][required], textarea[required]');
             requiredTextFields.forEach(field => {
                 if (!field.value.trim()) {
@@ -204,28 +203,24 @@
                 errorMessage += "- Name cannot start with numbers or symbols\n";
             }
             
-            // التحقق من Skills - يجب أن تبدأ بحروف وليس أرقام
             const skillsValue = skillsInput.value.trim();
             if (skillsValue && /^\d/.test(skillsValue)) {
                 isValid = false;
                 errorMessage += "- Skills cannot start with numbers\n";
             }
             
-            // التحقق من Education - يجب أن تبدأ بحروف وليس أرقام
             const educationValue = educationInput.value.trim();
             if (educationValue && /^\d/.test(educationValue)) {
                 isValid = false;
                 errorMessage += "- Education cannot start with numbers\n";
             }
             
-            // التحقق من Area of Expertise - يجب أن تبدأ بحروف وليس أرقام
             const areaValue = areaInput.value.trim();
             if (areaValue && /^\d/.test(areaValue)) {
                 isValid = false;
                 errorMessage += "- Area of Expertise cannot start with numbers\n";
             }
             
-            // التحقق من Message - يجب أن تبدأ بحروف وليس أرقام
             const messageValue = messageInput.value.trim();
             if (messageValue && /^\d/.test(messageValue)) {
                 isValid = false;
@@ -233,7 +228,6 @@
             }
             
            
-            // التحقق من الصورة (مطلوبة)
             if (photoInput.files.length === 0) {
                 isValid = false;
                 errorMessage += "- Photo is required\n";

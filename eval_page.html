@@ -162,11 +162,9 @@
         const feedback = document.getElementById("feedback");
 
         form.addEventListener("submit", function (event) {
-            event.preventDefault(); // نمنع الإرسال مؤقتاً
-
+            event.preventDefault(); 
             let errors = [];
 
-            // 1) التحقق من اختيار الخدمة
             if (serviceSelect.value === "") {
                 errors.push("Please select a service.");
                 serviceSelect.style.border = "2px solid red";
@@ -174,13 +172,11 @@
                 serviceSelect.style.border = "";
             }
 
-            // 2) التحقق من اختيار التقييم
             const rating = document.querySelector("input[name='rating']:checked");
             if (!rating) {
                 errors.push("Please select a rating.");
             }
 
-            // 3) التحقق من وجود feedback
             if (feedback.value.trim() === "") {
                 errors.push("Please write your feedback.");
                 feedback.style.border = "2px solid red";
@@ -188,13 +184,11 @@
                 feedback.style.border = "";
             }
 
-            // إذا وجدنا أخطاء → نوقف العملية
             if (errors.length > 0) {
                 alert("Please fix the following:\n\n- " + errors.join("\n- "));
                 return;
             }
 
-            // 4) إذا كل شيء صحيح → نعرض رسالة حسب التقييم
             let ratingValue = parseInt(rating.value);
             if (ratingValue >= 4) {
                 alert("Thank you for your positive feedback! We're glad you enjoyed our service 💜");
@@ -202,7 +196,6 @@
                 alert("We’re sorry the service didn’t fully meet your expectations. We’ll work on improving 🌸");
             }
 
-            // 5) إرسال المستخدم للدashboard
             window.location.href = "customer_dashboard.html";
         });
     });
