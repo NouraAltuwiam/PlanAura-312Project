@@ -6,16 +6,19 @@
     <title>Provider Dashboard - My Services</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* إصلاح النص الطويل بإضافة Scrollbar */
         .services-horizontal-scroll .service-card {
             display: flex !important;
             flex-direction: column !important;
-            height: 500px !important; /* ارتفاع ثابت للكرت */
+            width: 320px !important;
+            height: 550px !important; 
+            cursor: default !important; 
         }
 
         .services-horizontal-scroll .service-image {
             flex-shrink: 0 !important;
             height: 200px !important;
+            width: 100% !important;
+            object-fit: cover !important;
         }
 
         .services-horizontal-scroll .service-info {
@@ -23,29 +26,32 @@
             display: flex !important;
             flex-direction: column !important;
             padding: 20px !important;
-            overflow: hidden !important;
         }
 
         .services-horizontal-scroll .service-info h3 {
             margin-bottom: 12px !important;
             flex-shrink: 0 !important;
+            font-size: 1.15em !important;
         }
 
+        
         .services-horizontal-scroll .service-info .description {
             flex: 1 !important;
             color: #666 !important;
             line-height: 1.6 !important;
-            margin-bottom: 15px !important;
             font-size: 0.9em !important;
-            overflow-y: auto !important; /* هنا السحر - Scrollbar */
+            margin-bottom: 15px !important;
+            overflow-y: auto !important;
             overflow-x: hidden !important;
             padding-right: 8px !important;
             word-wrap: break-word !important;
+            max-height: 150px !important;
+            opacity: 1 !important; 
         }
 
-        /* تنسيق الـ Scrollbar */
+        
         .services-horizontal-scroll .service-info .description::-webkit-scrollbar {
-            width: 6px;
+            width: 5px;
         }
 
         .services-horizontal-scroll .service-info .description::-webkit-scrollbar-track {
@@ -58,11 +64,6 @@
             border-radius: 3px;
         }
 
-        .services-horizontal-scroll .service-info .description::-webkit-scrollbar-thumb:hover {
-            background: #8d6d8b;
-        }
-
-        /* Dark Mode Scrollbar */
         body.dark-mode .services-horizontal-scroll .service-info .description::-webkit-scrollbar-track {
             background: #3d3d3d;
         }
@@ -73,7 +74,7 @@
 
         .services-horizontal-scroll .service-status {
             flex-shrink: 0 !important;
-            margin-top: 0 !important;
+            margin-top: auto !important;
             padding-top: 12px !important;
             border-top: 1px dashed #ddd !important;
         }
@@ -92,7 +93,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
             PlanAura
         </div>
         <ul class="nav-links">
@@ -141,15 +142,6 @@
             </div>
         </section>
     </div>
-
-    <footer>
-        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
-        <p>@copyrights EventPlanner 2024</p>
-        <div style="margin-top: 1rem;">
-            <a href="#">Help Center</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Terms of Service</a>
-        </div>
     </footer>
 
     <script>
@@ -202,7 +194,7 @@
         }
 
         // ============================================
-        // CREATE SERVICE CARD
+        // CREATE SERVICE CARD 
         // ============================================
         function createServiceCard(service) {
             const card = document.createElement('div');
@@ -219,8 +211,7 @@
 
             card.innerHTML = `
                 <img src="${imageSource}" alt="${service.name}" class="service-image" 
-                     onerror="this.src='service_placeholder.jpg'" 
-                     style="width: 100%; height: 200px; object-fit: cover;">
+                     onerror="this.src='service_placeholder.jpg'">
                 <div class="service-info">
                     <h3>${service.name}</h3>
                     <p class="description">${service.description}</p>
@@ -234,7 +225,7 @@
                         <button class="action-btn edit-btn" onclick="editService(${service.id})">Edit</button>
                         ${actionButton}
                     </div>
-                    <button class="action-btn delete-btn-action" onclick="deleteService(${service.id})">Delete</button>
+                    <button class="action-btn delete-btn-action" onclick="confirmDelete(${service.id}, '${service.name.replace(/'/g, "\\'")}')">Delete</button>
                 </div>
             `;
 
@@ -278,27 +269,32 @@
         }
 
         // ============================================
-        // DELETE SERVICE
+        // CONFIRM DELETE - Using Browser's Default Confirm
         // ============================================
-        function deleteService(serviceId) {
-            const service = allServices.find(s => s.id === serviceId);
+        function confirmDelete(serviceId, serviceName) {
+            const confirmMessage = `Are you sure you want to delete "${serviceName}"? This action cannot be undone.`;
             
-            if (confirm(`Are you sure you want to delete "${service.name}"?`)) {
-                allServices = allServices.filter(s => s.id !== serviceId);
-                localStorage.setItem('providerServices', JSON.stringify(allServices));
-                loadServices();
+            if (confirm(confirmMessage)) {
+                deleteService(serviceId);
             }
         }
 
         // ============================================
-        // EDIT SERVICE - ينقلك لصفحة Add Service مع البيانات
+        // DELETE SERVICE
         // ============================================
+        function deleteService(serviceId) {
+            allServices = allServices.filter(s => s.id !== serviceId);
+            localStorage.setItem('providerServices', JSON.stringify(allServices));
+            loadServices();
+        }
+
+        
         function editService(serviceId) {
-            // Redirect to add_service.html with edit parameter
+            
             window.location.href = 'add_service.html?edit=' + serviceId;
         }
 
-        // Setup filter buttons
+        
         document.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', function() {
                 filterServices(this.dataset.category);

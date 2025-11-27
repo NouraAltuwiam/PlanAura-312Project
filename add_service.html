@@ -6,129 +6,26 @@
     <title>PlanAura - Add Service</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* إصلاح لون الخط عند اختيار اليوم في كل الأوضاع */
+       
         .day-option input[type="radio"]:checked + .day-label {
             background-color: #3C0048 !important;
             color: #ffffff !important;
             border-color: #3C0048 !important;
         }
 
-        /* Dark mode: نفس الشيء بس بألوان معكوسة */
+        
         body.dark-mode .day-option input[type="radio"]:checked + .day-label {
             background-color: #ffffff !important;
             color: #1a1a1a !important;
             border-color: #ffffff !important;
         }
-
-        /* Custom Alert Modal */
-        .custom-alert-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .custom-alert-box {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            min-width: 350px;
-            max-width: 500px;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .custom-alert-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
-
-        .custom-alert-icon.success {
-            color: #4CAF50;
-        }
-
-        .custom-alert-icon.error {
-            color: #f44336;
-        }
-
-        .custom-alert-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .custom-alert-message {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .custom-alert-button {
-            background: linear-gradient(135deg, #A376A2, #C8A9C5);
-            color: white;
-            border: none;
-            padding: 12px 40px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .custom-alert-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(163, 118, 162, 0.4);
-        }
-
-        /* Dark mode support */
-        body.dark-mode .custom-alert-box {
-            background: #2a2a2a;
-        }
-
-        body.dark-mode .custom-alert-title {
-            color: #ffffff;
-        }
-
-        body.dark-mode .custom-alert-message {
-            color: #cccccc;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Custom Alert Modal -->
-    <div class="custom-alert-overlay" id="customAlert">
-        <div class="custom-alert-box">
-            <div class="custom-alert-icon" id="alertIcon">✓</div>
-            <div class="custom-alert-title" id="alertTitle">Success!</div>
-            <div class="custom-alert-message" id="alertMessage">Operation completed successfully</div>
-            <button class="custom-alert-button" onclick="closeAlert()">OK</button>
-        </div>
-    </div>
-
     <nav class="navbar">
         <div class="logo">
-            <img src="logo.png" alt="EventPlanner Logo" class="logo-img">
+            <img src="images/logo.png" alt="EventPlanner Logo" class="logo-img">
             PlanAura
         </div>
         <ul class="nav-links">
@@ -190,11 +87,11 @@
                     <div class="inline-form-group">
                         <div class="form-group">
                             <label for="capacity">Capacity / Max Servings</label>
-                            <input type="number" id="capacity" name="capacity" class="capacity-input">
+                            <input type="number" id="capacity" name="capacity" class="capacity-input" required>
                         </div>
                         <div class="form-group">
                             <label for="pricingType">Pricing Type</label>
-                            <select id="pricingType" name="pricingType">
+                            <select id="pricingType" name="pricingType" required>
                                 <option value="fixed">Fixed Price</option>
                                 <option value="per-person">Price Per Person</option>
                             </select>
@@ -208,7 +105,7 @@
 
                     <div class="form-group">
                         <label for="serviceLocation">Service Location</label>
-                        <input type="text" id="serviceLocation" name="serviceLocation">
+                        <input type="text" id="serviceLocation" name="serviceLocation" required>
                     </div>
 
                     <div class="form-group">
@@ -254,14 +151,14 @@
                 </form>
 
                 <div class="page-bottom-actions">
-                    <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                    <button type="button" class="back-btn" onclick="window.location.href='provider_dashboard.html'">Back</button>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Contact us: info@eventplanner.com | Phone: (555) 123-4567</p>
+        <p>Contact us: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="462f282029062330232832362a27282823346825292b">[email&#160;protected]</a> | Phone: (555) 123-4567</p>
         <p>@copyrights EventPlanner 2024</p>
         <div style="margin-top: 1rem;">
             <a href="#">Help Center</a> |
@@ -270,48 +167,14 @@
         </div>
     </footer>
 
+
     <script>
         // Apply dark mode from localStorage
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
         }
 
-        // ============================================
-        // CUSTOM ALERT FUNCTION
-        // ============================================
-        function showAlert(message, type = 'success', title = '') {
-            const overlay = document.getElementById('customAlert');
-            const icon = document.getElementById('alertIcon');
-            const titleElement = document.getElementById('alertTitle');
-            const messageElement = document.getElementById('alertMessage');
-
-            if (type === 'success') {
-                icon.innerHTML = '✓';
-                icon.className = 'custom-alert-icon success';
-                titleElement.textContent = title || 'Success!';
-            } else if (type === 'error') {
-                icon.innerHTML = '✕';
-                icon.className = 'custom-alert-icon error';
-                titleElement.textContent = title || 'Error!';
-            }
-
-            messageElement.textContent = message;
-            overlay.style.display = 'flex';
-        }
-
-        function closeAlert() {
-            document.getElementById('customAlert').style.display = 'none';
-        }
-
-        document.getElementById('customAlert').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAlert();
-            }
-        });
-
-        // ============================================
         // CHECK IF EDITING MODE
-        // ============================================
         let isEditMode = false;
         let editingServiceId = null;
 
@@ -324,16 +187,13 @@
                 editingServiceId = parseInt(serviceId);
                 loadServiceForEdit(editingServiceId);
                 
-                // تغيير العناوين
                 document.getElementById('pageTitle').textContent = 'Edit Service';
                 document.getElementById('pageTitleBreadcrumb').textContent = 'Edit Service';
                 document.getElementById('submitBtn').textContent = 'Update Service';
             }
         });
 
-        // ============================================
         // LOAD SERVICE DATA FOR EDITING
-        // ============================================
         function loadServiceForEdit(serviceId) {
             const services = JSON.parse(localStorage.getItem('providerServices')) || [];
             const service = services.find(s => s.id === serviceId);
@@ -348,7 +208,7 @@
                 document.getElementById('description').value = service.description;
                 document.getElementById('serviceLocation').value = service.location === 'Not specified' ? '' : service.location;
 
-                // Set availability radio button
+               
                 const availabilityRadio = document.querySelector(`input[name="availability"][value="${service.availability}"]`);
                 if (availabilityRadio) {
                     availabilityRadio.checked = true;
@@ -365,9 +225,7 @@
             }
         }
 
-        // ============================================
         // PHOTO UPLOAD HANDLING
-        // ============================================
         const photoInput = document.getElementById('servicePhoto');
         const photoContainer = document.getElementById('photoContainer');
         let uploadedImageBase64 = null;
@@ -377,7 +235,7 @@
                 const file = this.files[0];
                 
                 if (!file.type.startsWith('image/')) {
-                    showAlert('Please select a valid image file!', 'error');
+                    alert('Please select a valid image file!');
                     return;
                 }
 
@@ -394,9 +252,7 @@
             }
         });
 
-        // ============================================
         // FORM VALIDATION & SUBMISSION
-        // ============================================
         const form = document.getElementById('addServiceForm');
 
         form.addEventListener('submit', function(e) {
@@ -413,44 +269,61 @@
 
             // VALIDATION
             if (!category) {
-                showAlert('Please select a service category!', 'error');
+                alert('Please select a service category!');
                 return;
             }
 
             if (!serviceName) {
-                showAlert('Please enter a service name!', 'error');
+                alert('Please enter a service name!');
                 return;
             }
 
             if (!price) {
-                showAlert('Please enter the price!', 'error');
+                alert('Please enter the price!');
                 return;
             }
 
             if (!description) {
-                showAlert('Please enter a service description!', 'error');
+                alert('Please enter a service description!');
+                return;
+            }
+
+            
+            if (!capacity) {
+                alert('Please enter the capacity or max servings!');
+                return;
+            }
+
+            const capacityNum = parseInt(capacity);
+            if (isNaN(capacityNum) || capacityNum <= 0) {
+                alert('Capacity must be a valid positive number!');
+                return;
+            }
+
+            
+            if (!location) {
+                alert('Please enter the service location!');
+                return;
+            }
+
+            
+            if (!isEditMode && !uploadedImageBase64) {
+                alert('Please upload a service photo!');
                 return;
             }
 
             if (/^\d/.test(serviceName)) {
-                showAlert('Service name cannot start with numbers!', 'error');
+                alert('Service name cannot start with numbers!');
                 return;
             }
 
             const priceNum = parseFloat(price);
             if (isNaN(priceNum) || priceNum <= 0) {
-                showAlert('Price must be a valid number greater than 0!', 'error');
+                alert('Price must be a valid number greater than 0!');
                 return;
             }
 
-            if (capacity && (isNaN(capacity) || parseInt(capacity) <= 0)) {
-                showAlert('Capacity must be a valid positive number!', 'error');
-                return;
-            }
-
-            // ============================================
             // SAVE OR UPDATE SERVICE
-            // ============================================
             let services = JSON.parse(localStorage.getItem('providerServices')) || [];
 
             if (isEditMode && editingServiceId) {
@@ -476,7 +349,7 @@
                     };
 
                     localStorage.setItem('providerServices', JSON.stringify(services));
-                    showAlert(`Service "${serviceName}" has been updated successfully!`, 'success');
+                    alert(`Service "${serviceName}" has been updated successfully!`);
 
                     setTimeout(() => {
                         window.location.href = 'provider_dashboard.html';
@@ -520,7 +393,7 @@
                 services.push(newService);
                 localStorage.setItem('providerServices', JSON.stringify(services));
 
-                showAlert(`Service "${serviceName}" has been added successfully!`, 'success');
+                alert(`Service "${serviceName}" has been added successfully!`);
 
                 setTimeout(() => {
                     form.reset();
