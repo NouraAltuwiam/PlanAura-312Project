@@ -1,4 +1,4 @@
-# PlanAura 🎉
+# PlanAura 
 
 PlanAura is an event planning web platform that connects customers with 
 service providers (venues, catering, and decoration/theme companies) to 
